@@ -14,7 +14,7 @@ const PORT = 3000;
 
         app.use(
                 wdm(compiler, {
-                        publicPath: configuration.output.publicPath
+                        publicPath: configuration!.output!.publicPath!
                 })
         );
         app.use(whm(compiler));
