@@ -1,0 +1,13 @@
+{
+        "compilerOptions": {
+                "esModuleInterop": true,
+                "moduleResolution": "node",
+                "allowJs": true,
+                "noEmit": true,
+                "strict": true,
+                "types": ["node"],
+                "target": "esnext",
+                "jsx": "react",
+                "jsxFactory": "h"
+        }
+}
