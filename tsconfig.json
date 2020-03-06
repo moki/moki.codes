@@ -9,5 +9,9 @@
                 "target": "esnext",
                 "jsx": "react",
                 "jsxFactory": "h"
-        }
+        },
+        "exclude": [
+                "node_modules",
+                "./scripts/index.js"
+        ]
 }
