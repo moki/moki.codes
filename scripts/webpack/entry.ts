@@ -2,7 +2,7 @@ import { entryServer } from "./entry.server";
 import { Map } from "../../types/index";
 
 const entries: Map<Function> = {
-        server: entryServer.bind(null, "./src/index.ts")
+        server: entryServer
 };
 
 export const entry = (type: string): string[] => {

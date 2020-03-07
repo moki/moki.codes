@@ -1,17 +1,18 @@
 {
         "compilerOptions": {
                 "esModuleInterop": true,
+                "allowSyntheticDefaultImports": true,
                 "moduleResolution": "node",
+                "isolatedModules": true,
                 "allowJs": true,
                 "noEmit": true,
                 "strict": true,
-                "types": ["node"],
+                "types": ["node", "webpack-env"],
                 "target": "esnext",
                 "jsx": "react",
                 "jsxFactory": "h"
         },
         "exclude": [
-                "node_modules",
-                "./scripts/index.js"
+                "node_modules"
         ]
 }

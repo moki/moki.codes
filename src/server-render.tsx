@@ -1,14 +1,22 @@
 import { h } from "../lib/h";
 import { renderStatic } from "../lib/render";
 
-import { Layout, FComponent } from "./layout";
+import { Layout } from "./layout";
+import { routes } from "./routes";
 
-// import { routes } from "./routes";
+const is_dev = process.env.NODE_ENV === "development";
+
+const dev_scripts = () => <script defer src="/bundle.js"></script>;
+const dev_styles = () => "";
 
 export const render = (path: string, cb: Function) => {
         const html = (
-                <Layout>
-                        <FComponent name="Kirill" likes={321} />
+                <Layout
+                        Title={routes[path].title}
+                        Styles={is_dev ? dev_styles : routes[path].styles}
+                        Scripts={is_dev ? dev_scripts : routes[path].scripts}
+                >
+                        {routes[path].main}
                 </Layout>
         );
 

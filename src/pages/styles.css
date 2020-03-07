@@ -1,0 +1,20 @@
+.main {
+        display: flex;
+        justify-content: center;
+
+        height: 150px;
+        width: 100%;
+
+        background-color: purple;
+        color: white;
+}
+
+.main p {
+        display: flex;
+        align-items: center;
+
+        margin: 0;
+
+        font-size: 125%;
+        line-height: 1.1;
+}

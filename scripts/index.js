@@ -1,5 +1,5 @@
 require("@babel/register")({
-        extensions: [".ts", ".tsx"],
+        extensions: [".ts", ".tsx", ".js"],
         ignore: [/node_modules/]
 });
 

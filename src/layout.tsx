@@ -1,23 +1,19 @@
 import { h, Fragment } from "../lib/h";
+import { Map } from "../types/";
 
-export const Layout = (props: any) => {
-        const value = 123;
+export const Layout = ({ Title, Styles, Scripts, children }: Map<any>) => {
         return (
                 <html>
-                        <div style="background-color: purple; color: white;">
-                                Hello world {value}
-                        </div>
-                        {props.children}
-                        <script defer src="/bundle.js"></script>
+                        <head>
+                                <Title />
+                                <Styles />
+                        </head>
+                        <body>
+                                <header></header>
+                                <main id="root">{children}</main>
+                                <footer></footer>
+                                <Scripts />
+                        </body>
                 </html>
-        );
-};
-
-export const FComponent = (props: any) => {
-        return (
-                <Fragment>
-                        <div>{props.name}</div>
-                        <div>{props.likes}</div>
-                </Fragment>
         );
 };

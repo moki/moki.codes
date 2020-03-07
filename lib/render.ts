@@ -1,14 +1,14 @@
-export const render = (vn: any, dn: HTMLElement) => {
+export const render = (vn: any, dn: Element) => {
         if (!vn) return;
 
         const nodes: any[] = [];
-        const parents: HTMLElement[] = [];
+        const parents: Element[] = [];
 
         nodes.push(vn);
         parents.push(dn);
 
         let node: any;
-        let parent: HTMLElement;
+        let parent: Element;
         let i;
 
         for (; nodes.length; ) {

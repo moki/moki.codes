@@ -8,11 +8,16 @@ const configurations: Map<Function> = {
         server: ServerConfiguration
 };
 
+const log = (a: any) => {
+        if (process.env._DEBUG) console.log(JSON.stringify(a, null, "\t"));
+        return a;
+};
+
 export const ConfigurationFactory = async (
         type: string
 ): Promise<Configuration> => {
         if (!Object.prototype.hasOwnProperty.call(configurations, type))
                 throw new Error("no such webpack configuration");
 
-        return await configurations[type]();
+        return log(await configurations[type]());
 };

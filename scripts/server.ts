@@ -7,6 +7,8 @@ import { ConfigurationFactory } from "./webpack/config";
 
 const PORT = 3000;
 
+require.extensions[".css"] = () => {};
+
 (async () => {
         const configuration = await ConfigurationFactory("server");
         const compiler = await webpack(configuration);

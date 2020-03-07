@@ -11,6 +11,9 @@ export const ServerConfiguration = async (): Promise<Configuration> => ({
         module: {
                 rules: [ts(), css("server")]
         },
+        resolve: {
+                extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+        },
         plugins: plugins("server"),
         output: output("server")
 });

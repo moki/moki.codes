@@ -1,4 +1,4 @@
-export const entryServer = (path: string): string[] => [
+export const entryServer = (): string[] => [
         "webpack-hot-middleware/client",
-        path
+        "./src/index.tsx"
 ];
