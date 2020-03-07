@@ -1,23 +1,23 @@
-import { h, Fragment } from "../../lib/h";
+import { h, Fragment } from "../../../lib/h";
 
-export const IndexMain = () => (
+export const AboutMain = () => (
         <Fragment>
-                <div class="main index">
-                        <p>main</p>
-                        <a href="/about">about</a>
+                <div class="main about">
+                        <a href="/">main</a>
+                        <p>about</p>
                 </div>
         </Fragment>
 );
 
-export const IndexTitle = () => <title>moki - main</title>;
+export const AboutTitle = () => <title>moki - about</title>;
 
-export const IndexStyles = () => (
+export const AboutStyles = () => (
         <Fragment>
                 <link rel="stylesheet" type="text/css" href="/index.js.css" />
         </Fragment>
 );
 
-export const IndexScripts = () => (
+export const AboutScripts = () => (
         <Fragment>
                 <script defer src="/runtime.js"></script>
                 <script defer src="/commons.js"></script>
