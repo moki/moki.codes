@@ -1,3 +1,12 @@
+.main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 150px;
+        width: 100%;
+}
+
 .main.about {
         background-color: pink;
         color: white;

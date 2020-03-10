@@ -1,0 +1,86 @@
+import { promises as fs, constants } from "fs";
+import webpack from "webpack";
+import path from "path";
+
+require.extensions[".css"] = () => {};
+
+import config from "./config.build";
+
+import { ConfigurationFactory } from "./webpack/config";
+import { routes } from "../src/routes";
+import { render } from "../src/server-render";
+
+const webtofs = (route: string): string => route.replace("/", "./");
+
+const appendDoctype = async (err: Error, html: string, route: string) => {
+        html = "<!doctype html>" + html;
+        writeTemplate(err, html, route);
+};
+
+const writeTemplate = async (err: Error, html: string, route: string) => {
+        const { output, name } = config.templates;
+
+        const templatePath = path.resolve(
+                process.cwd(),
+                output,
+                webtofs(route)
+        );
+
+        await fs.mkdir(templatePath, { recursive: true });
+        await fs.appendFile(path.resolve(templatePath, name), html, {
+                mode: 0o666
+        });
+};
+
+const copyFiles = async (from: string, to: string, rgx: RegExp) => {
+        const directory = await fs.opendir(from);
+
+        for await (const entry of directory) {
+                if (entry.isDirectory()) continue;
+                if (!rgx.test(entry.name)) continue;
+                const src = path.resolve(from, entry.name);
+                const dst = path.resolve(
+                        to,
+                        /\.js$/.test(entry.name)
+                                ? entry.name
+                                : entry.name.replace(".js", "")
+                );
+                fs.copyFile(src, dst);
+        }
+};
+
+const templates = async () => {
+        const { rgx, output, assets, sources } = config.templates;
+        await fs.rmdir(path.resolve(process.cwd(), output), {
+                recursive: true
+        });
+        /* pages */
+        let from, to;
+        for (const route in routes) {
+                render(route, appendDoctype);
+                from = path.resolve(
+                        process.cwd(),
+                        assets,
+                        sources,
+                        webtofs(route)
+                );
+                to = path.resolve(process.cwd(), output, webtofs(route));
+                copyFiles(from, to, rgx);
+        }
+
+        /* root */
+        from = path.resolve(process.cwd(), assets, webtofs("/"));
+        to = path.resolve(process.cwd(), output, webtofs("/"));
+        copyFiles(from, to, rgx);
+};
+
+(async () => {
+        /* assets */
+        const configuration = await ConfigurationFactory("build", config);
+        const compiler = await webpack(configuration);
+
+        compiler.run((err, stats) => {
+                if (err || stats.hasErrors()) process.exit(1);
+                templates();
+        });
+})();

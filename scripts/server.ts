@@ -3,14 +3,14 @@ import webpack from "webpack";
 import wdm from "webpack-dev-middleware";
 import whm from "webpack-hot-middleware";
 
-import { ConfigurationFactory } from "./webpack/config";
+import config from "./config.server";
 
-const PORT = 3000;
+import { ConfigurationFactory } from "./webpack/config";
 
 require.extensions[".css"] = () => {};
 
 (async () => {
-        const configuration = await ConfigurationFactory("server");
+        const configuration = await ConfigurationFactory("server", config);
         const compiler = await webpack(configuration);
         const app = express();
 
@@ -32,7 +32,7 @@ require.extensions[".css"] = () => {};
                 );
         });
 
-        app.listen(PORT, () => {
-                console.info(`development server localhost:${PORT}`);
+        app.listen(config.port, () => {
+                console.info(`development server localhost:${config.port}`);
         });
 })();

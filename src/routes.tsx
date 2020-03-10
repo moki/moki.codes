@@ -1,9 +1,10 @@
 import { h } from "../lib/h";
 import { Map } from "../types/index";
 
-import "./styles.css";
+if (process.env.NODE_ENV === "production")
+        require.extensions[".css"] = () => {};
 
-import "./pages/styles.css";
+require("./pages");
 import {
         IndexMain,
         IndexTitle,
@@ -11,7 +12,7 @@ import {
         IndexScripts
 } from "./pages/template";
 
-import "./pages/about/styles.css";
+require("./pages/about");
 import {
         AboutMain,
         AboutTitle,

@@ -15,7 +15,8 @@ if (i !== 3) {
 const script = process.argv[--i];
 
 const scripts = {
-        server: () => require("./server.ts")
+        server: () => require("./server.ts"),
+        build: () => require("./build.ts")
 };
 
 if (!Object.prototype.hasOwnProperty.call(scripts, script)) {

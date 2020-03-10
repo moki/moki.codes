@@ -13,7 +13,7 @@ export const IndexTitle = () => <title>moki - main</title>;
 
 export const IndexStyles = () => (
         <Fragment>
-                <link rel="stylesheet" type="text/css" href="/index.js.css" />
+                <link rel="stylesheet" type="text/css" href="/index.css" />
         </Fragment>
 );
 

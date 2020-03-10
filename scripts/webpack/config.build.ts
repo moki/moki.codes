@@ -1,23 +1,25 @@
-import { Configuration } from "webpack";
+import { Configuration, Rule, Output } from "webpack";
 import { entry } from "./entry";
 import { ts } from "./module.rules.ts";
 import { css } from "./module.rules.css";
 import { plugins } from "./plugins";
 import { output } from "./output";
+import { optimization } from "./optimization";
 
 import { Map } from "../../types/index";
 
-export const ServerConfiguration = async (
+export const BuildConfiguration = async (
         config: Map<any>
 ): Promise<Configuration> => ({
-        mode: "development",
-        entry: entry("server", config.entry),
+        mode: "production",
+        entry: await entry("build", config.entry),
         module: {
-                rules: [ts(), css("server")]
+                rules: [ts(), css("build")]
         },
         resolve: {
                 extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
         },
-        plugins: plugins("server"),
-        output: output("server", config.output)
+        plugins: plugins("build"),
+        optimization: optimization("build", config.optimization),
+        output: output("build", config.output)
 });
