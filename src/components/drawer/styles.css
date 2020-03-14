@@ -1,0 +1,8 @@
+.drawer__header {
+        color: var(--color-on-background);
+}
+
+a {
+        text-decoration: none;
+        color: var(--color-on-background);
+}

@@ -1,0 +1,3 @@
+.link_active:after {
+        transform: scaleY(1) scaleX(1) !important;
+}

@@ -1,6 +1,14 @@
+/* dev client entry */
 import { render, renderStatic } from "../lib/render";
 import { h } from "../lib/h";
 import { routes } from "./routes";
+
+/* global */
+import "./global.tsx";
+
+/* pages */
+require("./pages");
+require("./pages/about");
 
 const update = () => {
         const container = document.querySelector("#root");

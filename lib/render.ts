@@ -1,3 +1,10 @@
+const createElementFn = (type: any) => {
+        const svgs = ["svg", "path", "circle", "rect", "g"];
+        return svgs.includes(type)
+                ? document.createElementNS("http://www.w3.org/2000/svg", type)
+                : document.createElement(type);
+};
+
 export const render = (vn: any, dn: Element) => {
         if (!vn) return;
 
@@ -25,7 +32,8 @@ export const render = (vn: any, dn: Element) => {
                 }
                 const nonTextNode = vn && vn.props && vn.props.children;
                 node = nonTextNode
-                        ? document.createElement(vn.type!)
+                        ? /*document.createElement(vn.type!)*/
+                          createElementFn(vn.type!)
                         : document.createTextNode(vn);
 
                 for (const p in vn.props)

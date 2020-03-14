@@ -1,3 +1,4 @@
+import path from "path";
 const assets = "dist";
 
 export default {
@@ -5,7 +6,14 @@ export default {
         entry: {
                 sources: "src",
                 pages: "pages",
-                rgx: /index\.ts.*$/
+                rgx: /index\.ts.*$/,
+                vendor: {
+                        "global.js": path.resolve(
+                                process.cwd(),
+                                "src",
+                                "global.tsx"
+                        )
+                }
         },
         optimization: {
                 commons: {

@@ -43,5 +43,8 @@ export const entryBuild = async (config: Map<string>): Promise<Map<string>> => {
 
         console.log(entry);
 
-        return entry;
+        return {
+                ...((config.vendor as unknown) as {}),
+                ...entry
+        };
 };

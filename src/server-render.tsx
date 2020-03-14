@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV === "production")
+        require.extensions[".css"] = () => {};
+
 import { h } from "../lib/h";
 import { renderStatic } from "../lib/render";
 
@@ -12,6 +15,7 @@ const dev_styles = () => "";
 export const render = (path: string, cb: Function) => {
         const html = (
                 <Layout
+                        path={path}
                         Title={routes[path].title}
                         Styles={is_dev ? dev_styles : routes[path].styles}
                         Scripts={is_dev ? dev_scripts : routes[path].scripts}

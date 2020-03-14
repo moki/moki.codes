@@ -4,7 +4,6 @@ import { Map } from "../types/index";
 if (process.env.NODE_ENV === "production")
         require.extensions[".css"] = () => {};
 
-require("./pages");
 import {
         IndexMain,
         IndexTitle,
@@ -12,7 +11,6 @@ import {
         IndexScripts
 } from "./pages/template";
 
-require("./pages/about");
 import {
         AboutMain,
         AboutTitle,

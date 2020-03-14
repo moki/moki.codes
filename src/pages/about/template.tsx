@@ -2,10 +2,7 @@ import { h, Fragment } from "../../../lib/h";
 
 export const AboutMain = () => (
         <Fragment>
-                <div class="main about">
-                        <a href="/">main</a>
-                        <p>about</p>
-                </div>
+                <div class="layout__container section">about</div>
         </Fragment>
 );
 
@@ -18,6 +15,12 @@ export const AboutStyles = () => (
                         type="text/css"
                         href="/about/index.css"
                 />
+                <link rel="stylesheet" type="text/css" href="/global.css" />
+                <link
+                        rel="stylesheet"
+                        type="text/css"
+                        href="/vendors~global.css"
+                />
         </Fragment>
 );
 
@@ -26,5 +29,7 @@ export const AboutScripts = () => (
                 <script defer src="/runtime.js"></script>
                 <script defer src="/commons.js"></script>
                 <script defer src="/about/index.js"></script>
+                <script defer src="/global.js"></script>
+                <script defer src="/vendors~global.js"></script>
         </Fragment>
 );
