@@ -16,6 +16,7 @@ import { List } from "@moki.codes/mokui-list";
 import { Tabs } from "@moki.codes/mokui-tabs";
 
 /* global(layout) styles */
+import "./styles.css"
 import "./components/footer/styles.css";
 import "./components/drawer/styles.css";
 import "./components/header/styles.css";

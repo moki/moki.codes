@@ -1,0 +1,12 @@
+a {
+        text-decoration: none;
+        color: var(--color-on-background);
+}
+
+.section {
+        padding: var(--msp-1) 0;
+}
+
+.link_active:after {
+        transform: scaleY(1) scaleX(1) !important;
+}
