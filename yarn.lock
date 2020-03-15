@@ -834,6 +834,16 @@
   dependencies:
     tslib "^1.10.0"
 
+"@moki.codes/mokui-card@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@moki.codes/mokui-card/-/mokui-card-0.1.1.tgz#63631b93072aa1bdd46c38f948cfcc236e422ec7"
+  integrity sha512-9g2IcWsDdXm+nS9g43//MOrj9gA6MVxB8UhN/CN9xhtU7n9Rf+E47g5TRW+XkmRjwW8Bf24f9MiY6VG8R4C4Ww==
+  dependencies:
+    "@moki.codes/mokui-animation" "^0.3.0"
+    "@moki.codes/mokui-elevation" "^0.4.2"
+    "@moki.codes/mokui-text" "^0.3.3"
+    "@moki.codes/mokui-theme" "^1.7.0"
+
 "@moki.codes/mokui-drawer@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@moki.codes/mokui-drawer/-/mokui-drawer-0.1.3.tgz#45d0bc76890b0da8a0dd8c7f7928b53ab6f3fa3d"
