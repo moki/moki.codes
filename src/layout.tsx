@@ -30,7 +30,8 @@ export const Layout = ({
 
         const routes = {
                 about: "/about",
-                articles: "/articles"
+                articles: "/articles",
+                code: "/code"
         };
 
         return (
