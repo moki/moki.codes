@@ -1,3 +1,70 @@
+.section_hero {
+        position: relative;
+        overflow: hidden;
+}
+
+.section_hero:after {
+        content: "";
+        position: absolute;
+        opacity: 0.9;
+        z-index: -2;
+
+        left: 0;
+        top: 0;
+
+        height: 100%;
+        width: 100%;
+
+        transform: rotate(90deg);
+
+        transition: color var(--animation-duration-2xl)
+                        cubic-bezier(
+                                var(--animation-fn-standard-1),
+                                var(--animation-fn-standard-2),
+                                var(--animation-fn-standard-3),
+                                var(--animation-fn-standard-4)
+                        ),
+                background-color var(--animation-duration-2xl)
+                        cubic-bezier(
+                                var(--animation-fn-standard-1),
+                                var(--animation-fn-standard-2),
+                                var(--animation-fn-standard-3),
+                                var(--animation-fn-standard-4)
+                        );
+
+        background-color: #ff6090;
+}
+
+.theme_color_dark .section_hero:after {
+        background-color: #e91e63;
+}
+
+.section_hero:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--color-background);
+        transform: rotate(-10deg) scaleX(2) translateY(50%);
+        transition: color var(--animation-duration-2xl)
+                        cubic-bezier(
+                                var(--animation-fn-standard-1),
+                                var(--animation-fn-standard-2),
+                                var(--animation-fn-standard-3),
+                                var(--animation-fn-standard-4)
+                        ),
+                background-color var(--animation-duration-2xl)
+                        cubic-bezier(
+                                var(--animation-fn-standard-1),
+                                var(--animation-fn-standard-2),
+                                var(--animation-fn-standard-3),
+                                var(--animation-fn-standard-4)
+                        );
+}
+
 .hero {
         display: flex;
         flex-wrap: wrap;

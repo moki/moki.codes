@@ -89,7 +89,7 @@ const HeroText = () => {
 
 export const IndexMain = () => (
         <Fragment>
-                <div class="section">
+                <div class="section section_hero">
                         <div class="layout__container hero">
                                 <HeroMedia />
                                 <HeroText />
