@@ -21,7 +21,7 @@ const ContactAction = () => (
         <a href="/about#contact">
                 <button
                         class="button button_type_raised button_color_primary-light button_size_m
-       text text_style_small-caps text_align_center text_size_s text_weight_regular"
+       text text_style_small-caps text_size_s text_weight_medium"
                 >
                         <span class="elevation elevation_depth_2 button__elevation"></span>
                         contact me
@@ -33,7 +33,7 @@ const LearnMoreAction = () => (
         <a href="/about">
                 <button
                         class="button button_type_ghost button_color_primary-light button_size_m
-       text text_style_small-caps text_align_center text_size_s text_weight_regular"
+       text text_style_small-caps text_size_s text_weight_medium"
                 >
                         <span class="elevation elevation_depth_2 button__elevation"></span>
                         learn more
@@ -42,7 +42,7 @@ const LearnMoreAction = () => (
 );
 
 const Description = () => (
-        <p class="text text_size_m text_weight_regular legend">
+        <p class="text text_size_m text_weight_regular">
                 I am software engineer who writes{" "}
                 <a
                         href="/code"
@@ -70,7 +70,7 @@ const HeroText = () => {
                                                 <h4 class="text text_size_l text_weight_light">
                                                         Hey, my name is
                                                 </h4>
-                                                <h1 class="text text_size_2xl text_weight_light title">
+                                                <h1 class="text text_size_4xl text_weight_light hero__title">
                                                         Kirill Morozov
                                                 </h1>
                                         </CardHeader>

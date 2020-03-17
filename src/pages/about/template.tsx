@@ -2,7 +2,10 @@ import { h, Fragment } from "../../../lib/h";
 
 export const AboutMain = () => (
         <Fragment>
-                <div class="layout__container section">about</div>
+                <div class="layout__container section">
+                        <div style="height: 1000vh">about</div>
+                        <div id="contact">contact</div>
+                </div>
         </Fragment>
 );
 
