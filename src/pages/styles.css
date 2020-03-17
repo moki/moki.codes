@@ -42,7 +42,6 @@
                 padding: 0;
 
                 line-height: calc(var(--msp-1) * 2);
-                letter-spacing: calc(var(--msc-4) * -0.05);
                 font-size: var(--msc-4);
         }
 }
