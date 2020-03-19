@@ -874,10 +874,10 @@
     "@moki.codes/mokui-theme" "^1.7.0"
     tslib "^1.10.0"
 
-"@moki.codes/mokui-header@^0.8.4":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@moki.codes/mokui-header/-/mokui-header-0.8.4.tgz#83572f41a8e559caa9c128191464f1acb6aeb7d0"
-  integrity sha512-IBL0RLgsyC+FiLEu259nZwTib2CKMLicaSQmoRWu3MqJE3NZI8Xe/pj7RycnbjPHmwPgK+jVzqtFiRGhEof8gQ==
+"@moki.codes/mokui-header@^0.8.5":
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/@moki.codes/mokui-header/-/mokui-header-0.8.5.tgz#03843bebe6330d132f467460b7a3f70738d0ea50"
+  integrity sha512-/4HLfhf6XvGuLhuGHJSLW3qI6gS/pcgdo2GJGKjW0pDaMtU8HLIx7vQmPVKzNSdZjPMrpyHREr01JCBQGyFXMg==
   dependencies:
     "@moki.codes/mokui-animation" "^0.3.0"
     "@moki.codes/mokui-base" "^0.3.0"

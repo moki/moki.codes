@@ -95,6 +95,12 @@ export const IndexMain = () => (
                                 <HeroText />
                         </div>
                 </div>
+                <div class="section section_articles">
+                        <div class="layout__container articles elevation elevation_depth_1"></div>
+                </div>
+                <div class="section section_code">
+                        <div class="layout__container code elevation elevation_depth_1"></div>
+                </div>
         </Fragment>
 );
 
@@ -103,7 +109,7 @@ export const IndexTitle = () => (
                 <title>moki - morozov kirill</title>
                 <meta
                         name="description"
-                        content="Kirill Morozov is software engineer who writes code and articles about it."
+                        content="Hey my name is Kirill Morozov, i am software engineer who writes code and articles about it."
                 />
         </Fragment>
 );

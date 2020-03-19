@@ -16,10 +16,10 @@ import { List } from "@moki.codes/mokui-list";
 import { Tabs } from "@moki.codes/mokui-tabs";
 
 /* global(layout) styles */
-import "./styles.css"
-import "./components/footer/styles.css";
+import "./styles.css";
 import "./components/drawer/styles.css";
 import "./components/header/styles.css";
+import "./components/footer/styles.css";
 
 let header: any, theme: any, leftNav: any, drawerList: any, headerTabs: any;
 let themeElement: Element;
@@ -48,6 +48,14 @@ const themeToggleHandler = () => {
         window.localStorage.setItem("state_themeColor", "" + state.themeColor);
 
         themeSetClass();
+};
+
+const scrollHandler = () => {
+        const hash = document.location.hash;
+        if (!hash) return;
+        const element = document.querySelector(hash);
+        if (!element) return;
+        element.scrollIntoView();
 };
 
 const loadHandler = () => {
@@ -81,6 +89,8 @@ const loadHandler = () => {
         /* display */
         const body = document.body;
         body.setAttribute("style", "display: grid;");
+
+        scrollHandler();
 };
 
 const unloadHandler = () => {

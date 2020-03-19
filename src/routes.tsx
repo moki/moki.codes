@@ -30,5 +30,7 @@ export const routes: Map<Map<Function | Element>> = {
                 styles: AboutStyles,
                 scripts: AboutScripts,
                 main: (<AboutMain />) as Function | Element
-        }
+        },
+        "/articles": {},
+        "/code": {}
 };
