@@ -1,11 +1,24 @@
 import { h } from "../../../lib/h";
 
-export const Card = ({ children }: { children?: any[] }) => (
-        <div class="content card">
-                <div class="elevation elevation_depth_1 card__elevation"></div>
-                {children}
-        </div>
-);
+export const Card = ({
+        actionable,
+        children,
+        ...rest
+}: {
+        actionable?: boolean;
+        children?: any[];
+        rest?: { [key: string]: string };
+}) => {
+        let c = "card";
+        if (actionable) c = c + " " + "card_actionable";
+
+        return (
+                <div class={c} {...rest}>
+                        <div class="elevation elevation_depth_1 card__elevation"></div>
+                        {children}
+                </div>
+        );
+};
 
 export const CardText = ({ children }: { children?: any[] }) => (
         <div class="card__text">{children}</div>
