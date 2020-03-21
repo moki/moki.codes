@@ -2,6 +2,8 @@ import { h } from "../../../lib/h";
 import { Map } from "../../../types/index";
 import "./styles.css";
 
+import { ContainerFluid } from "../container-fluid";
+
 const Hamburger = () => (
         <svg
                 class="header__icon"
@@ -122,7 +124,7 @@ export const Header = ({
                                 elevation
                                 elevation_depth_4"
                 >
-                        <div class="layout__container-fluid header__container">
+                        <ContainerFluid classes="header__container">
                                 <div class="header__action header__action_primary">
                                         <Hamburger />
                                 </div>
@@ -132,7 +134,7 @@ export const Header = ({
                                         <ToggleDark />
                                         <ToggleLight />
                                 </div>
-                        </div>
+                        </ContainerFluid>
                 </header>
         );
 };
