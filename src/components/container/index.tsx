@@ -8,8 +8,12 @@ export const Container = ({
         classes?: string;
         styles?: string;
         children?: any;
-}) => (
-        <div class={`layout__container ${classes}`} style={styles}>
-                {children}
-        </div>
-);
+}) => {
+        let cs = "layout__container";
+        if (classes) cs = cs + " " + classes;
+        return (
+                <div class={cs} {...(styles ? { style: styles } : {})}>
+                        {children}
+                </div>
+        );
+};
