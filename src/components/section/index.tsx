@@ -11,11 +11,11 @@ export const Section = ({
         styles?: string;
         children?: any;
 }) => {
-        let cs = "section";
-        if (classes) cs = cs + " " + classes;
+        let sectionClasses = `section vpadding_${vpadding}`;
+        if (classes) sectionClasses = sectionClasses + " " + classes;
         return (
                 <div
-                        class={cs + ` vpadding_${vpadding}`}
+                        class={sectionClasses}
                         {...(styles ? { style: styles } : {})}
                 >
                         {children}

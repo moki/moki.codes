@@ -9,10 +9,13 @@ export const Container = ({
         styles?: string;
         children?: any;
 }) => {
-        let cs = "layout__container";
-        if (classes) cs = cs + " " + classes;
+        let containerClasses = "layout__container";
+        if (classes) containerClasses = containerClasses + " " + classes;
         return (
-                <div class={cs} {...(styles ? { style: styles } : {})}>
+                <div
+                        class={containerClasses}
+                        {...(styles ? { style: styles } : {})}
+                >
                         {children}
                 </div>
         );
