@@ -2,19 +2,25 @@ import { h } from "../../../lib/h";
 
 export const Card = ({
         actionable,
-        children,
-        ...rest
+        elevation,
+        classes,
+        styles,
+        children
 }: {
         actionable?: boolean;
+        elevation: number;
+        classes?: string;
+        styles?: string;
         children?: any[];
-        rest?: { [key: string]: string };
 }) => {
-        let c = "card";
-        if (actionable) c = c + " " + "card_actionable";
+        let cardClasses = "card";
+        if (actionable) cardClasses = cardClasses + " card_actionable";
+        if (classes) cardClasses = cardClasses + " " + classes;
+        let elevationClasses = `elevation elevation_depth_${elevation} card__elevation`;
 
         return (
-                <div class={c} {...rest}>
-                        <div class="elevation elevation_depth_1 card__elevation"></div>
+                <div class={cardClasses} {...(styles ? { style: styles } : {})}>
+                        <div class={elevationClasses}></div>
                         {children}
                 </div>
         );
