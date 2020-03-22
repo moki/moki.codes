@@ -1,0 +1,36 @@
+.article-preview {
+        margin-bottom: var(--msp-1);
+        max-width: 100vw;
+
+        color: var(--color-on-background);
+}
+
+.article-preview .card__text {
+        overflow: hidden;
+}
+
+.article-preview__tags,
+.article-preview__subtitle {
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+
+.article-preview__tags {
+        opacity: 0.7;
+}
+
+.article-preview__title {
+        margin-left: -1px;
+
+        font-weight: 600;
+}
+
+.article-preview__subtitle {
+        opacity: 0.8;
+}
+
+.article-preview {
+        margin-bottom: calc(var(--msp-1) * 1);
+}
