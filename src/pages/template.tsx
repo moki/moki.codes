@@ -7,106 +7,24 @@ import {
         CardFooter
 } from "../components/card";
 
-const HeroMedia = () => {
-        return (
-                <img
-                        class="hero__media elevation elevation_depth_1"
-                        src="https://i.imgur.com/A6hNrWQ.jpg"
-                        alt="kirill morozov headshot"
-                />
-        );
-};
-
-const ContactAction = () => (
-        <a href="/about#contact">
-                <button
-                        class="button button_type_raised button_color_primary-light button_size_m
-       text text_style_small-caps text_size_s text_weight_medium"
-                >
-                        <span class="elevation elevation_depth_2 button__elevation"></span>
-                        contact me
-                </button>
-        </a>
-);
-
-const LearnMoreAction = () => (
-        <a href="/about">
-                <button
-                        class="button button_type_ghost button_color_primary-light button_size_m
-       text text_style_small-caps text_size_s text_weight_medium"
-                >
-                        <span class="elevation elevation_depth_2 button__elevation"></span>
-                        learn more
-                </button>
-        </a>
-);
-
-const Description = () => (
-        <p class="text text_size_m text_weight_regular">
-                I am software engineer who writes{" "}
-                <a
-                        href="/code"
-                        class="link link_inline text text_size_l text_style_small-caps text_weight_medium"
-                >
-                        code
-                </a>{" "}
-                and{" "}
-                <a
-                        href="/articles"
-                        class="link link_inline text text_size_l text_style_small-caps text_weight_medium"
-                >
-                        articles
-                </a>{" "}
-                about it.
-        </p>
-);
-
-const HeroText = () => {
-        return (
-                <div class="hero__text">
-                        <Card>
-                                <CardText>
-                                        <CardHeader>
-                                                <h4 class="text text_size_l text_weight_light">
-                                                        Hey, my name is
-                                                </h4>
-                                                <h1 class="text text_size_4xl text_weight_light hero__title">
-                                                        Kirill Morozov
-                                                </h1>
-                                        </CardHeader>
-                                        <CardBody>
-                                                <Description />
-                                        </CardBody>
-                                        <CardFooter>
-                                                <ContactAction />
-                                                <LearnMoreAction />
-                                        </CardFooter>
-                                </CardText>
-                        </Card>
-                </div>
-        );
-};
+import { Hero } from "./hero";
+import { Articles } from "./articles";
+import { Code } from "./code";
+import { Subscribe } from "./subscribe";
 
 export const IndexMain = () => (
         <Fragment>
-                <div class="section section_hero">
-                        <div class="layout__container hero">
-                                <HeroMedia />
-                                <HeroText />
-                        </div>
-                </div>
-                <div class="section section_articles">
-                        <div class="layout__container articles elevation elevation_depth_1"></div>
-                </div>
-                <div class="section section_code">
-                        <div class="layout__container code elevation elevation_depth_1"></div>
-                </div>
+                <Hero />
+                <Articles />
+                <Code />
+
+                <Subscribe />
         </Fragment>
 );
 
 export const IndexTitle = () => (
         <Fragment>
-                <title>moki - morozov kirill</title>
+                <title>moki — morozov kirill</title>
                 <meta
                         name="description"
                         content="Hey my name is Kirill Morozov, i am software engineer who writes code and articles about it."

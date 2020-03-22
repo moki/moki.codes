@@ -2,10 +2,6 @@ a {
         text-decoration: none;
 }
 
-.section {
-        padding: var(--msp-1) 0;
-}
-
 .link_active {
         opacity: 0.9;
 }
@@ -13,4 +9,15 @@ a {
 .link_active:after {
         transform: scaleX(1) !important;
         opacity: 0.38;
+}
+
+.theme_color_dark {
+        --color-on-primary-light: #000000c2;
+}
+
+/* subpixel calculation fix */
+@media screen and (min-width: 766px) {
+        html {
+                font-size: 125%;
+        }
 }

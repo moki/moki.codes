@@ -844,10 +844,10 @@
     "@moki.codes/mokui-text" "^0.3.3"
     "@moki.codes/mokui-theme" "^1.7.0"
 
-"@moki.codes/mokui-card@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@moki.codes/mokui-card/-/mokui-card-0.1.4.tgz#349d56a65ffaffcba2cfb7a8c35f58b7c9bb3897"
-  integrity sha512-PKdzgBXZsnUEqAybafwC/dOZHZQrKJaGgfXNh6x6f/h7/5Ja/4i2meqR/v+S312vYz1c7xSEYXQdwPUIGrAdmw==
+"@moki.codes/mokui-card@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@moki.codes/mokui-card/-/mokui-card-0.1.5.tgz#b69129b62646279e8ae9fe64f4c6e4b970b1b8a7"
+  integrity sha512-AjbuaoOLUvRJYw9nouWNDQV09uQ33/leavR/NJjqE0cY6VVmbS8FGyk7p/Vj9HFVefOzBVBJsPubPNGXeEWNdA==
   dependencies:
     "@moki.codes/mokui-animation" "^0.3.0"
     "@moki.codes/mokui-elevation" "^0.4.2"
@@ -894,10 +894,10 @@
     "@moki.codes/mokui-theme" "^1.7.0"
     tslib "^1.10.0"
 
-"@moki.codes/mokui-link@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@moki.codes/mokui-link/-/mokui-link-0.2.1.tgz#58b3408ac160b3e34d6f6a87cc321b45b8f62318"
-  integrity sha512-iiZ8hLnimFTEsQYRSPzMoiepxktBAuE7nVWzVOVIPDNAiK5FKy4hpUQ8y3gFbYJvHRaOQ0/2jzBv3+cjgE39OA==
+"@moki.codes/mokui-link@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@moki.codes/mokui-link/-/mokui-link-0.2.2.tgz#0ba32bb34a30a6aecd7b01119ca4bd6a5c30a0a0"
+  integrity sha512-VwYFi6n6K9fhTrmD5eYZiz60QnCbtsZEUb1S3P0lf8AURK2086omozrTxa+jB7eEq1ATlBJVR7WMMoNNL9erOA==
   dependencies:
     "@moki.codes/mokui-theme" "^1.7.0"
 
