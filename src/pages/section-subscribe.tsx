@@ -63,7 +63,7 @@ const Form = ({
 
 const FormTitle = ({ children }: { children?: any }) => {
         const classes =
-                "text text_size_xl text_weight_medium section-subscribe-form__title";
+                "text text_size_xl text_weight_medium section-subscribe-form__title kitty";
         return <div class={classes}>{children}</div>;
 };
 
@@ -82,7 +82,16 @@ export const Subscribe = () => {
                                 <Subheader>Subscribe for updates</Subheader>
                                 <Card elevation={1}>
                                         <Form id="subform" autocomplete="off">
-                                                <FormTitle>つ^•ﻌ•^つ</FormTitle>
+                                                <FormTitle>
+                                                        <span class="kitty__paw-left">
+                                                                つ
+                                                        </span>
+                                                        &#8291; &#8291; &#8291;
+                                                        &#8291; ^•ﻌ•^
+                                                        <span class="kitty__paw-right">
+                                                                つ
+                                                        </span>
+                                                </FormTitle>
                                                 <TextField
                                                         type="text"
                                                         id="name"

@@ -17,6 +17,12 @@ let nameField: TextField;
 let emailField: TextField;
 let formSubmit: Element | null;
 let form: Element | null;
+let kitty: Element | null;
+
+let state = {
+        isKittyTyping: false,
+        formDirty: false
+};
 
 const stateValidChanged = (e: Event) => {
         if (emailField.valid && nameField.valid) {
@@ -28,6 +34,28 @@ const stateValidChanged = (e: Event) => {
                 form!.classList.add("section-subscribe__form_invalid");
                 form!.classList.remove("section-subscribe__form_valid");
         }
+};
+
+const formFocusinHandler = (e: Event) => {
+        const element = e.target! as HTMLInputElement;
+        if (element !== nameField.input && element !== emailField.input) return;
+        state.isKittyTyping = true;
+        kitty!.classList.add("kitty_types");
+};
+
+const formFocusoutHandler = (e: Event) => {
+        const element = e.target! as HTMLInputElement;
+        if (element !== nameField.input && element !== emailField.input) return;
+        state.isKittyTyping = false;
+        kitty!.classList.remove("kitty_types");
+};
+
+const formInputHandler = (e: Event) => {
+        const element = e.target! as HTMLInputElement;
+        if (element !== nameField.input && element !== emailField.input) return;
+        if (state.formDirty) return;
+        state.formDirty = true;
+        stateValidChanged(e);
 };
 
 export const load = () => {
@@ -45,13 +73,21 @@ export const load = () => {
 
         formSubmit = document.querySelector(".section-subscribe-form__submit");
         if (!formSubmit) throw new Error("didn't find form submit button");
+
         form = document.querySelector("#subform");
         if (!form) throw new Error("didn't find form title");
+
+        kitty = document.querySelector(".kitty");
+        if (!kitty) throw new Error("didn't find kitty");
 
         window.addEventListener(
                 strings.STATE_VALID_CHANGED_EVENT,
                 stateValidChanged
         );
+
+        window.addEventListener("focusin", formFocusinHandler);
+        window.addEventListener("focusout", formFocusoutHandler);
+        window.addEventListener("input", formInputHandler);
 };
 
 export const unload = () => {
@@ -61,6 +97,8 @@ export const unload = () => {
                 strings.STATE_VALID_CHANGED_EVENT,
                 stateValidChanged
         );
+        window.removeEventListener("focusin", formFocusinHandler);
+        window.removeEventListener("focusout", formFocusoutHandler);
 };
 
 window.addEventListener("load", load);
