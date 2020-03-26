@@ -6,6 +6,10 @@ import { routes } from "./routes";
 /* global */
 import "./global.tsx";
 
+/* init components upon reloading */
+import { load as loadGlobal, unload as unloadGlobal } from "./global";
+import { load as loadMain, unload as unloadMain } from "./pages/index";
+
 /* pages */
 require("./pages");
 require("./pages/about");
@@ -17,6 +21,14 @@ const update = () => {
 
         container.innerHTML = "";
         render(routes[window.location.pathname].main, container);
+
+        /* "destroy" */
+        unloadGlobal();
+        unloadMain();
+
+        /* init components upon reloading */
+        loadGlobal();
+        loadMain();
 };
 
 if (module.hot) {

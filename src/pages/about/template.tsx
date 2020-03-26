@@ -30,7 +30,7 @@ export const AboutStyles = () => (
 export const AboutScripts = () => (
         <Fragment>
                 <script defer src="/runtime.js"></script>
-                <script defer src="/commons.js"></script>
+                {/*<script defer src="/commons.js"></script>*/}
                 <script defer src="/about/index.js"></script>
                 <script defer src="/global.js"></script>
                 <script defer src="/vendors~global.js"></script>

@@ -1,0 +1,101 @@
+.section-subscribe {
+        position: relative;
+}
+
+.section-subscribe:after {
+        content: "";
+
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        left: 0;
+
+        transition: color var(--animation-duration-2xl)
+                        cubic-bezier(
+                                var(--animation-fn-standard-1),
+                                var(--animation-fn-standard-2),
+                                var(--animation-fn-standard-3),
+                                var(--animation-fn-standard-4)
+                        ),
+                background-color var(--animation-duration-2xl)
+                        cubic-bezier(
+                                var(--animation-fn-standard-1),
+                                var(--animation-fn-standard-2),
+                                var(--animation-fn-standard-3),
+                                var(--animation-fn-standard-4)
+                        );
+
+        height: 50%;
+        width: 100%;
+
+        background-color: var(--subscribe-bg-color);
+}
+
+.section-subscribe__title {
+        padding-bottom: calc(var(--msp-1) / 2);
+        margin-left: -2px;
+}
+
+.section-subscribe__subtitle {
+        opacity: 0.9;
+
+        padding-bottom: calc(var(--msp-1) * 1.5);
+}
+
+.section-subscribe .card {
+        max-width: 100%;
+}
+
+.section-subscribe__form {
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+
+        padding: var(--msp-1) 0;
+        margin: 0;
+
+        color: var(--color-on-background);
+}
+
+.section-subscribe-form__title {
+        padding: 0 var(--gap) calc(var(--msp-1) / 2);
+        transition: color var(--animation-duration-xl)
+                cubic-bezier(
+                        var(--animation-fn-standard-1),
+                        var(--animation-fn-standard-2),
+                        var(--animation-fn-standard-3),
+                        var(--animation-fn-standard-4)
+                );
+
+        /*
+        transform: scale(-1, 1);
+        width: fit-content;
+        */
+}
+
+.section-subscribe__form_valid .section-subscribe-form__title {
+        color: var(--color-success) !important;
+}
+
+.section-subscribe__form_invalid .section-subscribe-form__title {
+        color: var(--color-error) !important;
+}
+
+.section-subscribe-form__submit-wrapper {
+        padding: calc(var(--msp-1) / 2) var(--gap) 0;
+}
+
+.section-subscribe-form__submit {
+        width: 100%;
+}
+
+@media screen and (min-width: 766px) {
+        .section-subscribe .card {
+                max-width: 50%;
+        }
+
+        .section-subscribe-form__submit {
+                width: unset;
+        }
+}

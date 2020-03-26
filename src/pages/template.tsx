@@ -7,10 +7,10 @@ import {
         CardFooter
 } from "../components/card";
 
-import { Hero } from "./hero";
-import { Articles } from "./articles";
-import { Code } from "./code";
-import { Subscribe } from "./subscribe";
+import { Hero } from "./section-hero";
+import { Articles } from "./section-articles";
+import { Code } from "./section-code";
+import { Subscribe } from "./section-subscribe";
 
 export const IndexMain = () => (
         <Fragment>
@@ -47,7 +47,7 @@ export const IndexStyles = () => (
 export const IndexScripts = () => (
         <Fragment>
                 <script defer src="/runtime.js"></script>
-                <script defer src="/commons.js"></script>
+                {/*<script defer src="/commons.js"></script>*/}
                 <script defer src="/index.js"></script>
                 <script defer src="/global.js"></script>
                 <script defer src="/vendors~global.js"></script>

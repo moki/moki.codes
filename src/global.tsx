@@ -17,7 +17,6 @@ import { Tabs } from "@moki.codes/mokui-tabs";
 
 /* global(layout) styles */
 import "./styles.css";
-import "./components/drawer/styles.css";
 import "./components/header/styles.css";
 import "./components/footer/styles.css";
 
@@ -50,7 +49,7 @@ const themeToggleHandler = () => {
         themeSetClass();
 };
 
-const scrollHandler = () => {
+const scrollToAnchor = () => {
         const hash = document.location.hash;
         if (!hash) return;
         const element = document.querySelector(hash);
@@ -58,18 +57,16 @@ const scrollHandler = () => {
         element.scrollIntoView();
 };
 
-const loadHandler = () => {
+export const load = () => {
         /* init components */
         const headerElement = document.querySelector(".layout__header")!;
         const drawerListElement = document.querySelector("#drawer-list")!;
         const leftNavElement = document.querySelector(".layout__aside-left")!;
-        /* const headerTabsElement = document.querySelector(".header__navigation");*/
         themeElement = document.querySelector(".theme")!;
 
         header = Header(headerElement);
         drawerList = List(drawerListElement);
         leftNav = Drawer(leftNavElement);
-        /* headerTabs = Tabs(headerElement); */
         theme = Theme(themeElement);
 
         window.addEventListener(
@@ -90,10 +87,10 @@ const loadHandler = () => {
         const body = document.body;
         body.setAttribute("style", "display: grid;");
 
-        scrollHandler();
+        scrollToAnchor();
 };
 
-const unloadHandler = () => {
+export const unload = () => {
         header.destroy();
         theme.destroy();
         leftNav.destroy();
@@ -103,10 +100,8 @@ const unloadHandler = () => {
                 themeStrings.THEME_TOGGLE_EVENT,
                 themeToggleHandler
         );
-
-        window.localStorage.setItem("bye", "" + state.themeColor);
 };
 
-window.addEventListener("load", loadHandler);
+window.addEventListener("load", load);
 
-window.addEventListener("unload", unloadHandler);
+window.addEventListener("unload", unload);
