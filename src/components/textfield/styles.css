@@ -1,0 +1,90 @@
+.text-field {
+        position: relative;
+        flex: 1 1 auto;
+
+        transform: translateZ(0);
+
+        transition: opacity var(--animation-duration-s)
+                cubic-bezier(
+                        var(--animation-fn-sharp-1),
+                        var(--animation-fn-sharp-2),
+                        var(--animation-fn-sharp-3),
+                        var(--animation-fn-sharp-4)
+                );
+
+        padding: calc(var(--msp-1) / 2) var(--gap);
+
+        color: var(--color-on-background);
+}
+
+.text-field__input {
+        flex: 1 1 auto;
+
+        height: var(--msp-1);
+        width: 100%;
+        padding: var(--msp-1) calc(var(--gap) / 2);
+        border: thin solid var(--color-primary);
+
+        background: none;
+        color: var(--color-on-background);
+
+        caret-color: var(--color-primary);
+        outline: none;
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+}
+
+.text-field__input_selected {
+        padding: var(--msp-1) calc(var(--gap) / 2);
+
+        box-shadow: inset 0 0 0 2px var(--color-primary) !important;
+}
+
+.text-field__label {
+        position: absolute !important;
+
+        transform: translateZ(0);
+        opacity: 0.38;
+
+        overflow: hidden;
+
+        transition: transform var(--animation-duration-s)
+                        cubic-bezier(
+                                var(--animation-fn-sharp-1),
+                                var(--animation-fn-sharp-2),
+                                var(--animation-fn-sharp-3),
+                                var(--animation-fn-sharp-4)
+                        ),
+                opacity var(--animation-duration-s)
+                        cubic-bezier(
+                                var(--animation-fn-sharp-1),
+                                var(--animation-fn-sharp-2),
+                                var(--animation-fn-sharp-3),
+                                var(--animation-fn-sharp-4)
+                        );
+
+        height: calc(var(--msp-1) - 2px);
+        left: calc(var(--gap) * 1.5);
+        top: calc(var(--msp-1) + 1px);
+
+        color: var(--color-on-background);
+}
+
+.text-field:hover .text-field__label {
+        opacity: 0.6;
+}
+
+.text-field__label_selected {
+        transform: translate(0, calc(var(--msp-1) / -1));
+        opacity: 1;
+
+        padding: 0 var(--gap);
+
+        background-color: var(--color-background);
+}
+
+.text-field:hover .text-field__label_selected {
+        opacity: 1;
+}

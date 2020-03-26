@@ -1,6 +1,5 @@
 import { h, Fragment } from "../../../lib/h";
 import { Map } from "../../../types/index";
-import "./styles.css";
 
 const NavigationItem = ({
         path,
