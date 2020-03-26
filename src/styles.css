@@ -3,21 +3,35 @@ a {
 }
 
 .link_active {
-        opacity: 0.9;
+        opacity: 0.9 !important;
 }
 
 .link_active:after {
         transform: scaleX(1) !important;
-        opacity: 0.38;
+        opacity: 0.38 !important;
 }
 
 .theme_color_dark {
-        --color-on-primary-light: #000000c2;
+        --color-on-primary-light: #000000c2 !important;
+}
+
+.theme_typography_default {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+}
+
+.layout__header {
+        z-index: 25 !important;
+}
+
+.button__elevation,
+.button__elevation:before {
+        position: absolute !important;
 }
 
 /* subpixel calculation fix */
 @media screen and (min-width: 766px) {
         html {
-                font-size: 125%;
+                font-size: 125% !important;
         }
 }
