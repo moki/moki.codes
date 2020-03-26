@@ -93,6 +93,15 @@ export const TextField = ({
                 if (!this.checkTarget(e.target)) return;
                 this.value = (e.target as HTMLInputElement).value;
                 const valid = this.valfn(this.value);
+                if (valid) {
+                        this.input.classList.add("text-field__input_valid");
+                        this.input.classList.remove(
+                                "text-field__input_invalid"
+                        );
+                } else {
+                        this.input.classList.add("text-field__input_invalid");
+                        this.input.classList.remove("text-field__input_valid");
+                }
                 if (this.valid !== valid) {
                         this.valid = valid;
                         this.emit(
