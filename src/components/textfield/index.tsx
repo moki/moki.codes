@@ -1,6 +1,7 @@
 const init = Symbol("init");
 
-const username = (input: string) => /[a-zA-Z][a-zA-Z0-9-_]{2,31}/gi.test(input);
+const username = (input: string) =>
+        /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/gim.test(input);
 
 const valfns = {
         text: username,
