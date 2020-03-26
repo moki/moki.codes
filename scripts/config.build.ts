@@ -17,7 +17,7 @@ export default {
         },
         optimization: {
                 commons: {
-                        ext: true,
+                        ext: false,
                         name: "commons.js",
                         minChunks: 2
                 },

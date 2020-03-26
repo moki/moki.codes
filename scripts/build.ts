@@ -80,7 +80,7 @@ const templates = async () => {
         const compiler = await webpack(configuration);
 
         compiler.run((err, stats) => {
-                if (err || stats.hasErrors()) process.exit(1);
+                if (err || stats.hasErrors()) throw err;
                 templates();
         });
 })();
