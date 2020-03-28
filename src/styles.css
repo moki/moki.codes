@@ -20,7 +20,9 @@ a {
         -webkit-font-smoothing: antialiased;
 }
 
-.layout__header {
+.layout__header,
+.drawer,
+.drawer-scrim_open {
         z-index: 25 !important;
 }
 
