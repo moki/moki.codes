@@ -21,8 +21,18 @@ const Media = () => {
         );
 };
 
-const Link = ({ url, children }: { url: string; children?: any }) => (
-        <a href={url}>{children}</a>
+const Link = ({
+        url,
+        classes,
+        children
+}: {
+        url: string;
+        classes?: string;
+        children?: any;
+}) => (
+        <a href={url} class={classes}>
+                {children}
+        </a>
 );
 
 const Contact = () => {
@@ -62,16 +72,18 @@ const Learn = () => {
 const Story = () => (
         <p class="text text_size_m text_weight_regular">
                 I am software engineer who writes{" "}
-                <Link url="/code">
-                        <span class="link link_inline text text_size_l text_style_small-caps text_weight_medium">
-                                code
-                        </span>
+                <Link
+                        url="/code"
+                        classes="subtle-link text text_size_l text_style_small-caps"
+                >
+                        code
                 </Link>{" "}
                 and{" "}
-                <Link url="/articles">
-                        <span class="link link_inline text text_size_l text_style_small-caps text_weight_medium">
-                                articles
-                        </span>
+                <Link
+                        url="/articles"
+                        classes="subtle-link text text_size_l text_style_small-caps"
+                >
+                        articles
                 </Link>{" "}
                 about it.
         </p>
