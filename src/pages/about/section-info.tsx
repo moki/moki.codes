@@ -8,16 +8,18 @@ import {
         CardFooter
 } from "../../components/card";
 
+import { SeparatorHorizontal } from "../../components/separator";
+
 import { Container } from "../../components/container";
-import { Section } from "../../components/section";
 import { Intro } from "./info-intro";
+import { Work } from "./info-work";
 
 export const Info = () => (
-        <Section vpadding="l">
-                <Container>
-                        <Card elevation={1} classes="info__story">
-                                <Intro classes="info__chapter" />
-                        </Card>
+        <div class="elevation elevation_depth_1">
+                <Container classes="info__story">
+                        <Intro classes="info__chapter" />
+                        <SeparatorHorizontal />
+                        <Work classes="info__chapter" />
                 </Container>
-        </Section>
+        </div>
 );

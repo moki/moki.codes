@@ -1,6 +1,8 @@
 .section-articles__title {
         padding-bottom: calc(var(--msp-1) / 2);
         margin-left: -2px;
+
+        letter-spacing: 0.025rem !important;
 }
 
 .section-articles__subtitle {

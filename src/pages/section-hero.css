@@ -53,7 +53,7 @@
         padding-top: calc(var(--msp-1) / 8);
         margin-left: -1px;
 
-        letter-spacing: 0.025rem;
+        letter-spacing: 0.025rem !important;
         font-weight: 900;
 }
 
