@@ -4,13 +4,12 @@ import { Container } from "../../components/container";
 import { Section } from "../../components/section";
 
 import { Hero } from "./section-hero";
-
-// import { Info } from "./section-info";
+import { Info } from "./section-info";
 
 export const AboutMain = () => (
         <Fragment>
                 <Hero />
-                {/*<Info />*/}
+                <Info />
         </Fragment>
 );
 

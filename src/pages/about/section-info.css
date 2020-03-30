@@ -1,0 +1,14 @@
+.info__story {
+        display: flex;
+        flex-direction: column;
+
+        background-color: transparent;
+}
+
+.info__story > * {
+        z-index: 1;
+}
+
+.info__chapter {
+        flex: 1 1 auto;
+}
