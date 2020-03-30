@@ -1,0 +1,16 @@
+.separator {
+        opacity: 0.38;
+}
+
+.theme_color_dark .separator {
+        opacity: 0.19;
+}
+
+.separator_horizontal {
+        height: 1px;
+        width: 100%;
+}
+
+.separator_color_primary {
+        background-color: var(--color-primary);
+}
