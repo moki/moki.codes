@@ -1,0 +1,13 @@
+.about-section-hero {
+        padding-bottom: 0;
+}
+
+.about-section-hero__title {
+        padding-bottom: calc(var(--msp-1) / 2);
+        margin-left: -2px;
+        letter-spacing: 0.025rem;
+}
+
+.about-section-hero__subtitle {
+        opacity: 0.9;
+}

@@ -1,11 +1,16 @@
 import { h, Fragment } from "../../../lib/h";
 
+import { Container } from "../../components/container";
+import { Section } from "../../components/section";
+
+import { Hero } from "./section-hero";
+
+// import { Info } from "./section-info";
+
 export const AboutMain = () => (
         <Fragment>
-                <div class="layout__container section">
-                        <div style="height: 1000vh">about</div>
-                        <div id="contact">contact</div>
-                </div>
+                <Hero />
+                {/*<Info />*/}
         </Fragment>
 );
 
