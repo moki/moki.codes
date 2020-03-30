@@ -101,5 +101,12 @@ export const unload = () => {
         window.removeEventListener("focusout", formFocusoutHandler);
 };
 
-window.addEventListener("load", load);
-window.addEventListener("unload", unload);
+if (process.env.NODE_ENV === "development") {
+        if (window.location.pathname === "/") {
+                window.addEventListener("load", load);
+                window.addEventListener("unload", unload);
+        }
+} else {
+        window.addEventListener("load", load);
+        window.addEventListener("unload", unload);
+}

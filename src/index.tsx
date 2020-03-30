@@ -14,6 +14,19 @@ import { load as loadMain, unload as unloadMain } from "./pages/index";
 require("./pages");
 require("./pages/about");
 
+const hooks: {
+        [key: string]: { [key: string]: Function };
+} = {
+        "/": {
+                load: loadMain,
+                unload: unloadGlobal
+        },
+        "/about": {
+                load: () => {},
+                unload: () => {}
+        }
+};
+
 const update = () => {
         const container = document.querySelector("#root");
         if (!container)
@@ -22,13 +35,15 @@ const update = () => {
         container.innerHTML = "";
         render(routes[window.location.pathname].main, container);
 
+        // console.log(window.location.pathname);
+
         /* "destroy" */
         unloadGlobal();
-        unloadMain();
+        hooks[window.location.pathname].unload();
 
         /* init components upon reloading */
         loadGlobal();
-        loadMain();
+        hooks[window.location.pathname].load();
 };
 
 if (module.hot) {
