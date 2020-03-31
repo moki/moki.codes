@@ -9,6 +9,7 @@ import "./section-info.css";
 import "./info-intro.css";
 import "./info-work.css";
 import "./info-card.css";
+import "./info-edu.css";
 
 if (process.env.NODE_ENV === "development") {
         /*

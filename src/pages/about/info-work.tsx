@@ -6,7 +6,7 @@ const jobs = [
                 title: "Independent Contractor",
                 subtitle: "Software Engineer",
                 body:
-                        "Providing full stack web services for the wide range of companies: from small buisnesses to startups.",
+                        "Full stack web services for the wide range of companies: from small buisnesses to startups.",
                 subscript: {
                         left: "2014 — Present",
                         right: "International"

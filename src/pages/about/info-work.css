@@ -1,14 +1,4 @@
 .info-work {
         display: flex;
         flex-direction: column;
-
-        padding: var(--msp-1) var(--gap);
-}
-
-.info-work__job {
-        margin-bottom: var(--msp-1);
-}
-
-.info-work__job:last-of-type {
-        margin-bottom: 0;
 }

@@ -13,6 +13,7 @@ import { SeparatorHorizontal } from "../../components/separator";
 import { Container } from "../../components/container";
 import { Intro } from "./info-intro";
 import { Work } from "./info-work";
+import { Education } from "./info-edu";
 
 export const Info = () => (
         <div class="elevation elevation_depth_1">
@@ -20,6 +21,7 @@ export const Info = () => (
                         <Intro classes="info__chapter" />
                         <SeparatorHorizontal />
                         <Work classes="info__chapter" />
+                        <Education classes="info__chapter" />
                 </Container>
         </div>
 );

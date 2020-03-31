@@ -3,6 +3,11 @@
 
         max-width: 33rem;
         padding: calc(var(--msp-1) / 2) var(--gap);
+        margin-bottom: var(--msp-1);
+}
+
+.info-card:last-of-type {
+        margin-bottom: 0;
 }
 
 .info-card > * {
