@@ -12,3 +12,9 @@
 .info__chapter {
         flex: 1 1 auto;
 }
+
+.info__header {
+        padding-bottom: var(--msp-1);
+
+        font-weight: 800;
+}

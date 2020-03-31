@@ -5,12 +5,6 @@
         padding: var(--msp-1) var(--gap);
 }
 
-.info-work__header {
-        padding-bottom: var(--msp-1);
-
-        font-weight: 800;
-}
-
 .info-work__job {
         margin-bottom: var(--msp-1);
 }
