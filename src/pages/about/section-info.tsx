@@ -21,9 +21,13 @@ export const Info = () => (
                 <Container classes="info__story">
                         <Intro classes="info__chapter" />
                         <SeparatorHorizontal />
-                        <Work classes="info__chapter" />
-                        <Education classes="info__chapter" />
-                        <Contacts classes="info__chapter" />
+                        <div class="info__left">
+                                <Work classes="info__chapter" />
+                                <Education classes="info__chapter" />
+                        </div>
+                        <div class="info__right">
+                                <Contacts classes="info__chapter" />
+                        </div>
                 </Container>
         </div>
 );

@@ -1,7 +1,6 @@
 .info-card {
         flex-direction: column;
 
-        max-width: 33rem;
         padding: calc(var(--msp-1) / 2) var(--gap);
         margin-bottom: var(--msp-1);
 }
@@ -39,4 +38,14 @@
         opacity: 0.8;
 
         color: var(--color-primary);
+}
+
+@media screen and (max-width: 766px) {
+        .info-card__subscript {
+                margin-left: var(--gap);
+        }
+
+        .info-card__subscript:first-of-type {
+                margin: 0;
+        }
 }

@@ -1,0 +1,14 @@
+.info-list__item {
+        max-width: 100%;
+}
+
+.info-list__icon {
+        opacity: 0.8;
+
+        fill: var(--color-on-background);
+}
+
+.info-list__text {
+        overflow: hidden;
+        padding-left: var(--gap);
+}
