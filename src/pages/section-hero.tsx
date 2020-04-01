@@ -39,7 +39,7 @@ const Contact = () => {
         const buttonClasses =
                 "text text_style_small-caps text_size_s text_weight_medium";
         return (
-                <Link url="/about#contact">
+                <Link url="/about#contacts">
                         <ButtonRaised
                                 color="primary-light"
                                 size="m"

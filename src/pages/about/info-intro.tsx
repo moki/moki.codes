@@ -1,7 +1,7 @@
 import { h, Fragment } from "../../../lib/h";
 
 const Header = ({ children }: { children?: any }) => (
-        <h2 class="text text_size_xl info-intro__header text_style_small-caps">
+        <h2 class="text text_size_xl text_style_small-caps info__header">
                 {children}
         </h2>
 );

@@ -6,10 +6,12 @@ import "../../components/section/styles.css";
 import "./styles.css";
 import "./section-hero.css";
 import "./section-info.css";
+import "./info-heading.css";
+import "./info-card.css";
 import "./info-intro.css";
 import "./info-work.css";
-import "./info-card.css";
 import "./info-edu.css";
+import "./info-contacts.css";
 
 if (process.env.NODE_ENV === "development") {
         /*

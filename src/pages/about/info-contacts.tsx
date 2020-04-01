@@ -34,9 +34,13 @@ const education = [
         }
 ];
 
-export const Education = ({ classes }: { classes?: string }) => (
+export const Contacts = ({ classes }: { classes?: string }) => (
         <div class={`${classes}`}>
-                <InfoHeading id="education">education</InfoHeading>
+                <InfoHeading id="contacts">contacts</InfoHeading>
+                {education.map(e => (
+                        <InfoCard content={e} />
+                ))}
+                <InfoHeading id="socials">socials</InfoHeading>
                 {education.map(e => (
                         <InfoCard content={e} />
                 ))}

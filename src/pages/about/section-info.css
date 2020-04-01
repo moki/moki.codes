@@ -12,6 +12,7 @@
 .info__chapter {
         flex: 1 1 auto;
 
+        max-width: 33rem;
         padding: var(--msp-1) var(--gap) 0;
 }
 
@@ -20,7 +21,5 @@
 }
 
 .info__header {
-        padding-bottom: var(--msp-1);
-
         font-weight: 800;
 }

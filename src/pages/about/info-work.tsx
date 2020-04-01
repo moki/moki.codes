@@ -1,5 +1,6 @@
 import { h, Fragment } from "../../../lib/h";
 import { InfoCard } from "./info-card";
+import { InfoHeading } from "./info-heading";
 
 const jobs = [
         {
@@ -24,15 +25,9 @@ const jobs = [
         }
 ];
 
-const Header = ({ children }: { children?: any }) => (
-        <h2 class="text text_size_xl text_style_small-caps info__header">
-                {children}
-        </h2>
-);
-
 export const Work = ({ classes }: { classes?: string }) => (
-        <div class={`info-work ${classes}`}>
-                <Header>work experience</Header>
+        <div class={`${classes}`}>
+                <InfoHeading id="work-experience">work experience</InfoHeading>
                 {jobs.map(e => (
                         <InfoCard content={e} />
                 ))}

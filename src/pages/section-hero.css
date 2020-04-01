@@ -49,8 +49,11 @@
         flex: 1 100%;
 }
 
+.hero__text .card__header {
+        padding: 0 !important;
+}
+
 .hero__title {
-        padding-top: calc(var(--msp-1) / 8);
         margin-left: -1px;
 
         letter-spacing: 0.025rem !important;
@@ -77,9 +80,6 @@
         }
 
         .hero__title {
-                padding: 0;
-
-                line-height: calc(var(--msp-1) * 2);
                 font-size: var(--msc-4);
         }
 }
