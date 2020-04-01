@@ -26,7 +26,7 @@ const education = [
                 title: "Logic",
                 subtitle: "Language and Information",
                 body:
-                        "Core features of propositional and predicate logic. Applications in CS, Engineering, math.",
+                        "Core features of propositional and predicate logic. Applications in CS, engineering, math.",
                 subscript: {
                         left: "2014",
                         right: "The University of Melbourne"

@@ -3,32 +3,52 @@ import { InfoCard } from "./info-card";
 import { InfoHeading } from "./info-heading";
 import { Telegram, Email, Github, Twitter } from "./icons";
 
+const ListItem = ({
+        icon,
+        text,
+        url
+}: {
+        icon: Function;
+        text: string;
+        url: null | string;
+}) => {
+        const textClasses =
+                "info-list__text text text_size_s text_weight_medium text_style_small-caps";
+        const iconClasses = "info-list__icon text";
+        const Icon = icon;
+        const li = () => (
+                <li class="list__item info-list__item">
+                        <Icon classes={iconClasses} />
+                        <div class={textClasses}>{text}</div>
+                </li>
+        );
+        return url ? (
+                <a href={url} target="_blank">
+                        {li()}
+                </a>
+        ) : (
+                li()
+        );
+};
+
 const List = ({
         id,
         items,
         size
 }: {
         id: string;
-        items: { icon: Function; text: string }[];
+        items: { icon: Function; text: string; url?: string }[];
         size: "s" | "m" | "l";
 }) => {
-        const textClasses =
-                "info-list__text text text_size_s text_weight_medium text_style_small-caps";
-        const iconClasses = "info-list__icon text";
         return (
                 <ul id={id} class={`list list_size_${size}`}>
                         {items.map(e => {
-                                const Icon = e.icon;
                                 return (
-                                        <li class="list__item info-list__item">
-                                                <Icon classes={iconClasses} />
-                                                <div
-                                                        class={textClasses}
-                                                        style="line-height: var(--msp-1) !important;"
-                                                >
-                                                        {e.text}
-                                                </div>
-                                        </li>
+                                        <ListItem
+                                                url={e.url ?? null}
+                                                icon={e.icon}
+                                                text={e.text}
+                                        />
                                 );
                         })}
                 </ul>
@@ -37,19 +57,19 @@ const List = ({
 
 const direct = [
         { icon: Email, text: "morozov.kirill.moki@gmail.com" },
-        { icon: Telegram, text: "mokicodes", value: "https://t.me/mokicodes" }
+        { icon: Telegram, text: "mokicodes", url: "https://t.me/mokicodes" }
 ];
 
 const socials = [
         {
                 icon: Github,
                 text: "moki",
-                value: "https://github.com/moki"
+                url: "https://github.com/moki"
         },
         {
                 icon: Twitter,
                 text: "mokicodes",
-                value: "https://twitter.com/mokicodes"
+                url: "https://twitter.com/mokicodes"
         }
 ];
 

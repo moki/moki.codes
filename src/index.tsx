@@ -9,6 +9,7 @@ import "./global.tsx";
 /* init components upon reloading */
 import { load as loadGlobal, unload as unloadGlobal } from "./global";
 import { load as loadMain, unload as unloadMain } from "./pages/index";
+import { load as loadAbout, unload as unloadAbout } from "./pages/about/index";
 
 /* pages */
 require("./pages");
@@ -22,8 +23,8 @@ const hooks: {
                 unload: unloadGlobal
         },
         "/about": {
-                load: () => {},
-                unload: () => {}
+                load: () => loadAbout,
+                unload: () => unloadAbout
         }
 };
 

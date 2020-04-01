@@ -38,11 +38,10 @@
 
 .hero__media {
         flex: 1 100%;
-}
+        object-fit: cover;
 
-.hero__media {
         width: 100%;
-        height: auto;
+        max-height: 75vh;
 }
 
 .hero__text {
@@ -89,6 +88,7 @@
                 flex: 1 50%;
 
                 max-width: 50%;
+                height: auto;
         }
 
         .hero__text {
@@ -98,6 +98,10 @@
                 justify-content: center;
 
                 margin-left: calc(var(--msc-6) * -1);
+        }
+
+        .hero__title {
+                margin-left: -2px;
         }
 
         .hero__text .button_type_raised {

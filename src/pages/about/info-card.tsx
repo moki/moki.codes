@@ -15,9 +15,9 @@ export const InfoCard = ({ content }: { content: InfoCardContent }) => {
         const titleClasses =
                 "info-card__title text text_size_m text_weight_regular";
         const subtitleClasses =
-                "info-card__subtitle text text_size_m text_style_small-caps";
+                "info-card__subtitle text text_size_s text_style_small-caps";
         const bodyClasses =
-                "info-card__body text text_size_m text_weight_regular text_length_m";
+                "info-card__body text text_size_s text_weight_regular text_length_m";
         const subscriptClases =
                 "info-card__subscript text text_size_s text_weight_medium text_style_small-caps";
         return (
