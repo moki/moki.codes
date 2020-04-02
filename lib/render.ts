@@ -50,6 +50,19 @@ export const render = (vn: any, dn: Element) => {
                         nodes.push(vn.props.children[i]);
                 }
         }
+
+        let e: CustomEvent;
+        if (typeof CustomEvent === "function") {
+                e = new CustomEvent(VIRTUAL_DOM_RENDER_FINISH, {
+                        bubbles: false,
+                        detail: {}
+                });
+        } else {
+                e = document.createEvent("CustomEvent");
+                e.initCustomEvent(VIRTUAL_DOM_RENDER_FINISH, false, false, {});
+        }
+
+        window.dispatchEvent(e);
 };
 
 const createElement = (tag: any, props: any) => {
@@ -70,3 +83,5 @@ const createElement = (tag: any, props: any) => {
 };
 
 export const renderStatic = (vn: any) => createElement(vn.type, vn.props);
+
+export const VIRTUAL_DOM_RENDER_FINISH = "moki.codes:vdom-render-finish";
