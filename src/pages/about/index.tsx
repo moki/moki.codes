@@ -1,4 +1,5 @@
 import { List, strings } from "@moki.codes/mokui-list";
+import { VIRTUAL_DOM_RENDER_FINISH } from "../../../lib/render";
 
 import "@moki.codes/mokui-card/dist/mokui-card.css";
 import "@moki.codes/mokui-list/dist/mokui-list.css";
@@ -19,6 +20,7 @@ import "./info-contacts.css";
 let contactsList: any;
 let socialsList: any;
 let snackbar: Element | null;
+let emailId: string;
 
 function Snackbar() {
         if (snackbar) return;
@@ -106,23 +108,22 @@ function Snackbar() {
 const copyMail = (e: Event) => {
         const element = e.target as Element;
         if (element.id !== "contacts-direct") return;
-        const index = (e as CustomEvent).detail.index;
-        if (index !== 0) return;
-        const li = element.querySelector(
-                `#${strings.LIST_ITEM_ID_PREFIX}${index + 1} .info-list__text`
-        );
-        if (!li) return;
+        const lis = element.querySelectorAll("li");
+        const clickIdx = (e as CustomEvent).detail.index;
+        if (lis[clickIdx].id !== emailId) return;
+
         const fakeinput = document.createElement("input");
         fakeinput.setAttribute(
                 "style",
                 "position:absolute; left:0; bottom: 0; width: 100%; height: 100%"
         );
-        fakeinput.setAttribute("value", li.innerHTML);
+        fakeinput.setAttribute("value", lis[clickIdx].innerHTML);
         element.appendChild(fakeinput);
         fakeinput.select();
         document.execCommand("copy");
         fakeinput.blur();
         element.removeChild(fakeinput);
+
         Snackbar();
 };
 
@@ -135,6 +136,10 @@ export const load = () => {
         contactsList = List(contactsListElement);
         socialsList = List(socialsListElement);
 
+        const email = contactsListElement.querySelector("li:first-of-type");
+        if (!email) return;
+        emailId = email.id;
+
         window.addEventListener("mokui-list:list-item-clicked", copyMail);
 };
 
@@ -146,7 +151,7 @@ export const unload = () => {
 
 if (process.env.NODE_ENV === "development") {
         if (window.location.pathname === "/about") {
-                window.addEventListener("load", load);
+                window.addEventListener(VIRTUAL_DOM_RENDER_FINISH, load);
                 window.addEventListener("unload", unload);
         }
 } else {
