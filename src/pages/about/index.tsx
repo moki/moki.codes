@@ -111,13 +111,15 @@ const copyMail = (e: Event) => {
         const lis = element.querySelectorAll("li");
         const clickIdx = (e as CustomEvent).detail.index;
         if (lis[clickIdx].id !== emailId) return;
+        const litext = lis[clickIdx].querySelector(".info-list__text");
+        if (!litext) return;
 
         const fakeinput = document.createElement("input");
         fakeinput.setAttribute(
                 "style",
                 "position:absolute; left:0; bottom: 0; width: 100%; height: 100%"
         );
-        fakeinput.setAttribute("value", lis[clickIdx].innerHTML);
+        fakeinput.setAttribute("value", litext.innerHTML);
         element.appendChild(fakeinput);
         fakeinput.select();
         document.execCommand("copy");
