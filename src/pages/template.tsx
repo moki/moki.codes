@@ -12,17 +12,16 @@ import { Articles } from "./section-articles";
 import { Code } from "./section-code";
 import { Subscribe } from "./section-subscribe";
 
-export const IndexMain = () => (
+export const Main = () => (
         <Fragment>
                 <Hero />
                 <Articles />
                 <Code />
-
                 <Subscribe />
         </Fragment>
 );
 
-export const IndexTitle = () => (
+export const Title = () => (
         <Fragment>
                 <title>moki — morozov kirill</title>
                 <meta
@@ -32,7 +31,7 @@ export const IndexTitle = () => (
         </Fragment>
 );
 
-export const IndexStyles = () => (
+export const Styles = () => (
         <Fragment>
                 <link rel="stylesheet" type="text/css" href="/index.css" />
                 <link rel="stylesheet" type="text/css" href="/global.css" />
@@ -44,7 +43,7 @@ export const IndexStyles = () => (
         </Fragment>
 );
 
-export const IndexScripts = () => (
+export const Scripts = () => (
         <Fragment>
                 <script defer src="/runtime.js"></script>
                 {/*<script defer src="/commons.js"></script>*/}

@@ -1,6 +1,6 @@
 import { h, Fragment } from "../../../lib/h";
 
-export const AboutMain = () => (
+export const Main = () => (
         <Fragment>
                 <div class="layout__container section">
                         <div style="height: 1000vh">about</div>
@@ -9,9 +9,9 @@ export const AboutMain = () => (
         </Fragment>
 );
 
-export const AboutTitle = () => <title>moki - about</title>;
+export const Title = () => <title>moki - about</title>;
 
-export const AboutStyles = () => (
+export const Styles = () => (
         <Fragment>
                 <link
                         rel="stylesheet"
@@ -27,7 +27,7 @@ export const AboutStyles = () => (
         </Fragment>
 );
 
-export const AboutScripts = () => (
+export const Scripts = () => (
         <Fragment>
                 <script defer src="/runtime.js"></script>
                 {/*<script defer src="/commons.js"></script>*/}

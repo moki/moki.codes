@@ -1,58 +1,43 @@
 /* dev client entry */
 import { render, renderStatic } from "../lib/render";
 import { h } from "../lib/h";
-import { routes } from "./routes";
+import { router } from "./routes";
 
-/* global */
-import "./global.tsx";
-
-/* init components upon reloading */
-import { load as loadGlobal, unload as unloadGlobal } from "./global";
-import { load as loadMain, unload as unloadMain } from "./pages/index";
-import { load as loadAbout, unload as unloadAbout } from "./pages/about/index";
-
-/* pages */
-require("./pages");
-require("./pages/about");
-
-const hooks: {
-        [key: string]: { [key: string]: Function };
-} = {
-        "/": {
-                load: loadMain,
-                unload: unloadGlobal
-        },
-        "/about": {
-                load: () => loadAbout,
-                unload: () => unloadAbout
-        }
+const getDependencies = (path: string) => {
+        const root = "./";
+        let dependencies = ["./global.tsx"];
+        const dependency = `./pages${path === "/" ? "" : path}/index`;
+        dependencies.push(dependency);
+        return dependencies.map(e => require("" + e));
 };
 
-const update = () => {
+const load = () => {
         const container = document.querySelector("#root");
         if (!container)
                 throw new Error("Failed to render, provide #root Element");
-
+        const path = window.location.pathname;
         container.innerHTML = "";
-        render(routes[window.location.pathname].main, container);
+        render(router(path).main, container);
+        const dependencies = getDependencies(path);
+        dependencies.forEach(e => e.load());
+};
 
-        // console.log(window.location.pathname);
-
-        /* "destroy" */
-        unloadGlobal();
-        hooks[window.location.pathname].unload();
-
-        /* init components upon reloading */
-        loadGlobal();
-        hooks[window.location.pathname].load();
+const unload = () => {
+        const container = document.querySelector("#root");
+        if (!container)
+                throw new Error("Failed to render, provide #root Element");
+        const path = window.location.pathname;
+        const dependencies = getDependencies(path);
+        dependencies.forEach(e => e.unload());
+        container.innerHTML = "";
 };
 
 if (module.hot) {
-        module.hot.accept("./routes.tsx", () => {
-                update();
+        load();
+        module.hot.accept(() => {});
+        module.hot.dispose(data => {
+                unload();
         });
 }
 
-window.addEventListener("load", () => {
-        update();
-});
+window.addEventListener("load", load);

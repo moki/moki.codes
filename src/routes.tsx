@@ -4,33 +4,14 @@ import { Map } from "../types/index";
 if (process.env.NODE_ENV === "production")
         require.extensions[".css"] = () => {};
 
-import {
-        IndexMain,
-        IndexTitle,
-        IndexStyles,
-        IndexScripts
-} from "./pages/template";
+export const router = (path: string) => {
+        const route = `./pages${path === "/" ? "" : path}/template`;
+        const module = require("" + route);
 
-import {
-        AboutMain,
-        AboutTitle,
-        AboutStyles,
-        AboutScripts
-} from "./pages/about/template";
-
-export const routes: Map<Map<Function | Element>> = {
-        "/": {
-                title: IndexTitle,
-                styles: IndexStyles,
-                scripts: IndexScripts,
-                main: (<IndexMain />) as Function | Element
-        },
-        "/about": {
-                title: AboutTitle,
-                styles: AboutStyles,
-                scripts: AboutScripts,
-                main: (<AboutMain />) as Function | Element
-        },
-        "/articles": {},
-        "/code": {}
+        return {
+                title: module.Title,
+                styles: module.Styles,
+                scripts: module.Scripts,
+                main: <module.Main />
+        };
 };
