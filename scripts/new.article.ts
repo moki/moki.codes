@@ -88,6 +88,7 @@ const handleArticleExists = async (e: Error, articles: { amount: number }) => {
         let articlesfd;
         let articles: {
                 amount: number;
+                articles: Article[];
         };
 
         try {
@@ -161,6 +162,17 @@ const handleArticleExists = async (e: Error, articles: { amount: number }) => {
                         JSON.stringify(article, null, "\t"),
                         { flag: "w" }
                 );
+
+                articles.articles.unshift(article as Article);
+                await appendFileR(
+                        path.resolve(
+                                process.cwd(),
+                                config.articles.path,
+                                config.articles.name
+                        ),
+                        JSON.stringify(articles, null, "\t"),
+                        { flag: "w" }
+                );
         } catch (e) {
                 if (e.code === "EEXIST") {
                         console.error(
@@ -169,5 +181,7 @@ const handleArticleExists = async (e: Error, articles: { amount: number }) => {
 
                         await handleArticleExists(e, articles);
                 }
+
+                throw e;
         }
 })();
