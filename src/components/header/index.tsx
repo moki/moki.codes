@@ -1,6 +1,5 @@
 import { h } from "../../../lib/h";
 import { Map } from "../../../types/index";
-import "./styles.css";
 
 import { ContainerFluid } from "../container-fluid";
 

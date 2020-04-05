@@ -7,7 +7,6 @@ require.extensions[".css"] = () => {};
 import config from "./config.build";
 
 import { ConfigurationFactory } from "./webpack/config";
-import { routes } from "../src/routes";
 import { render } from "../src/server-render";
 
 const webtofs = (route: string): string => route.replace("/", "./");
@@ -55,16 +54,17 @@ const templates = async () => {
                 recursive: true
         });
         /* pages */
+        const routes = ["/", "/about", "/code", "/articles"];
         let from, to;
-        for (const route in routes) {
-                render(route, appendDoctype);
+        for (const r in routes) {
+                render(routes[r], appendDoctype);
                 from = path.resolve(
                         process.cwd(),
                         assets,
                         sources,
-                        webtofs(route)
+                        webtofs(routes[r])
                 );
-                to = path.resolve(process.cwd(), output, webtofs(route));
+                to = path.resolve(process.cwd(), output, webtofs(routes[r]));
                 copyFiles(from, to, rgx);
         }
 
