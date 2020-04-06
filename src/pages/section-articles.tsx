@@ -1,4 +1,5 @@
 import { h, Fragment } from "../../lib/h";
+import config from "../../scripts/config.new.article";
 
 import {
         Card,
@@ -27,22 +28,8 @@ const Link = ({ url, children }: { url: string; children?: any }) => (
 );
 
 export const Articles = () => {
-        const articles = [
-                {
-                        title: "Memory management",
-                        subtitle: "how important is it",
-                        tags: ["cpp", "programming"],
-                        date: new Date(),
-                        url: "/articles"
-                },
-                {
-                        title: "Memory management",
-                        subtitle: "how important is it",
-                        tags: ["cpp", "programming"],
-                        date: new Date(),
-                        url: "/articles"
-                }
-        ];
+        const articles = require("./articles/" +
+                config.articles.name).articles.slice(0, 3);
         const buttonClasses =
                 "text text_style_small-caps text_size_m text_weight_medium";
         return (
@@ -52,9 +39,10 @@ export const Articles = () => {
                                 <Subheader>
                                         Mostly about code, but sometimes life
                                 </Subheader>
-                                {articles.map(e => {
+                                {articles.map((e: any) => {
+                                        const url = `/articles/${e.title}-${e.prettydate}`;
                                         return (
-                                                <Link url={e.url}>
+                                                <Link url={url}>
                                                         <ArticlePreview
                                                                 preview={e}
                                                                 elevation={1}

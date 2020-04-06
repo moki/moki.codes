@@ -1,13 +1,30 @@
 import { h, Fragment } from "../../../lib/h";
 
-export const Main = () => (
-        <Fragment>
-                <div class="layout__container section">
-                        <div style="height: 1000vh">about</div>
-                        <div id="contact">contact</div>
-                </div>
-        </Fragment>
-);
+import config from "../../../scripts/config.new.article";
+
+export const Main = () => {
+        const articles = require("./" + config.articles.name).articles;
+        return (
+                <Fragment>
+                        <div class="layout__container section">
+                                <div>articles</div>
+                                {articles.map(
+                                        (e: {
+                                                title: string;
+                                                prettydate: string;
+                                        }) => (
+                                                <Fragment>
+                                                        <div>{e.title}</div>
+                                                        <div>
+                                                                {e.prettydate}
+                                                        </div>
+                                                </Fragment>
+                                        )
+                                )}
+                        </div>
+                </Fragment>
+        );
+};
 
 export const Title = () => <title>moki - about</title>;
 

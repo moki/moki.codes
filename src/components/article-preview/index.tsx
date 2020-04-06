@@ -3,10 +3,12 @@ import { h, Fragment } from "../../../lib/h";
 import { Card, CardText, CardHeader, CardBody, CardFooter } from "../card";
 
 type ArticlePreview = {
+        id: number;
         title: string;
         subtitle: string;
         tags: string[];
-        date: Date;
+        prettydate: string;
+        unixtimestamp: number;
 };
 
 const ArticlePreviewTag = ({ children }: { children?: any }) => (
@@ -31,15 +33,11 @@ const ArticlePreviewDate = ({
         date,
         children
 }: {
-        date: Date;
+        date: string;
         children?: any;
 }) => (
         <p class="text text_size_s text_weight_light text_style_small-caps">
-                {date.getDate() +
-                        "/" +
-                        (date.getMonth() + 1) +
-                        "/" +
-                        date.getFullYear()}
+                {date.split("-").join("/")}
         </p>
 );
 
@@ -70,7 +68,7 @@ export const ArticlePreview = ({
                                 </CardHeader>
                                 <CardBody>
                                         <ArticlePreviewDate
-                                                date={preview.date}
+                                                date={preview.prettydate}
                                         />
                                 </CardBody>
                         </CardText>
