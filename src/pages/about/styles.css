@@ -21,8 +21,15 @@
         display: flex;
 
         padding: calc(var(--msp-1) / 2) var(--gap);
+        min-width: calc(100vw - var(--gap) * 2);
 
         background-color: var(--color-surface);
+}
+
+@media screen and (min-width: 480px) {
+        .snackbar__content {
+                min-width: unset;
+        }
 }
 
 .snackbar__action {
@@ -32,6 +39,7 @@
         opacity: 0.8;
 
         padding-left: var(--gap);
+        margin-left: auto;
         height: var(--msp-1);
 
         fill: var(--color-on-surface);
