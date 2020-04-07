@@ -1,7 +1,5 @@
 .about-section-hero__title {
         padding-bottom: calc(var(--msp-1) / 2);
-
-        letter-spacing: 0.025rem !important;
 }
 
 .about-section-hero__subtitle {

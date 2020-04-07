@@ -33,9 +33,6 @@
 
 .section-subscribe__title {
         padding-bottom: calc(var(--msp-1) / 2);
-        margin-left: -2px;
-
-        letter-spacing: 0.025rem !important;
 }
 
 .section-subscribe__subtitle {
@@ -118,6 +115,10 @@
         animation-name: type-right;
         animation-iteration-count: infinite;
         animation-direction: alternate;
+}
+
+.text-field__label_selected {
+        line-height: calc(var(--msp-1) * 0.85);
 }
 
 @keyframes type-left {

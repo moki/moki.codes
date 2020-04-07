@@ -12,11 +12,13 @@ import { Section } from "../components/section";
 import { ButtonGhost } from "../components/button";
 
 const Header = ({ children }: { children?: any }) => (
-        <h2 class="text text_size_4xl section-subscribe__title">{children}</h2>
+        <h2 class="text_line-height_xl text_size_4xl text_weight_xbold section-subscribe__title">
+                {children}
+        </h2>
 );
 
 const Subheader = ({ children }: { children?: any }) => (
-        <h3 class="text text_size_l text_weight_medium section-subscribe__subtitle">
+        <h3 class="text_line-height_m text_size_l text_weight_medium section-subscribe__subtitle">
                 {children}
         </h3>
 );
@@ -32,9 +34,9 @@ const TextField = ({
         label: string;
         elevation: number;
 }) => {
-        const inputClasses = `text-field__input text text_size_s text_weight_regular text_style_small-caps elevation elevation_depth_${elevation}`;
+        const inputClasses = `text-field__input text_line-height_m text_size_s text_weight_regular text_style_small-caps text_letter-spacing_m elevation elevation_depth_${elevation}`;
         const labelClasses =
-                "text-field__label text text_size_s text_weight_regular text_style_small-caps";
+                "text-field__label text_line-height_m text_size_s text_weight_regular text_style_small-caps text_letter-spacing_m";
         return (
                 <div class="text-field">
                         <input type="text" id={id} class={inputClasses} />
@@ -63,7 +65,7 @@ const Form = ({
 
 const FormTitle = ({ children }: { children?: any }) => {
         const classes =
-                "text text_size_xl text_weight_medium section-subscribe-form__title kitty";
+                "text_line-height_m text_size_xl text_weight_medium section-subscribe-form__title kitty";
         return <div class={classes}>{children}</div>;
 };
 
@@ -74,7 +76,7 @@ const FormSubmit = ({ children }: { children?: any }) => {
 
 export const Subscribe = () => {
         const submitClasses =
-                "text text_style_small-caps text_size_m text_weight_medium section-subscribe-form__submit button_disabled";
+                "text_line-height_m text_style_small-caps text_letter-spacing_m text_size_m text_weight_medium section-subscribe-form__submit button_disabled";
         return (
                 <Section vpadding="l" classes="section-subscribe">
                         <Container classes="subscribe">

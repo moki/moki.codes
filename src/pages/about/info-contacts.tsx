@@ -13,8 +13,8 @@ const ListItem = ({
         url: null | string;
 }) => {
         const textClasses =
-                "info-list__text text text_size_s text_weight_medium text_style_small-caps";
-        const iconClasses = "info-list__icon text";
+                "info-list__text text_line-height_m text_size_s text_weight_medium text_style_small-caps text_letter-spacing_m";
+        const iconClasses = "info-list__icon text_line-height_m";
         const Icon = icon;
         const li = () => (
                 <li class="list__item info-list__item">
@@ -23,7 +23,7 @@ const ListItem = ({
                 </li>
         );
         return url ? (
-                <a href={url} target="_blank">
+                <a href={url} target="_blank" style="text-decoration: none;">
                         {li()}
                 </a>
         ) : (

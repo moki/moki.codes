@@ -37,7 +37,7 @@ const Link = ({
 
 const Contact = () => {
         const buttonClasses =
-                "text text_style_small-caps text_size_s text_weight_medium";
+                "text_line-height_m text_style_small-caps text_letter-spacing_m text_size_s text_weight_bold";
         return (
                 <Link url="/about#contacts">
                         <ButtonRaised
@@ -54,7 +54,7 @@ const Contact = () => {
 
 const Learn = () => {
         const buttonClasses =
-                "text text_style_small-caps text_size_s text_weight_medium";
+                "text_line-height_m text_style_small-caps text_letter-spacing_m text_size_s text_weight_bold";
         return (
                 <Link url="/about">
                         <ButtonGhost
@@ -69,31 +69,33 @@ const Learn = () => {
         );
 };
 
-const Story = () => (
-        <p class="text text_size_m text_weight_regular">
-                I am software engineer who writes{" "}
-                <Link
-                        url="/code"
-                        classes="subtle-link text text_size_l text_style_small-caps"
-                >
-                        code
-                </Link>{" "}
-                and{" "}
-                <Link
-                        url="/articles"
-                        classes="subtle-link text text_size_l text_style_small-caps"
-                >
-                        articles
-                </Link>{" "}
-                about it.
-        </p>
-);
+const Story = () => {
+        const linkClasses =
+                "link link_color_primary text_style_small-caps text_letter-spacing_m";
+        return (
+                <p class="text_line-height_s text_size_m text_weight_regular">
+                        I am software engineer who writes{" "}
+                        <Link url="/code" classes={linkClasses}>
+                                code
+                        </Link>{" "}
+                        and{" "}
+                        <Link url="/articles" classes={linkClasses}>
+                                articles
+                        </Link>{" "}
+                        about it.
+                </p>
+        );
+};
 
 const Header = ({ children }: { children?: any }) => (
-        <h1 class="text text_size_4xl hero__title">{children}</h1>
+        <h1 class="text_size_4xl text_line-height_m text_style_small-caps text_letter-spacing_m hero__title">
+                {children}
+        </h1>
 );
 const Subheader = ({ children }: { children?: any }) => (
-        <h6 class="text text_size_l text_weight_light">{children}</h6>
+        <h6 class="text_size_l text_line-height_s text_style_small-caps text_letter-spacing_m hero__subtitle">
+                {children}
+        </h6>
 );
 
 const Text = () => {

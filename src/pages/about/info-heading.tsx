@@ -20,9 +20,9 @@ export const InfoHeading = ({
         id: string;
         children?: any;
 }) => {
-        const headingClasses = "info__heading";
+        const headingClasses = "info__heading link";
         const headerClasses =
-                "text text_size_xl text_style_small-caps info__header";
+                "text_line-height_m text_size_l text_style_small-caps text_letter-spacing_m text_weight_xbold";
         const iconClasses = "info__heading-icon";
         return (
                 <a class={headingClasses} href={`/about#${id}`} id={id}>

@@ -5,13 +5,12 @@
 .section-code__title {
         padding-bottom: calc(var(--msp-1) / 2);
         margin-left: -2px;
-
-        letter-spacing: 0.025rem !important;
 }
 
 .section-code__subtitle {
-        padding-bottom: calc(var(--msp-1) * 1.5);
         opacity: 0.9;
+
+        padding-bottom: calc(var(--msp-1) * 1.5);
 }
 
 .section-code__text {

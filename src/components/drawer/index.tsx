@@ -12,17 +12,22 @@ const NavigationItem = ({
 }) => {
         const bcs = [
                 "list__item",
-                "text",
+                "text_line-height_m",
                 "text_size_s",
                 "text_weight_medium",
-                "text_style_small-caps"
+                "text_style_small-caps",
+                "text_letter-spacing_m"
         ];
         const acs = ["list__item_active"];
         const cs = (path: string, route: string) =>
                 [...bcs, ...(path === route ? acs : [])].join(" ");
 
         return (
-                <a href={route} class={cs(path, route)}>
+                <a
+                        href={route}
+                        class={cs(path, route)}
+                        style="text-decoration: none;"
+                >
                         {routeName}
                 </a>
         );
@@ -70,12 +75,14 @@ export const Drawer = ({
                                 <a
                                         href="/"
                                         class="drawer__header
-                                               text
+                                               text_line-height_m
                                                text_size_s
                                                text_weight_medium
                                                text_style_small-caps
+                                               text_letter-spacing_m
                                                text_align_center
                                                "
+                                        style="text-decoration: none;"
                                 >
                                         moki
                                 </a>

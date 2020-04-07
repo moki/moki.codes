@@ -19,6 +19,10 @@
         margin: auto 0;
 }
 
+.info-intro__header {
+        padding-bottom: calc(var(--msp-1) / 4);
+}
+
 @media screen and (min-width: 766px) {
         .info-intro__media {
                 height: 150px;

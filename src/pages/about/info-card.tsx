@@ -13,13 +13,13 @@ export type InfoCardContent = {
 export const InfoCard = ({ content }: { content: InfoCardContent }) => {
         const cardClasses = "card info-card elevation elevation_depth_2";
         const titleClasses =
-                "info-card__title text text_size_m text_weight_regular";
+                "info-card__title text_line-height_s text_size_m text_weight_medium";
         const subtitleClasses =
-                "info-card__subtitle text text_size_s text_style_small-caps";
+                "info-card__subtitle text_line-height_s text_size_s text_style_small-caps text_letter-spacing_m text_weight_bold";
         const bodyClasses =
-                "info-card__body text text_size_s text_weight_regular text_length_m";
+                "info-card__body text_line-height_s text_size_s text_weight_regular text_length_m";
         const subscriptClases =
-                "info-card__subscript text text_size_s text_weight_medium text_style_small-caps";
+                "info-card__subscript text_line-height_s text_size_s text_weight_bold text_style_small-caps text_letter-spacing_m";
         return (
                 <div class={cardClasses}>
                         <h3 class={titleClasses}>{content.title}</h3>

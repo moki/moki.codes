@@ -14,11 +14,13 @@ import { ButtonGhost } from "../components/button";
 import { ArticlePreview } from "../components/article-preview";
 
 const Header = ({ children }: { children?: any }) => (
-        <h2 class="text text_size_4xl section-articles__title">{children}</h2>
+        <h2 class="text_line-height_xl text_size_4xl text_weight_xbold section-articles__title">
+                {children}
+        </h2>
 );
 
 const Subheader = ({ children }: { children?: any }) => (
-        <h3 class="text text_size_l text_weight_medium section-articles__subtitle">
+        <h3 class="text_line-height_m text_size_l text_weight_medium section-articles__subtitle">
                 {children}
         </h3>
 );
@@ -31,7 +33,7 @@ export const Articles = () => {
         const articles = require("./articles/" +
                 config.articles.name).articles.slice(0, 3);
         const buttonClasses =
-                "text text_style_small-caps text_size_m text_weight_medium";
+                "text_line-height_m text_style_small-caps text_letter-spacing_m text_size_m text_weight_bold";
         return (
                 <Section vpadding="l" classes="section-articles">
                         <Container>
@@ -57,7 +59,7 @@ export const Articles = () => {
                                                 color="primary-light"
                                                 classes={buttonClasses}
                                         >
-                                                see all
+                                                read
                                         </ButtonGhost>
                                 </Link>
                         </Container>

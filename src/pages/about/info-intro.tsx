@@ -1,13 +1,13 @@
 import { h, Fragment } from "../../../lib/h";
 
 const Header = ({ children }: { children?: any }) => (
-        <h2 class="text text_size_xl text_style_small-caps info__header">
+        <h2 class="text_size_xl text_style_small-caps text_letter-spacing_m text_line-height_m text_weight_xbold info-intro__header">
                 {children}
         </h2>
 );
 
 const Legend = ({ children }: { children?: any }) => (
-        <p class="text text_size_m text_length_m text_weight_regular">
+        <p class="text_line-height_s text_size_m text_length_m text_weight_regular">
                 {children}
         </p>
 );

@@ -43,13 +43,16 @@ const ToggleLight = () => (
 const Brand = () => (
         <a
                 href="/"
-                class="header__action header__brand
-                       text
+                class="header__action
+                       header__brand
                        text_size_s
                        text_weight_medium
+                       text_line-height_m
                        text_style_small-caps
+                       text_letter-spacing_m
                        text_align_center
                        "
+                style="text-decoration: none;"
         >
                 moki
         </a>
@@ -69,11 +72,11 @@ const NavigationItem = ({
         const bcs = [
                 "header__action",
                 "header__navigation-item",
-                "link",
-                "text",
+                "text_line-height_m",
                 "text_size_s",
                 "text_weight_medium",
-                "text_style_small-caps"
+                "text_style_small-caps",
+                "text_letter-spacing_m"
         ];
         const acs = ["link_active"];
         const cs = (path: string, route: string) =>

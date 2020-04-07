@@ -42,10 +42,11 @@ function Snackbar() {
 
         const text = document.createElement("div");
         const textClasses = [
-                "text",
+                "text_line-height_m",
                 "text_size_s",
                 "text_weight_medium",
-                "text_style_small-caps"
+                "text_style_small-caps",
+                "text_letter-spacing_m"
         ];
         text.classList.add(...textClasses);
         text.innerHTML = "email copied to the clipboard";
