@@ -101,6 +101,12 @@
         }
 }
 
+@media screen and (max-width: 990px) {
+        .hero__text .card__header {
+                padding-bottom: calc(var(--msp-1) / 2);
+        }
+}
+
 @media screen and (min-width: 766px) {
         .hero__media {
                 flex: 1 50%;
