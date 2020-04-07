@@ -142,7 +142,9 @@ const handleArticleExists = async (e: Error, articles: { amount: number }) => {
         );
         article.unixtimestamp = Math.floor(article.unixtimestamp / 1000);
 
-        const articlefsname = `${article.title}-${article.prettydate}`;
+        const articlefsname = `${article.title!.split(" ").join("-")}-${
+                article.prettydate
+        }`;
 
         try {
                 await fs.mkdir(
