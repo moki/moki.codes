@@ -7,3 +7,7 @@
 
         padding-bottom: calc(var(--msp-1) * 1.5);
 }
+
+.section-articles__articles {
+        padding-bottom: calc(var(--msp-1) / 4);
+}

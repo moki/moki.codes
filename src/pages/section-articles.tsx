@@ -29,6 +29,26 @@ const Link = ({ url, children }: { url: string; children?: any }) => (
         <a href={url}>{children}</a>
 );
 
+const ArticlesPreview = ({ limit }: { limit: number }) => {
+        const articles = require("./articles/" +
+                config.articles.name).articles.slice(0, limit);
+
+        return (
+                <div class="section-articles__articles">
+                        {articles.map((e: any) => {
+                                return (
+                                        <Link url={e.url}>
+                                                <ArticlePreview
+                                                        preview={e}
+                                                        elevation={1}
+                                                />
+                                        </Link>
+                                );
+                        })}
+                </div>
+        );
+};
+
 export const Articles = () => {
         const articles = require("./articles/" +
                 config.articles.name).articles.slice(0, 3);
@@ -41,17 +61,7 @@ export const Articles = () => {
                                 <Subheader>
                                         Mostly about code, but sometimes life
                                 </Subheader>
-                                {articles.map((e: any) => {
-                                        const url = `/articles/${e.title}-${e.prettydate}`;
-                                        return (
-                                                <Link url={url}>
-                                                        <ArticlePreview
-                                                                preview={e}
-                                                                elevation={1}
-                                                        />
-                                                </Link>
-                                        );
-                                })}
+                                <ArticlesPreview limit={3} />
                                 <Link url="/articles">
                                         <ButtonGhost
                                                 elevation={1}
