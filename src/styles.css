@@ -1,3 +1,7 @@
+a {
+        text-decoration: none;
+}
+
 .theme_color_dark {
         --color-on-primary-light: #000000c2 !important;
 }
@@ -5,6 +9,14 @@
 .theme_typography_default {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        font-feature-settings: "onum" 1;
+}
+
+@supports (font-variant-numeric: oldstyle-nums) {
+        .theme_typography_default {
+                font-feature-settings: normal;
+                font-variant-numeric: oldstyle-nums;
+        }
 }
 
 .layout__header,
