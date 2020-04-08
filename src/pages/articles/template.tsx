@@ -1,32 +1,18 @@
 import { h, Fragment } from "../../../lib/h";
 
-import config from "../../../scripts/config.new.article";
+import { Hero } from "./section-hero";
+import { Articles } from "./section-articles";
 
 export const Main = () => {
-        const articles = require("./" + config.articles.name).articles;
         return (
                 <Fragment>
-                        <div class="layout__container section">
-                                <div>articles</div>
-                                {articles.map(
-                                        (e: {
-                                                title: string;
-                                                prettydate: string;
-                                        }) => (
-                                                <Fragment>
-                                                        <div>{e.title}</div>
-                                                        <div>
-                                                                {e.prettydate}
-                                                        </div>
-                                                </Fragment>
-                                        )
-                                )}
-                        </div>
+                        <Hero />
+                        <Articles />
                 </Fragment>
         );
 };
 
-export const Title = () => <title>moki - about</title>;
+export const Title = () => <title>moki - articles</title>;
 
 export const Styles = () => (
         <Fragment>

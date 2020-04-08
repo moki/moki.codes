@@ -1,0 +1,7 @@
+.articles-section-hero__title {
+        padding-bottom: calc(var(--msp-1) / 2);
+}
+
+.articles-section-hero__subtitle {
+        opacity: 0.9;
+}
