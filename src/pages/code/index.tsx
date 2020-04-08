@@ -1,3 +1,9 @@
-import "./styles.css";
+import "../../components/section/styles.css";
 
-console.log("hello about page");
+import "./styles.css";
+import "./section-hero.css";
+
+export const load = () => {};
+export const unload = () => {};
+
+console.log("code");

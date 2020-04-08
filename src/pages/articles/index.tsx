@@ -9,3 +9,5 @@ import "./section-articles.css";
 
 export const load = () => {};
 export const unload = () => {};
+
+console.log("articles");
