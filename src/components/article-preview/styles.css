@@ -18,15 +18,18 @@
 }
 
 .article-preview__tags {
-        opacity: 0.7;
+        padding-bottom: calc(var(--msp-1) / 4);
 }
 
 .article-preview__title {
-        margin-left: -1px;
+        opacity: 0.9;
 
-        font-weight: 600;
+        padding-bottom: calc(var(--msp-1) / 8);
+        margin-left: -1px;
 }
 
+.article-preview__tags,
+.article-preview__date,
 .article-preview__subtitle {
         opacity: 0.8;
 }

@@ -12,19 +12,19 @@ type ArticlePreview = {
 };
 
 const ArticlePreviewTag = ({ children }: { children?: any }) => (
-        <h6 class="text text_size_s text_weight_medium text_style_small-caps article-preview__tags">
+        <h6 class="text_line-height_s text_size_s text_weight_bold text_style_small-caps text_letter-spacing_m article-preview__tags">
                 {children}
         </h6>
 );
 
 const ArticlePreviewTitle = ({ children }: { children?: any }) => (
-        <h4 class="text text_size_xl text_weight_medium article-preview__title">
+        <h4 class="text_line-height_s text_size_l text_weight_medium text_letter-spacing_m article-preview__title">
                 {children}
         </h4>
 );
 
 const ArticlePreviewSubtitle = ({ children }: { children?: any }) => (
-        <h5 class="text text_size_s text_weight_medium text_style_small-caps article-preview__subtitle">
+        <h5 class="text_line-height_s text_size_s text_weight_bold text_style_small-caps text_letter-spacing_m article-preview__subtitle">
                 {children}
         </h5>
 );
@@ -36,7 +36,7 @@ const ArticlePreviewDate = ({
         date: string;
         children?: any;
 }) => (
-        <p class="text text_size_s text_weight_light text_style_small-caps">
+        <p class="text_line-height_s text_size_s text_weight_bold text_style_small-caps text_letter-spacing_m article-preview__date">
                 {date.split("-").join("/")}
         </p>
 );
