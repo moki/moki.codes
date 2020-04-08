@@ -15,6 +15,7 @@ type Article = {
         title: string;
         prettydate: string;
         unixtimestamp: number;
+        url: string;
         subtitle?: string;
         tags?: string[];
 };
@@ -141,6 +142,9 @@ const handleArticleExists = async (e: Error, articles: { amount: number }) => {
                 "-"
         );
         article.unixtimestamp = Math.floor(article.unixtimestamp / 1000);
+        article.url = `${config.article.url}/${article
+                .title!.split(" ")
+                .join("-")}-${article.prettydate}`;
 
         const articlefsname = `${article.title!.split(" ").join("-")}-${
                 article.prettydate

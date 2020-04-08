@@ -5,6 +5,7 @@ export default {
         },
         article: {
                 name: "article.json",
-                path: "src/pages/articles"
+                path: "src/pages/articles",
+                url: "/articles"
         }
 };
