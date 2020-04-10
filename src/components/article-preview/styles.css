@@ -24,7 +24,7 @@
 .article-preview__title {
         opacity: 0.9;
 
-        padding-bottom: calc(var(--msp-1) / 8);
+        padding-bottom: calc(var(--msp-1) / 0);
         margin-left: -1px;
 }
 
