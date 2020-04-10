@@ -32,7 +32,7 @@ export const Hero = () => (
                         <Subheader>Projects, OSS contributions</Subheader>
                         <Text>This page is still under construction.</Text>
                         <Text>
-                                For now most of my code can be found on{" "}
+                                For now, most of my code can be found on{" "}
                                 <a
                                         class="link link_color_primary link_underline"
                                         href="https://www.github.com/moki"
