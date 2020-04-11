@@ -1,9 +1,0 @@
-.main {
-        --hero-bg-color: #e91e63;
-        --subscribe-bg-color: #4527a0;
-}
-
-.theme_color_dark .main {
-        --hero-bg-color: #ff6090;
-        --subscribe-bg-color: #7953d2;
-}

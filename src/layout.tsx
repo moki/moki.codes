@@ -7,6 +7,30 @@ import { Drawer } from "./components/drawer";
 
 import { Map } from "../types/";
 
+export type Route = {
+        url: string;
+        name: string;
+        nested?: Route[];
+};
+
+const routes = [
+        {
+                name: "about",
+                url: "/about",
+                nested: [
+                        { name: "work", url: "/about#work-experience" },
+                        { name: "education", url: "/about#education" },
+                        { name: "contacts", url: "/about#contacts" },
+                        { name: "socials", url: "/about#socials" }
+                ]
+        },
+        { name: "articles", url: "/articles" },
+        {
+                name: "code",
+                url: "/code"
+        }
+];
+
 export const Layout = ({
         Title,
         Styles,
@@ -14,26 +38,11 @@ export const Layout = ({
         path,
         children
 }: Map<any>) => {
-        const bcs = [
-                "theme",
-                "theme_typography_default",
-                "theme_breakpoint_default",
-                "theme_msp_perfect-fifth",
-                "theme_elevation_default",
-                "theme_msc_major-third",
-                "theme_gap_default",
-                "layout",
-                "layout_type_holy-grail-main",
-                "layout_header_dense",
-                "animation"
-        ].join(" ");
-
-        const routes = {
-                about: "/about",
-                articles: "/articles",
-                code: "/code"
-        };
-
+        const themeClasses =
+                "theme theme_typography_default theme_breakpoint_default " +
+                "theme_msp_perfect-fifth theme_elevation_default " +
+                "theme_msc_major-third theme_gap_default layout " +
+                "layout_type_holy-grail-main layout_header_dense animation";
         return (
                 <html lang="en">
                         <head>
@@ -50,11 +59,11 @@ export const Layout = ({
                                 <Title />
                                 <Styles />
                         </head>
-                        <body class={bcs} style="display: none;">
+                        <body class={themeClasses} style="display: none;">
                                 <Header routes={routes} path={path} />
                                 <Drawer routes={routes} path={path} />
                                 <Main>{children}</Main>
-                                <Footer />
+                                <Footer routes={routes} />
                                 <Scripts />
                         </body>
                 </html>

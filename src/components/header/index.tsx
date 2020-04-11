@@ -1,5 +1,6 @@
 import { h } from "../../../lib/h";
 import { Map } from "../../../types/index";
+import { Route } from "../../layout";
 
 import { ContainerFluid } from "../container-fluid";
 
@@ -58,17 +59,7 @@ const Brand = () => (
         </a>
 );
 
-const NavigationItem = ({
-        path,
-        route,
-        routeName,
-        ...rest
-}: {
-        path: string;
-        route: string;
-        routeName: string;
-        rest?: any;
-}) => {
+const NavigationItem = ({ route, path }: { route: Route; path: string }) => {
         const bcs = [
                 "header__action",
                 "header__navigation-item",
@@ -82,42 +73,23 @@ const NavigationItem = ({
         const cs = (path: string, route: string) =>
                 [...bcs, ...(path === route ? acs : [])].join(" ");
         return (
-                <a href={route} class={cs(path, route)}>
-                        {routeName}
+                <a href={route.url} class={cs(path, route.url)}>
+                        {route.name}
                 </a>
         );
 };
 
-const Navigation = ({
-        routes,
-        path,
-        ...rest
-}: {
-        routes: Map<string>;
-        path: string;
-}) => {
-        const items = [];
-        for (const route in routes) {
-                items.push(
-                        NavigationItem({
-                                path,
-                                route: routes[route],
-                                routeName: route
-                        })
-                );
-        }
-        return <div class="header__navigation">{items}</div>;
+const Navigation = ({ routes, path }: { routes: Route[]; path: string }) => {
+        return (
+                <div class="header__navigation">
+                        {routes.map(e => (
+                                <NavigationItem route={e} path={path} />
+                        ))}
+                </div>
+        );
 };
 
-export const Header = ({
-        routes,
-        path,
-        ...rest
-}: {
-        routes: Map<string>;
-        path: string;
-        rest?: any;
-}) => {
+export const Header = ({ routes, path }: { routes: Route[]; path: string }) => {
         return (
                 <header
                         class="layout__header

@@ -12,7 +12,7 @@ export const Main = () => {
         );
 };
 
-export const Title = () => <title>moki - articles</title>;
+export const Title = () => <title>moki — articles</title>;
 
 export const Styles = () => (
         <Fragment>

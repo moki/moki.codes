@@ -7,7 +7,6 @@ import "../components/section/styles.css";
 import "../components/article-preview/styles.css";
 import "../components/textfield/styles.css";
 
-import "./styles.css";
 import "./section-hero.css";
 import "./section-articles.css";
 import "./section-code.css";

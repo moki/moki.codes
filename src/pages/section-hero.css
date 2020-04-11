@@ -1,36 +1,3 @@
-.section-hero {
-        position: relative;
-}
-
-.section-hero:before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-
-        left: 0;
-        top: 0;
-
-        transition: color var(--animation-duration-2xl)
-                        cubic-bezier(
-                                var(--animation-fn-standard-1),
-                                var(--animation-fn-standard-2),
-                                var(--animation-fn-standard-3),
-                                var(--animation-fn-standard-4)
-                        ),
-                background-color var(--animation-duration-2xl)
-                        cubic-bezier(
-                                var(--animation-fn-standard-1),
-                                var(--animation-fn-standard-2),
-                                var(--animation-fn-standard-3),
-                                var(--animation-fn-standard-4)
-                        );
-
-        height: 50%;
-        width: 100%;
-
-        background-color: var(--hero-bg-color);
-}
-
 .hero {
         display: flex;
         flex-wrap: wrap;
@@ -46,6 +13,10 @@
 
 .hero__text {
         flex: 1 100%;
+}
+
+.hero__text .card {
+        max-width: fit-content;
 }
 
 .hero__text .card__header {

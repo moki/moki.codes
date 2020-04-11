@@ -1,15 +1,8 @@
 import { h, Fragment } from "../../../lib/h";
 import { Map } from "../../../types/index";
+import { Route } from "../../layout";
 
-const NavigationItem = ({
-        path,
-        route,
-        routeName
-}: {
-        path: string;
-        route: string;
-        routeName: string;
-}) => {
+const NavigationItem = ({ path, route }: { path: string; route: Route }) => {
         const bcs = [
                 "list__item",
                 "text_line-height_m",
@@ -21,53 +14,28 @@ const NavigationItem = ({
         const acs = ["list__item_active"];
         const cs = (path: string, route: string) =>
                 [...bcs, ...(path === route ? acs : [])].join(" ");
-
         return (
                 <a
-                        href={route}
-                        class={cs(path, route)}
+                        href={route.url}
+                        class={cs(path, route.url)}
                         style="text-decoration: none;"
                 >
-                        {routeName}
+                        {route.name}
                 </a>
         );
 };
 
-const Navigation = ({
-        routes,
-        path,
-        ...rest
-}: {
-        routes: Map<string>;
-        path: string;
-}) => {
-        const items = [];
-
-        for (const route in routes) {
-                items.push(
-                        NavigationItem({
-                                path,
-                                route: routes[route],
-                                routeName: route
-                        })
-                );
-        }
-
+const Navigation = ({ routes, path }: { routes: Route[]; path: string }) => {
         return (
                 <ul class="list list_size_m" id="drawer-list">
-                        {items}
+                        {routes.map(e => (
+                                <NavigationItem route={e} path={path} />
+                        ))}
                 </ul>
         );
 };
 
-export const Drawer = ({
-        routes,
-        path,
-        ...rest
-}: {
-        routes: Map<string>;
-        path: string;
-}) => {
+export const Drawer = ({ routes, path }: { routes: Route[]; path: string }) => {
         return (
                 <Fragment>
                         <div class="drawer-scrim" id="drawer-scrim"></div>

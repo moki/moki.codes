@@ -8,7 +8,7 @@ export const Main = () => (
         </Fragment>
 );
 
-export const Title = () => <title>moki - code</title>;
+export const Title = () => <title>moki — code</title>;
 
 export const Styles = () => (
         <Fragment>
