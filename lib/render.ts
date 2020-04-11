@@ -5,6 +5,7 @@ const createElementFn = (type: any) => {
                 : document.createElement(type);
 };
 
+/*
 export const render = (vn: any, dn: Element) => {
         if (!vn) return;
 
@@ -32,7 +33,7 @@ export const render = (vn: any, dn: Element) => {
                 }
                 const nonTextNode = vn && vn.props && vn.props.children;
                 node = nonTextNode
-                        ? /*document.createElement(vn.type!)*/
+                        ? 
                           createElementFn(vn.type!)
                         : document.createTextNode(vn);
 
@@ -64,6 +65,7 @@ export const render = (vn: any, dn: Element) => {
 
         window.dispatchEvent(e);
 };
+*/
 
 const createElement = (tag: any, props: any) => {
         return `<${tag}${props &&
@@ -82,6 +84,30 @@ const createElement = (tag: any, props: any) => {
                         .join("")}</${tag}>`;
 };
 
-export const renderStatic = (vn: any) => createElement(vn.type, vn.props);
+export const renderStatic = (vn: any) => {
+        let r = "";
+        if (!Array.isArray(vn)) return createElement(vn.type, vn.props);
+        let i;
+        for (i = 0; i < vn.length; i++)
+                r += createElement(vn[i].type, vn[i].props);
+        return r;
+};
+
+export const render = (vn: any, dn: Element) => {
+        const r = renderStatic(vn);
+        dn.innerHTML = r;
+        let e: CustomEvent;
+        if (typeof CustomEvent === "function") {
+                e = new CustomEvent(VIRTUAL_DOM_RENDER_FINISH, {
+                        bubbles: false,
+                        detail: {}
+                });
+        } else {
+                e = document.createEvent("CustomEvent");
+                e.initCustomEvent(VIRTUAL_DOM_RENDER_FINISH, false, false, {});
+        }
+
+        window.dispatchEvent(e);
+};
 
 export const VIRTUAL_DOM_RENDER_FINISH = "moki.codes:vdom-render-finish";
