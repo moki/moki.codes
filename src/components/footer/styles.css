@@ -1,5 +1,7 @@
 .footer {
         padding: calc(var(--msp-1) * 1) 0;
+
+        background-color: var(--color-background);
 }
 
 .footer__container {

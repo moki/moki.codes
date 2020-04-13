@@ -18,7 +18,7 @@ const ArticlePreviewTag = ({ children }: { children?: any }) => (
 );
 
 const ArticlePreviewTitle = ({ children }: { children?: any }) => (
-        <h4 class="text_line-height_m text_size_xl text_weight_bold article-preview__title">
+        <h4 class="text_line-height_m text_size_l text_weight_bold article-preview__title">
                 {children}
         </h4>
 );
