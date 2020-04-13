@@ -90,3 +90,6 @@ typings/
 # builds
 dist/
 build/
+
+# certificates
+certificates/

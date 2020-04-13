@@ -1,4 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
+import https from "https";
+import fs from "fs";
+import path from "path";
 import webpack from "webpack";
 import wdm from "webpack-dev-middleware";
 import whm from "webpack-hot-middleware";
@@ -32,7 +35,21 @@ require.extensions[".css"] = () => {};
                 );
         });
 
-        app.listen(config.port, () => {
-                console.info(`development server localhost:${config.port}`);
+        const certpath = path.resolve(process.cwd(), "certificates");
+        const server = https.createServer(
+                {
+                        key: fs.readFileSync(
+                                path.resolve(certpath, "server.key")
+                        ),
+                        cert: fs.readFileSync(
+                                path.resolve(certpath, "server.crt")
+                        )
+                },
+                app
+        );
+
+        server.listen(config.port, () => {
+                /*console.info(`development server localhost:${config.port}`);*/
+                console.info(`dev server https://localhost:${config.port}`);
         });
 })();
