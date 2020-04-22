@@ -6,12 +6,14 @@ export const ButtonGhost = ({
         color,
         classes,
         styles,
-        elevation
+        elevation,
+        disabled
 }: {
         children?: any;
         size: "s" | "m" | "l";
         color: "primary" | "primary-light" | "primary-dark";
         elevation: number;
+        disabled?: boolean;
         classes?: string;
         styles?: string;
 }) => {
@@ -22,6 +24,7 @@ export const ButtonGhost = ({
                 <button
                         class={buttonClasses}
                         {...(styles ? { style: styles } : {})}
+                        {...(disabled ? { disabled: "" } : {})}
                 >
                         <span class={elevationClasses}></span>
                         {children}
@@ -35,12 +38,14 @@ export const ButtonRaised = ({
         color,
         classes,
         styles,
-        elevation
+        elevation,
+        disabled
 }: {
         children?: any;
         size: "s" | "m" | "l";
         color: "primary" | "primary-light" | "primary-dark";
         elevation: number;
+        disabled?: boolean;
         classes?: string;
         styles?: string;
 }) => {
@@ -48,7 +53,10 @@ export const ButtonRaised = ({
         if (classes) buttonClasses = buttonClasses + " " + classes;
         const elevationClasses = `elevation elevation_depth_${elevation} button__elevation`;
         return (
-                <button class={buttonClasses}>
+                <button
+                        class={buttonClasses}
+                        {...(disabled ? { disabled: "" } : {})}
+                >
                         <span class={elevationClasses}></span>
                         {children}
                 </button>
