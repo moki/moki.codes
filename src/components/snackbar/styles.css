@@ -9,6 +9,16 @@
         display: flex;
 }
 
+.snackbar_success {
+        --color-surface: var(--color-success);
+        --color-on-surface: var(--color-on-success);
+}
+
+.snackbar_error {
+        --color-surface: var(--color-error);
+        --color-on-surface: var(--color-on-error);
+}
+
 .snackbar__container {
         position: relative;
         bottom: var(--msp-1);
@@ -25,6 +35,7 @@
         min-width: calc(100vw - var(--gap) * 2);
 
         background-color: var(--color-surface);
+        color: var(--color-on-surface);
 }
 
 @media screen and (min-width: 480px) {

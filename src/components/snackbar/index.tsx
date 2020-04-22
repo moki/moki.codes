@@ -68,14 +68,17 @@ export type Snackbar = {
 export const Snackbar = ({
         message,
         timeout = 3000,
-        hidems = 350
+        hidems = 350,
+        status
 }: {
         message: string;
         timeout?: number;
         hidems?: number;
+        status?: string;
 }): Snackbar => {
         text.innerHTML = message;
         const root = snackbar.cloneNode(true) as HTMLElement;
+        if (status) root.classList.add(`snackbar_${status}`);
         const target = 100;
 
         function handleCloseClick(this: Snackbar, e: Event) {
