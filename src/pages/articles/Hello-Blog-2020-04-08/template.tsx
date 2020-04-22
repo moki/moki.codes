@@ -9,10 +9,20 @@ import { SubscribeFormTemplate as SubscribeForm } from "../../subscribe-form";
 
 const article = require("./" + config.article.name);
 
+const ArticleHeader = ({ children }: { children?: any }) => {
+        const classes = "article__header";
+        return <div class={classes}>{children}</div>;
+};
+
 const ArticleTag = ({ children }: { children?: any }) => {
         const classes =
                 "text_style_small-caps text_letter-spacing_m article__tag";
         return <h3 class={classes}>{children}</h3>;
+};
+
+const ArticleDate = ({ children }: { children?: any }) => {
+        const classes = "text_style_small-caps article__date";
+        return <div class={classes}>{children}</div>;
 };
 
 const ArticleTitle = ({ children }: { children?: any }) => {
@@ -43,9 +53,13 @@ const Article = ({
 }: any) => {
         return (
                 <div class="article">
-                        <ArticleTag>{article.tags.join(" \u2022 ")}</ArticleTag>
-                        <ArticleTitle>{title}</ArticleTitle>
-                        <ArticleSubtitle>{subtitle}</ArticleSubtitle>
+                        <ArticleHeader>
+                                <ArticleTag>
+                                        {article.tags.join(" \u2022 ")}
+                                </ArticleTag>
+                                <ArticleTitle>{title}</ArticleTitle>
+                                <ArticleSubtitle>{subtitle}</ArticleSubtitle>
+                        </ArticleHeader>
                         <ArticleText>
                                 <div class="p0">
                                         Hello, let me introduce myself: My name
@@ -104,6 +118,9 @@ const Article = ({
                                         I would Love to have your company!
                                 </div>
                         </ArticleText>
+                        <ArticleDate>
+                                {article.prettydate.split("-").join("/")}{" "}
+                        </ArticleDate>
                 </div>
         );
 };
