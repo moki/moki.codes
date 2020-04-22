@@ -12,6 +12,8 @@ import { ConfigurationFactory } from "./webpack/config";
 
 require.extensions[".css"] = () => {};
 
+process.env.API = config.api;
+
 (async () => {
         const configuration = await ConfigurationFactory("server", config);
         const compiler = await webpack(configuration);
@@ -35,21 +37,7 @@ require.extensions[".css"] = () => {};
                 );
         });
 
-        const certpath = path.resolve(process.cwd(), "certificates");
-        const server = https.createServer(
-                {
-                        key: fs.readFileSync(
-                                path.resolve(certpath, "server.key")
-                        ),
-                        cert: fs.readFileSync(
-                                path.resolve(certpath, "server.crt")
-                        )
-                },
-                app
-        );
-
-        server.listen(config.port, () => {
-                /*console.info(`development server localhost:${config.port}`);*/
-                console.info(`dev server https://localhost:${config.port}`);
+        app.listen(config.port, () => {
+                console.info(`development server localhost:${config.port}`);
         });
 })();

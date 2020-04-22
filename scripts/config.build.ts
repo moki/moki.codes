@@ -2,6 +2,7 @@ import path from "path";
 const assets = "dist";
 
 export default {
+        api: "https://api.moki.codes",
         /* assets */
         entry: {
                 sources: "src",

@@ -9,6 +9,8 @@ import config from "./config.build";
 import { ConfigurationFactory } from "./webpack/config";
 import { render } from "../src/server-render";
 
+process.env.API = config.api;
+
 const webtofs = (route: string): string => route.replace("/", "./");
 
 const appendDoctype = async (err: Error, html: string, route: string) => {

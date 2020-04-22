@@ -66,6 +66,7 @@ export const Layout = ({
                                 <Footer routes={routes} />
                                 <Scripts />
                         </body>
+                        <script>{`var API = "${process.env.API}"`}</script>
                 </html>
         );
 };
