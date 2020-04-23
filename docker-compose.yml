@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  frontend-server:
+    image: nginx:alpine
+    expose:
+      - ${VIRTUAL_PORT}
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=${VIRTUAL_PORT}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+    volumes:
+      - ./build:/usr/share/nginx/html:ro
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external:
+      name: nginx-proxy
