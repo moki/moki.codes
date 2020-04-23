@@ -6,77 +6,46 @@
 
 .footer__container {
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: space-between;
-}
-
-.footer__navigation {
-        display: flex;
-        flex: 1 0 0;
-
         flex-direction: column;
 }
 
-.footer__navigation-itemsgroup {
-        display: flex;
-        flex-direction: column;
-
-        margin-bottom: calc(var(--msp-1) / 4);
+.footer__navitem,
+.footer__brand {
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: 800;
 }
 
 .footer__brand {
-        margin-bottom: calc(var(--msp-1) / 2);
-        flex: 1 50%;
-}
-
-.footer__brand .link {
-        width: fit-content;
-}
-
-.footer__navigation-item {
-        line-height: var(--msp-1);
-        font-size: 24px;
-}
-
-.footer__navigation-subitem {
-        line-height: calc(var(--msp-1) / 2);
-        font-size: 20px;
-
-        padding: calc(var(--msp-1) / 4) 0;
-}
-
-.footer__navigation-subitem:last-of-type {
-        padding-bottom: calc(var(--msp-1) / 4);
-}
-
-.footer__navigation-item:last-of-type:not(:first-of-type) {
-        margin: 0;
-}
-
-.footer__navigation-item.link {
         opacity: 0.8 !important;
+
+        padding-bottom: calc(var(--msp-1) / 2);
 }
 
-.footer__navigation-item.link:hover {
+.footer__brand:hover {
         opacity: 0.9 !important;
 }
 
-@media screen and (min-width: 766px) {
-        .footer__navigation-item {
-                line-height: var(--msp-1);
-                font-size: 28px;
-        }
+.footer__nav {
+        flex-basis: auto;
+}
+
+.footer__navitem {
+        margin-right: var(--gap);
+}
+
+@media screen and (min-width: 480px) {
         .footer__container {
                 flex-direction: row;
+                justify-content: space-between;
         }
-        .footer__navigation {
-                flex-direction: row;
+        .footer__brand {
+                padding-bottom: 0;
         }
-        .footer__navigation-itemsgroup {
-                margin: 0 var(--gap) 0 0;
-        }
-        .footer__navigation-subitem {
-                padding-bottom: calc(var(--msp-1) / 4);
+
+        .footer__navitem,
+        .footer__brand {
+                font-size: 24px;
+                line-height: 24px;
         }
 }
