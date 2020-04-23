@@ -6,6 +6,7 @@
 .hero__media {
         flex: 1 100%;
         object-fit: cover;
+        object-position: top;
 
         width: 100%;
         max-height: 75vh;
@@ -57,9 +58,9 @@
         }
 
         .hero__title {
-                font-size: var(--msc-4);
+                font-size: var(--msc-4) !important;
 
-                line-height: calc(var(--msp-1) * 1.25);
+                line-height: calc(var(--msp-1) * 1.25) !important;
         }
 }
 
@@ -84,6 +85,7 @@
 
                 max-width: 50%;
                 height: auto;
+                max-height: fit-content;
         }
 
         .hero__text {

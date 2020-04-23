@@ -1,5 +1,5 @@
-.section-code:before {
-        z-index: -1;
+.section-code {
+        background-color: var(--color-background);
 }
 
 .section-code__title {

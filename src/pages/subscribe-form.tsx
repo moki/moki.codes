@@ -84,6 +84,7 @@ export const SubscribeFormTemplate = ({ elevation }: { elevation: number }) => {
                                         color="primary-light"
                                         elevation={1}
                                         classes={submitClasses}
+                                        disabled
                                 >
                                         Subscribe
                                 </ButtonGhost>
@@ -98,6 +99,7 @@ export type SubscribeForm = {
         id: string;
         root: Element;
         submit: Element;
+        submiturl: string;
         kitty: Element;
         fields: TextField[];
         isKittyTyping: boolean;
@@ -105,8 +107,10 @@ export type SubscribeForm = {
         focusinHandler: EventListener;
         focusoutHandler: EventListener;
         inputHandler: EventListener;
+        submitHandler: EventListener;
         isValidEvent(this: SubscribeForm, e: Event): boolean;
         validnessChange(this: SubscribeForm, e: Event): void;
+        Snackbar: (config: any) => void;
         destroy(): void;
 };
 
@@ -115,10 +119,12 @@ function validnessChange(this: SubscribeForm, e: Event) {
         let i = this.fields.length;
         for (; i--; ) if (!(valid = valid && this.fields[i].valid)) break;
         if (valid) {
+                this.submit.removeAttribute("disabled");
                 this.submit.classList.remove("button_disabled");
                 this.root.classList.add("subscribe-form_valid");
                 this.root.classList.remove("subscribe-form_invalid");
         } else {
+                this.submit.setAttribute("disabled", "");
                 this.submit.classList.add("button_disabled");
                 this.root.classList.add("subscribe-form_invalid");
                 this.root.classList.remove("subscribe-form_valid");
@@ -155,16 +161,99 @@ function isValidEvent(this: SubscribeForm, e: Event): boolean {
         return false;
 }
 
+function handleSubmit(this: SubscribeForm, e: Event) {
+        e.preventDefault();
+        let data = new FormData();
+        let i = this.fields.length;
+        for (; i--; ) {
+                data.append(this.fields[i].id, this.fields[i].value);
+                this.fields[i].input.setAttribute("disabled", "");
+        }
+        this.submit.setAttribute("disabled", "");
+        this.submit.classList.add("button_disabled");
+
+        const resetForm = () => {
+                i = this.fields.length;
+                for (; i--; ) {
+                        this.fields[i].input.removeAttribute("disabled");
+                        this.fields[i].input.classList.remove(
+                                "text-field__input_valid"
+                        );
+                        this.fields[i].value = this.fields[i].input.value = "";
+                        this.fields[i].emit(
+                                "focusout",
+                                {},
+                                true,
+                                this.fields[i].input
+                        );
+                }
+                this.formDirty = false;
+                this.root.classList.remove("subscribe-form_valid");
+        };
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("post", this.submiturl);
+        xhr.send(data);
+        xhr.onload = () => {
+                resetForm();
+
+                const message =
+                        xhr.status === 201
+                                ? {
+                                          text: "thanks for subscribing",
+                                          status: "success"
+                                  }
+                                : xhr.status === 400
+                                ? {
+                                          text: "invalid name or email",
+                                          status: "error"
+                                  }
+                                : xhr.status === 409
+                                ? {
+                                          text: "already subscribed",
+                                          status: "error"
+                                  }
+                                : {
+                                          text: "something went wrong",
+                                          status: "error"
+                                  };
+                this.Snackbar({
+                        message: message.text,
+                        timeout: 3000,
+                        hidems: 350,
+                        status: message.status
+                });
+        };
+        xhr.onerror = () => {
+                resetForm();
+
+                const message = {
+                        text: "something went wrong",
+                        status: "error"
+                };
+                this.Snackbar({
+                        message: message.text,
+                        timeout: 3000,
+                        hidems: 350,
+                        status: message.status
+                });
+        };
+}
+
 export const SubscribeForm = ({
         id,
         fields,
         submit,
-        kitty
+        kitty,
+        submiturl,
+        Snackbar
 }: {
         id: string;
         fields: TextField[];
         submit: Element;
         kitty: Element;
+        submiturl: string;
+        Snackbar: (config: any) => void;
 }) => {
         function _init(this: SubscribeForm) {
                 const root = document.querySelector(`#${id}`);
@@ -177,6 +266,7 @@ export const SubscribeForm = ({
                 this.focusinHandler = handleFocusin.bind(this);
                 this.focusoutHandler = handleFocusout.bind(this);
                 this.inputHandler = handleInput.bind(this);
+                this.submitHandler = handleSubmit.bind(this);
 
                 window.addEventListener(
                         strings.STATE_VALID_CHANGED_EVENT,
@@ -186,12 +276,14 @@ export const SubscribeForm = ({
                 window.addEventListener("focusin", this.focusinHandler);
                 window.addEventListener("focusout", this.focusoutHandler);
                 window.addEventListener("input", this.inputHandler);
+                this.submit.addEventListener("click", this.submitHandler);
         }
 
         function destroy(this: SubscribeForm) {
                 window.removeEventListener("focusin", this.focusinHandler);
                 window.removeEventListener("focusout", this.focusoutHandler);
                 window.removeEventListener("input", this.inputHandler);
+                this.submit.removeEventListener("click", this.submitHandler);
         }
 
         const self = {
@@ -199,6 +291,7 @@ export const SubscribeForm = ({
                 root: (null as unknown) as Element,
                 fields,
                 submit,
+                submiturl,
                 kitty,
                 isKittyTyping: false,
                 formDirty: false,
@@ -206,6 +299,7 @@ export const SubscribeForm = ({
                 focusinHandler: (null as unknown) as EventListener,
                 focusoutHandler: (null as unknown) as EventListener,
                 inputHandler: (null as unknown) as EventListener,
+                submitHandler: (null as unknown) as EventListener,
                 isValidEvent: (null as unknown) as (
                         this: SubscribeForm,
                         e: Event
@@ -214,6 +308,7 @@ export const SubscribeForm = ({
                         this: SubscribeForm,
                         e: Event
                 ) => void,
+                Snackbar,
                 destroy
         };
 

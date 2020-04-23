@@ -3,10 +3,12 @@ import "@moki.codes/mokui-button/dist/mokui-button.css";
 
 import { TextField, strings } from "../components/textfield";
 import { SubscribeForm } from "./subscribe-form";
+import { Snackbar } from "../components/snackbar";
 
 import "../components/section/styles.css";
 import "../components/article-preview/styles.css";
 import "../components/textfield/styles.css";
+import "../components/snackbar/styles.css";
 
 import "./section-hero.css";
 import "./section-articles.css";
@@ -40,7 +42,9 @@ export const load = () => {
                 id: "subform",
                 fields: [nameField, emailField],
                 submit,
-                kitty
+                submiturl: `${(window as any).API}/newsletter/subscribers`,
+                kitty,
+                Snackbar
         });
 };
 
