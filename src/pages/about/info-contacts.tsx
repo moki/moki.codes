@@ -23,7 +23,7 @@ const ListItem = ({
                 </li>
         );
         return url ? (
-                <a href={url} target="_blank" style="text-decoration: none;">
+                <a href={url} target="_blank" rel="noopener" style="text-decoration: none;">
                         {li()}
                 </a>
         ) : (

@@ -13,7 +13,15 @@ export const Main = () => (
         </Fragment>
 );
 
-export const Title = () => <title>moki — about</title>;
+export const Title = () => (
+        <Fragment>
+                <title>moki — about</title>
+                <meta
+                        name="description"
+                        content="Software Engineer with passion for web and systems programming"
+                />
+        </Fragment>
+);
 
 export const Styles = () => (
         <Fragment>

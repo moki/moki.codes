@@ -167,14 +167,26 @@ export const Main = () => {
 };
 
 export const Title = () => (
-        <title>
-                {article.title} — {article.subtitle}
-        </title>
+        <Fragment>
+                <title>
+                        {article.title} — {article.subtitle}
+                </title>
+                <meta
+                        name="description"
+                        content={`${article.title} — ${article.subtitle
+                                .split("<br/>")
+                                .join(" ")} ${article.tags.join(" ")}`}
+                />
+        </Fragment>
 );
 
 export const Styles = () => (
         <Fragment>
-                <link rel="stylesheet" type="text/css" href="/code/index.css" />
+                <link
+                        rel="stylesheet"
+                        type="text/css"
+                        href="/articles/Hello-Blog-2020-04-08/index.css"
+                />
                 <link rel="stylesheet" type="text/css" href="/global.css" />
                 <link
                         rel="stylesheet"
@@ -188,7 +200,10 @@ export const Scripts = () => (
         <Fragment>
                 <script defer src="/runtime.js"></script>
                 {/*<script defer src="/commons.js"></script>*/}
-                <script defer src="/code/index.js"></script>
+                <script
+                        defer
+                        src="/articles/Hello-Blog-2020-04-08/index.js"
+                ></script>
                 <script defer src="/global.js"></script>
                 <script defer src="/vendors~global.js"></script>
         </Fragment>

@@ -55,8 +55,16 @@ const templates = async () => {
         await fs.rmdir(path.resolve(process.cwd(), output), {
                 recursive: true
         });
-        /* pages */
-        const routes = ["/", "/about", "/code", "/articles"];
+        /* pages
+         * TODO: dynamic aggregation of articles
+         */
+        const routes = [
+                "/",
+                "/about",
+                "/code",
+                "/articles",
+                "/articles/Hello-Blog-2020-04-08"
+        ];
         let from, to;
         for (const r in routes) {
                 render(routes[r], appendDoctype);

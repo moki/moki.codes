@@ -23,7 +23,7 @@ export const Intro = ({ classes }: { classes?: string }) => (
                         <Header>Kirill Morozov</Header>
                         <Legend>
                                 Software Engineer with passion for web and
-                                system programming.
+                                systems programming.
                         </Legend>
                 </div>
         </div>
