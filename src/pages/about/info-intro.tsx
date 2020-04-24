@@ -1,5 +1,18 @@
 import { h, Fragment } from "../../../lib/h";
 
+let Headshot = { default: "./head-shot-sq.jpg" };
+
+if (
+        !(
+                typeof process !== "undefined" &&
+                process.versions &&
+                process.versions.node
+        )
+)
+        Headshot = require("./head-shot-sq.jpg") ?? {
+                default: ""
+        };
+
 const Header = ({ children }: { children?: any }) => (
         <h2 class="text_size_xl text_style_small-caps text_letter-spacing_m text_line-height_m text_weight_xbold info-intro__header">
                 {children}
@@ -15,8 +28,8 @@ const Legend = ({ children }: { children?: any }) => (
 export const Intro = ({ classes }: { classes?: string }) => (
         <div class={`info-intro ${classes}`}>
                 <img
+                        src={Headshot.default}
                         class="info-intro__media elevation elevation_depth_2"
-                        src="https://i.imgur.com/IdSXMe4.jpg"
                         alt="kirill morozov headshot"
                 />
                 <div class="info-intro__text">

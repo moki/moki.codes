@@ -82,6 +82,26 @@ const templates = async () => {
         from = path.resolve(process.cwd(), assets, webtofs("/"));
         to = path.resolve(process.cwd(), output, webtofs("/"));
         copyFiles(from, to, rgx);
+
+        /* media */
+        for (const r in routes) {
+                from = path.resolve(
+                        process.cwd(),
+                        config.entry.sources,
+                        sources,
+                        webtofs(routes[r])
+                );
+                to = path.resolve(process.cwd(), output, webtofs(routes[r]));
+                copyFiles(from, to, /.jpg$/);
+        }
+        from = path.resolve(
+                process.cwd(),
+                config.entry.sources,
+                sources,
+                webtofs("/")
+        );
+        to = path.resolve(process.cwd(), output, webtofs("/"));
+        copyFiles(from, to, /\.jpg$/);
 };
 
 (async () => {

@@ -11,11 +11,22 @@ import { Container } from "../components/container";
 import { Section } from "../components/section";
 import { ButtonGhost, ButtonRaised } from "../components/button";
 
+let Headshot = { default: "./head-shot.jpg" };
+
+if (
+        !(
+                typeof process !== "undefined" &&
+                process.versions &&
+                process.versions.node
+        )
+)
+        Headshot = require("./head-shot.jpg") ?? { default: "" };
+
 const Media = () => {
         return (
                 <img
+                        src={Headshot.default}
                         class="hero__media elevation elevation_depth_1"
-                        src="https://i.imgur.com/A6hNrWQ.jpg"
                         alt="kirill morozov headshot"
                 />
         );

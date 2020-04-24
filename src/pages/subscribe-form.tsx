@@ -180,6 +180,7 @@ function handleSubmit(this: SubscribeForm, e: Event) {
                                 "text-field__input_valid"
                         );
                         this.fields[i].value = this.fields[i].input.value = "";
+                        this.fields[i].valid = false;
                         this.fields[i].emit(
                                 "focusout",
                                 {},

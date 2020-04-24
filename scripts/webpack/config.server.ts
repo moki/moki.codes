@@ -2,6 +2,7 @@ import { Configuration } from "webpack";
 import { entry } from "./entry";
 import { ts } from "./module.rules.ts";
 import { css } from "./module.rules.css";
+import { images } from "./module.rules.images";
 import { plugins } from "./plugins";
 import { output } from "./output";
 
@@ -13,7 +14,7 @@ export const ServerConfiguration = async (
         mode: "development",
         entry: entry("server", config.entry),
         module: {
-                rules: [ts(), css("server")]
+                rules: [images(), ts(), css("server")]
         },
         resolve: {
                 extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
