@@ -166,7 +166,10 @@ function handleSubmit(this: SubscribeForm, e: Event) {
         let data = new FormData();
         let i = this.fields.length;
         for (; i--; ) {
-                data.append(this.fields[i].id, this.fields[i].value);
+                data.append(
+                        this.fields[i].id,
+                        this.fields[i].value.toLowerCase()
+                );
                 this.fields[i].input.setAttribute("disabled", "");
         }
         this.submit.setAttribute("disabled", "");
