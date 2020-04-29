@@ -1,16 +1,22 @@
 {
         "compilerOptions": {
+                "baseUrl": ".",
+                "paths": {
+                        "src/": ["src/*"],
+                        "lib/": ["lib/*"]
+                },
                 "esModuleInterop": true,
                 "allowSyntheticDefaultImports": true,
-                "moduleResolution": "node",
                 "isolatedModules": true,
                 "allowJs": true,
                 "noEmit": true,
                 "strict": true,
-                "types": ["node", "webpack-env"],
                 "target": "esnext",
                 "jsx": "react",
-                "jsxFactory": "h"
+                "jsxFactory": "h",
+                "strict": true,
+                "moduleResolution": "node",
+                "module": "esnext"
         },
         "exclude": [
                 "node_modules"

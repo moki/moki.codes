@@ -1,14 +1,14 @@
 module.exports = {
         settings: {
                 pragma: "h",
-                pragmaFrag: "f"
+                pragmaFrag: "Fragment"
         },
         parser: "@typescript-eslint/parser",
         parserOptions: {
                 ecmaFeatures: {
                         jsx: true
                 },
-                project: "./tsconfig.json",
+                project: "tsconfig.json",
                 tsconfigRootDir: __dirname
         },
         extends: [
@@ -22,10 +22,9 @@ module.exports = {
         env: {
                 es2020: true,
                 browser: true,
-                node: true
         },
         rules: {
                 "react/jsx-uses-react": "error",
-                "no-unused-vars": ["error", { varsIgnorePattern: "^h$" }]
+                //"no-unused-vars": ["error", { varsIgnorePattern: "^h$" }]
         }
 };
