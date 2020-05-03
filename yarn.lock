@@ -1227,6 +1227,11 @@ word-wrap@~1.2.3:
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
+wouter-preact@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/wouter-preact/-/wouter-preact-2.4.0.tgz#7e9bef3293408b1fc2fe1346da08152dffbce850"
+  integrity sha512-QdqZpG3F5C3MHrQf04sGyEF9ZbTeD+ShnlxiOzc33XTRri3hXe+eVXlvyem4IOr4YnKwhx3klu8ti3ItQiQGVQ==
+
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"

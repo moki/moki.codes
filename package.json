@@ -5,7 +5,7 @@
   "author": "Kirill Morozov (moki) <morozov.kirill.moki@gmail.com>",
   "repository": "git@github.com:moki/moki.codes.git",
   "scripts": {
-        "server": "modd -f dev.conf"
+    "server": "modd -f dev.conf"
   },
   "private": true,
   "devDependencies": {
@@ -19,6 +19,7 @@
     "eslint-plugin-react": "^7.18.3",
     "preact": "^10.4.1",
     "prettier": "^1.19.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "wouter-preact": "^2.4.0"
   }
 }
