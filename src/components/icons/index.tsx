@@ -3,6 +3,7 @@ import { render, h } from "preact";
 export const Sun = (props: any) => (
         <svg
                 {...props}
+                style="margin-top: -1px;"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="white"
@@ -17,6 +18,7 @@ export const Sun = (props: any) => (
 export const Moon = (props: any) => (
         <svg
                 {...props}
+                style="margin-top: -1px;"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="white"
@@ -31,6 +33,7 @@ export const Moon = (props: any) => (
 export const Menu = (props: any) => (
         <svg
                 {...props}
+                style="margin-top: -1px;"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="white"
