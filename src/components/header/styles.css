@@ -1,10 +1,11 @@
 .header {
         position: relative;
+        z-index: 4;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0 16px;
-        height: 48px;
+        height: 56px;
         background-color: var(--color-primary);
         color: var(--color-on-primary);
 }
