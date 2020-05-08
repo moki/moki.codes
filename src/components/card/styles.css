@@ -8,6 +8,14 @@
         position: relative;
 }
 
+.card_inset .card__elevation {
+        opacity: 0;
+}
+
+.card_inset:hover .card__elevation {
+        opacity: 1;
+}
+
 .card__elevation {
         opacity: 0;
         transform: translateZ(0);

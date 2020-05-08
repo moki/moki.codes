@@ -1,5 +1,4 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
 
 export type CardProps = JSX.IntrinsicElements & {
         classes?: string;
@@ -17,26 +16,15 @@ export function Card({
         inset,
         ...rest
 }: CardProps) {
-        const [depth, setDepth] = useState(~~~inset!);
-        const _classes = `card${classes ? " " + classes : ""}`;
+        const _classes =
+                `card` +
+                `${inset ? " " + "card_inset" : ""}` +
+                `${classes ? " " + classes : ""}`;
         const elevationClasses = `card__elevation elevation elevation_depth_${elevation}`;
-        const elevationStyles = `opacity: ${inset ? depth : 1}`;
-
-        const insetMixin = {
-                onMouseOver: (e: Event) => {
-                        setDepth(Math.abs(depth - 1));
-                },
-                onMouseOut: (e: Event) => {
-                        setDepth(Math.abs(depth - 1));
-                }
-        };
 
         return (
-                <div class={_classes} {...rest} {...(inset ? insetMixin : {})}>
-                        <div
-                                class={elevationClasses}
-                                style={elevationStyles}
-                        ></div>
+                <div class={_classes} {...rest}>
+                        <div class={elevationClasses}></div>
                         {media ?? ""}
                         <div class="card__text">{children}</div>
                 </div>
