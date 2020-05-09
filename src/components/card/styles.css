@@ -69,7 +69,7 @@
                 margin-bottom: 8px;
         }
 
-        .card__actions > *:last-of-type {
+        .card__actions > *:last-child {
                 margin-bottom: 0;
         }
 }
@@ -91,7 +91,7 @@
                 margin-right: 8px;
         }
 
-        .card__actions > *:last-of-type {
+        .card__actions > *:last-child {
                 margin-right: 0;
         }
 }
