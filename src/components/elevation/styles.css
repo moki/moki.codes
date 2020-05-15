@@ -24,14 +24,40 @@
         background-color: var(--color-on-surface);
 }
 
+.elevation_depth_0 {
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
+                0px 0px 0px 0px rgba(0, 0, 0, 0.14),
+                0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+}
+
+.elevation_depth_1 {
+        box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+                0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+                0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.theme_color_dark .elevation_depth_1:before {
+        opacity: 0.05;
+}
+
+.elevation_depth_2 {
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+                0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.theme_color_dark .elevation_depth_2:before {
+        opacity: 0.07;
+}
+
 .elevation_depth_4 {
         box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
                 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
                 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.theme_color_dark .elevation_depth_8:before {
-        opacity: 0.12;
+.theme_color_dark .elevation_depth_4:before {
+        opacity: 0.09;
 }
 
 .elevation_depth_8 {
@@ -40,6 +66,6 @@
                 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.theme_color_dark .elevation_depth_4:before {
-        opacity: 0.09;
+.theme_color_dark .elevation_depth_8:before {
+        opacity: 0.12;
 }
