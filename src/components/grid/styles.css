@@ -5,7 +5,6 @@
         gap: var(--gap);
         padding-left: var(--gap);
         padding-right: var(--gap);
-        margin: 0 auto;
 }
 
 @media screen and (min-width: 600px) {
