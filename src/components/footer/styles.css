@@ -1,0 +1,49 @@
+.footer {
+        position: relative;
+        padding: 72px 16px;
+        background-color: var(--color-primary-dark);
+        color: var(--color-on-primary-dark);
+}
+
+.footer > *:not(.elevation) {
+        position: relative;
+}
+
+.footer__brand {
+        opacity: 0.7;
+        text-transform: uppercase;
+        letter-spacing: 0.05px;
+        text-decoration: none;
+        line-height: 24px;
+        font-weight: 300;
+        font-size: 28px;
+}
+
+.footer__nav {
+        padding-top: 48px;
+}
+
+.footer__navi {
+        cursor: pointer;
+        color: var(--color-on-primary-dark);
+        text-transform: uppercase;
+        text-decoration: none;
+        line-height: 24px;
+        font-weight: 600;
+        font-size: 16px;
+}
+
+.footer__navi + .footer__navi {
+        margin-left: 8px;
+}
+
+.footer__copy {
+        opacity: 0.8;
+        border-top: solid var(--color-on-primary-dark) thin;
+        padding-top: 24px;
+        margin-top: 24px;
+        text-transform: uppercase;
+        line-height: 16px;
+        font-weight: 300;
+        font-size: 14px;
+}
