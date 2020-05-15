@@ -2,6 +2,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
+        background-color: var(--color-surface);
 }
 
 .card > *:not(.elevation) {
@@ -35,15 +36,29 @@
 }
 
 .card__text {
-        padding: 16px 0;
+        padding-bottom: 16px;
 }
 
 .card__header {
-        padding: 0 16px;
+        position: relative;
+        padding: 16px;
+}
+
+.card__header_elevated {
+        background-color: var(--color-surface);
+        color: var(--color-on-surface);
+}
+
+.card__header > *:not(.card__header-elevation) {
+        position: relative;
+}
+
+.card__header_elevated + .card__body {
+        padding-top: 16px;
 }
 
 .card__body {
-        padding: 16px 16px 0 16px;
+        padding: 0 16px;
 }
 
 .card__actions {
@@ -81,6 +96,10 @@
 
         .card__media {
                 height: auto;
+        }
+
+        .card__text {
+                flex: 1 100%;
         }
 
         .card__actions {

@@ -2,7 +2,7 @@ import { h } from "preact";
 
 export type CardProps = JSX.IntrinsicElements & {
         classes?: string;
-        elevation?: number;
+        elevation?: SurfaceElevation;
         media?: ReturnType<typeof CardMedia>;
         inset?: boolean;
         children?: JSX.Element | JSX.Element[];
@@ -49,7 +49,7 @@ export function CardMedia({
         const _classes = `card__media${classes ? " " + classes : ""}`;
         const style =
                 `${styles ? styles : ""}` +
-                `background-image: url("${url}");` +
+                `${url ? `background-image: url(${url});` : ""}` +
                 `width: ${width};`;
         return (
                 <div class={_classes} style={style} {...rest}>
@@ -60,17 +60,24 @@ export function CardMedia({
 
 export type CardHeaderProps = JSX.IntrinsicElements & {
         classes?: string;
+        elevation?: SurfaceElevation;
         children?: JSX.Element | JSX.Element[];
 };
 
 export function CardHeader({
         classes = "",
+        elevation = 0,
         children,
         ...rest
 }: CardHeaderProps) {
-        const _classes = `card__header${classes ? " " + classes : ""}`;
+        const _classes =
+                `card__header` +
+                `${elevation ? " " + "card__header_elevated" : ""}` +
+                `${classes ? " " + classes : ""}`;
+        const shadowClasses = `card__header-elevation elevation elevation_depth_${elevation}`;
         return (
                 <div class={_classes} {...rest}>
+                        <div class={shadowClasses}></div>
                         {children}
                 </div>
         );
