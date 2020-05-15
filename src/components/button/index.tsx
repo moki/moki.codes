@@ -1,71 +1,81 @@
 import { h, Fragment } from "preact";
 import { useState } from "preact/hooks";
 
+export type ButtonType = "contained" | "outlined" | "flat";
+
+export type ButtonState = 0 | 1 | 2;
+
 export type ButtonProps = JSX.IntrinsicElements & {
         children?: JSX.Element | JSX.Element[];
         disabled?: boolean;
         classes?: string;
         href?: string;
-        type: "contained" | "outlined" | "flat";
+        appearance: ButtonType;
 };
+
+type ButtonShadowsProps = {
+        appearance: ButtonType;
+        state: ButtonState;
+};
+
+function ButtonShadows({ appearance, state }: ButtonShadowsProps) {
+        return appearance === "flat" ? (
+                <div
+                        class="button__shadow button_flat__shadow elevation"
+                        style={`opacity: ${
+                                !state ? 0 : state === 1 ? 0.14 : 0.38
+                        }`}
+                ></div>
+        ) : (
+                <Fragment>
+                        <div
+                                class="button__shadow elevation elevation_depth_2"
+                                style={`opacity: ${!state ? 1 : 0}`}
+                        ></div>
+                        <div
+                                class="button__shadow elevation elevation_depth_4"
+                                style={`
+                        opacity: ${state === 1 ? 1 : 0}
+                        `}
+                        ></div>
+                        <div
+                                class="button__shadow elevation elevation_depth_8"
+                                style={`
+                        opacity: ${state === 2 ? 1 : 0}
+                        `}
+                        ></div>
+                </Fragment>
+        );
+}
 
 export function Button({
         children,
         disabled = false,
         classes = "",
         href = "",
-        type,
+        appearance,
         ...rest
 }: ButtonProps) {
-        const [depth, setDepth] = useState(0);
+        const [state, setState] = useState(0 as ButtonState);
 
         let _classes =
                 "button" +
                 " " +
-                `button_${type}` +
+                `button_${appearance}` +
                 `${href ? " " + "button_link" : ""}` +
                 `${classes ? " " + classes : ""}` +
                 `${disabled ? " " + "button_disabled" : ""}`;
 
-        const shadows =
-                type === "flat" ? (
-                        <div
-                                class="button__shadow button_flat__shadow elevation"
-                                style={`opacity: ${
-                                        !depth ? 0 : depth === 1 ? 0.14 : 0.38
-                                }`}
-                        ></div>
-                ) : (
-                        <Fragment>
-                                <div
-                                        class="button__shadow elevation elevation_depth_2"
-                                        style={`opacity: ${!depth ? 1 : 0}`}
-                                ></div>
-                                <div
-                                        class="button__shadow elevation elevation_depth_4"
-                                        style={`
-                        opacity: ${depth === 1 ? 1 : 0}
-                        `}
-                                ></div>
-                                <div
-                                        class="button__shadow elevation elevation_depth_8"
-                                        style={`
-                        opacity: ${depth === 2 ? 1 : 0}
-                        `}
-                                ></div>
-                        </Fragment>
-                );
-
         const shadowMixin = {
                 onMouseOver: function(e: Event) {
-                        setDepth(1);
+                        setState(1);
                 },
                 onMouseOut: function(e: Event) {
-                        setDepth(0);
+                        setState(0);
                 },
                 onMouseDown: function(e: Event) {
                         e.preventDefault();
-                        setDepth(2);
+                        setState(2);
                 }
         };
 
@@ -77,7 +87,7 @@ export function Button({
                         {...(!disabled ? shadowMixin : {})}
                         {...rest}
                 >
-                        {shadows}
+                        <ButtonShadows appearance={appearance} state={state} />
                         {children}
                 </a>
         ) : (
@@ -87,7 +97,7 @@ export function Button({
                         {...(!disabled ? shadowMixin : {})}
                         {...rest}
                 >
-                        {shadows}
+                        <ButtonShadows appearance={appearance} state={state} />
                         {children}
                 </button>
         );
