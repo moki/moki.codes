@@ -1,0 +1,81 @@
+.text-field {
+        --border-color: rgba(0, 0, 0, 0.14);
+        position: relative;
+        transform: translateZ(0);
+        transition: border-color 0.1s cubic-bezier(0.4, 0, 0.6, 1);
+        border: solid var(--border-color) 2px;
+}
+
+.text-field + .text-field {
+        margin-top: 16px;
+}
+
+.theme_color_dark .text-field {
+        --border-color: rgba(255, 255, 255, 0.14);
+}
+
+.text-field:not(.text-field_selected):hover {
+        --border-color: rgba(0, 0, 0, 0.38);
+}
+
+.theme_color_dark .text-field:not(.text-field_selected):hover {
+        --border-color: rgba(255, 255, 255, 0.38);
+}
+
+.text-field_selected {
+        --border-color: rgba(0, 0, 0, 1);
+}
+
+.theme_color_dark .text-field_selected {
+        --border-color: rgba(255, 255, 255, 1);
+}
+
+.text-field_valid {
+        --border-color: var(--color-success) !important;
+}
+
+.text-field_invalid {
+        --border-color: var(--color-error) !important;
+}
+
+.text-field__input {
+        width: 100%;
+        padding: 16px;
+        border: none !important;
+        outline: none !important;
+        background-color: transparent;
+        caret-color: var(--color-on-surface);
+        color: var(--color-on-surface);
+        font-family: unset;
+        line-height: 16px;
+        font-weight: 300;
+        font-size: 16px;
+}
+
+.text-field__label {
+        position: absolute;
+        left: 16px;
+        top: 18px;
+        opacity: 0.6;
+        transform: translateZ(0);
+        will-change: opacity, transform;
+        transition: opacity 0.1s cubic-bezier(0.4, 0, 0.6, 1),
+                transform 0.11s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: transparent;
+        cursor: text;
+        line-height: 16px;
+        font-size: 16px;
+        color: var(--color-on-surface);
+}
+
+.text-field__label:not(.text-field__label_selected):hover {
+        opacity: 0.8;
+}
+
+.text-field__label_selected {
+        opacity: 1;
+        transform: translate(-8px, -30px);
+        padding: 4px 8px;
+        height: auto;
+        background-color: var(--color-surface);
+}
