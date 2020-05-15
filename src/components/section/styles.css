@@ -1,0 +1,14 @@
+.section {
+        --vspace: 16px;
+        padding-top: var(--vspace);
+}
+
+.section:last-child {
+        padding-bottom: var(--vspace);
+}
+
+@media screen and (min-width: 720px) {
+        .section {
+                --vspace: 24px;
+        }
+}
