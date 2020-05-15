@@ -17,9 +17,17 @@
         font-feature-settings: "liga";
 }
 
+::selection {
+        background-color: rgba(0, 0, 0, 0.12);
+}
+
+.theme_color_dark ::selection {
+        background-color: rgba(255, 255, 255, 0.12);
+}
+
 .theme_color_light {
         --color-primary: #373838;
-        --color-primary-light: ##616262;
+        --color-primary-light: #616262;
         --color-primary-dark: #111212;
 
         --color-secondary: #0f4c81;
@@ -49,12 +57,6 @@
         --color-primary: #373838;
         --color-primary-light: ##616262;
         --color-primary-dark: #111212;
-
-        /*
-        --color-primary: #2a2a35;
-        --color-primary-light: #53525f;
-        --color-primary-dark: #00000f;
-*/
 
         --color-secondary: #0f4c81;
         --color-secondary-light: #4c77b1;
