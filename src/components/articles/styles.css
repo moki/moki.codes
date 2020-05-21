@@ -13,6 +13,12 @@
         padding: 16px 16px;
         line-height: 16px;
         border-top: solid var(--border-color) thin;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
 }
 
