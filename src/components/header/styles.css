@@ -28,6 +28,13 @@
         cursor: pointer;
         transform: translateZ(0);
         transition: opacity 0.1s cubic-bezier(0.4, 0, 0.6, 1);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 }
 
 .header__item:hover {
@@ -63,15 +70,6 @@
 
 .header__navi:not(:first-of-type) {
         display: none;
-}
-
-.header__primary,
-.header__secondary {
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -o-user-select: none;
-        user-select: none;
 }
 
 @media screen and (min-width: 600px) {
