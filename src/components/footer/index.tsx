@@ -2,8 +2,6 @@ import { render, h } from "preact";
 import { Elevation } from "src/components/elevation";
 import { RouterLink } from "src/components/router-link";
 
-//import { useLocation } from "wouter-preact";
-
 export type Route = {
         name: string;
         url: string;
