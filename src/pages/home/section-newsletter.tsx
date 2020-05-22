@@ -28,7 +28,7 @@ export function NewsletterForm() {
         function handleSubmit(e: Event) {
                 if (!submitable) return;
                 e.preventDefault();
-                // TODO: handle form submittion
+                // TODO: handle form submit
                 console.log(name, email);
         }
 

@@ -2,6 +2,7 @@ import { h } from "preact";
 import { Card, CardHeader, CardBody, CardActions } from "src/components/card";
 import { Section } from "src/components/section";
 import { Button } from "src/components/button";
+import { handleClick } from "src/components/router-link";
 
 const Title = <div class="section-code__title">Code</div>;
 const Subtitle = (
@@ -32,7 +33,10 @@ export function SectionCode() {
                                         </p>
                                 </CardBody>
                                 <CardActions>
-                                        <Button appearance="outlined">
+                                        <Button
+                                                appearance="outlined"
+                                                onClick={handleClick("/code")}
+                                        >
                                                 check it
                                         </Button>
                                 </CardActions>

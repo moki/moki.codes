@@ -1,4 +1,5 @@
 import { h } from "preact";
+import { useEffect } from "preact/hooks";
 
 import { insertStyles } from "lib/insertStyles";
 import { resolveDefault } from "lib/resolveDefault";
@@ -10,7 +11,6 @@ import { Section } from "src/components/section";
 import { Animation } from "src/components/animation";
 
 import { Content } from "./content";
-import { ASideRight } from "./aside-right";
 import { SectionAbout } from "./section-about";
 import { SectionArticles } from "./section-articles";
 import { SectionCode } from "./section-code";
@@ -22,37 +22,18 @@ export function Home() {
         const styles =
                 `opacity: ${1 * animateOpacity};` +
                 `transform: translateY(${32 - animatePosY * 32}px);`;
-
-        //if (animatePosY === 1) window.scrollTo(0, 0);
+        useEffect(() => {
+                if (animatePosY === 1) window.scrollTo(0, 0);
+        });
 
         return (
-                <Main classes="grid container" style={styles}>
+                <Main classes="grid container container_home" style={styles}>
                         <Content>
                                 <SectionAbout />
                                 <SectionArticles />
                                 <SectionCode />
                                 <SectionNewsletter />
                         </Content>
-                        {/* TODO: scroll-spy */}
-                        {/*<ASideRight>
-                                <Section>
-                                        <div class="card">
-                                                <div class="elevation elevation_depth_1"></div>
-                                                <div class="card__text">
-                                                        <div class="card__header">
-                                                                <div class="section-about__overline">
-                                                                        hey, my
-                                                                        name is
-                                                                </div>
-                                                                <div class="section-about__overline">
-                                                                        kirill
-                                                                        morozov
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </Section>
-                        </ASideRight>*/}
                 </Main>
         );
 }

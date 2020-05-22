@@ -3,6 +3,7 @@ import { Card, CardHeader, CardBody, CardActions } from "src/components/card";
 import { Section } from "src/components/section";
 import { Button } from "src/components/button";
 import { Articles } from "src/components/articles";
+import { handleClick } from "src/components/router-link";
 
 const articles: Articles = [
         {
@@ -71,7 +72,12 @@ export function SectionArticles() {
                                         <Articles articles={articles} />
                                 </CardBody>
                                 <CardActions>
-                                        <Button appearance="outlined">
+                                        <Button
+                                                appearance="outlined"
+                                                onClick={handleClick(
+                                                        "/articles"
+                                                )}
+                                        >
                                                 see all
                                         </Button>
                                 </CardActions>

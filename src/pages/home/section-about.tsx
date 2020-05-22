@@ -9,34 +9,40 @@ import {
 } from "src/components/card";
 import { Button } from "src/components/button";
 import { Section } from "src/components/section";
-import { RouterLink } from "src/components/router-link";
+import { RouterLink, handleClick } from "src/components/router-link";
 
-import { useLocation } from "wouter-preact";
+//const headshotUrl = "/headshot.jpg";
+//const headshotUrl = "/kirill-morozov-0.jpg";
 
 const Headshot = (
         <CardMedia
-                url="/headshot.jpg"
+                url="/kirill-morozov-0.jpg"
                 width="288px"
                 classes="section-about__media"
         />
 );
 const Overline = <div class="section-about__overline">hey, my name is</div>;
 const Title = <div class="section-about__title">kirill morozov</div>;
-const Contact = (
-        <Button
-                classes="section-about__action-contained"
-                appearance="contained"
-        >
-                contact me
-        </Button>
-);
-const Learn = (
-        <Button classes="section-about__action-outlined" appearance="outlined">
-                learn more
-        </Button>
-);
 
 export function SectionAbout() {
+        const Contact = (
+                <Button
+                        classes="section-about__action-contained"
+                        appearance="contained"
+                        onClick={handleClick("/about#contacts")}
+                >
+                        Contact me
+                </Button>
+        );
+        const Learn = (
+                <Button
+                        classes="section-about__action-outlined"
+                        appearance="outlined"
+                        onClick={handleClick("/about")}
+                >
+                        learn more
+                </Button>
+        );
         return (
                 <Section>
                         <Card elevation={1} media={Headshot}>
