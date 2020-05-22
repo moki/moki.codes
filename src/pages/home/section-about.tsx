@@ -11,12 +11,9 @@ import { Button } from "src/components/button";
 import { Section } from "src/components/section";
 import { RouterLink, handleClick } from "src/components/router-link";
 
-//const headshotUrl = "/headshot.jpg";
-//const headshotUrl = "/kirill-morozov-0.jpg";
-
 const Headshot = (
         <CardMedia
-                url="/kirill-morozov-0.jpg"
+                url="static/kirill-morozov-0.jpg"
                 width="288px"
                 classes="section-about__media"
         />

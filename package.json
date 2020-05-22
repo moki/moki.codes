@@ -6,7 +6,11 @@
   "repository": "git@github.com:moki/moki.codes.git",
   "scripts": {
     "server": "modd -f dev.conf",
-    "build": "yarn babel dist/index.min.js --out-file build/index.min.js"
+    "build:clean": "rm -rf ./dist ./build && mkdir ./dist",
+    "build:esbuild": "yarn esbuild --name=bundle --bundle --outdir=dist --jsx-factory=h --jsx-fragment=Fragment --loader:.css=text --minify --define:process.env.NODE_ENV=\"production\" ./src/index.tsx",
+    "build:babel": "yarn babel dist/index.min.js --out-file build/index.min.js",
+    "build:static": "cp -r ./static ./build/ && cp src/index.html build/index.html",
+    "build": "yarn && yarn build:clean && yarn build:esbuild && yarn build:babel && yarn build:static"
   },
   "private": true,
   "devDependencies": {
