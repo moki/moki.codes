@@ -1,0 +1,33 @@
+.section-about__left {
+        flex: 1 1 100%;
+        padding: 0 var(--vspace);
+}
+
+.section-about__right {
+        flex: 1 1 100%;
+        padding: 0 var(--vspace);
+}
+
+.info-block-contacts__item {
+        margin-top: 16px;
+        display: block;
+        width: 100%;
+}
+
+.info-block-contacts__item-text {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+.info-block-contacts__item + .info-block-contacts__item {
+        margin-top: 8px;
+}
+
+@media screen and (max-width: 600px) {
+        .section-about__right {
+                padding-top: var(--vspace);
+        }
+}

@@ -1,0 +1,63 @@
+.section-intro {
+        align-items: center;
+        border-bottom: solid rgba(0, 0, 0, 0.14) thin;
+}
+
+.theme_color_dark .section-intro {
+        border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+.section-about__headshot {
+        margin: 0 0 var(--vspace) var(--vspace);
+        background-image: url(/kirill-morozov-0.jpg);
+        min-width: 144px;
+        min-height: 144px;
+        border-radius: 100%;
+        background-color: var(--color-primary);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+}
+
+.section-about__intro-text {
+        padding: var(--vspace);
+        height: fit-content;
+}
+
+.section-about__intro-title {
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        line-height: 24px;
+        font-weight: 900;
+        font-size: 32px;
+}
+
+.section-about__intro-subtitle {
+        line-height: 24px;
+        font-weight: 300;
+        font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+        .section-intro {
+                padding-top: 0;
+        }
+        .section-about__headshot {
+                border-radius: 0;
+                margin: 0;
+                height: 288px !important;
+                width: 100% !important;
+        }
+        .section-about__intro-text {
+                width: 100%;
+        }
+}
+
+@media screen and (min-width: 600px) {
+        .section-about__intro-subtitle {
+                font-size: 20px;
+        }
+        .section-about__intro-text {
+                padding-top: 0;
+        }
+}
