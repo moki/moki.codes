@@ -1,10 +1,4 @@
-.form {
-        background-color: purple;
-        font-size: 10px;
-}
-
-@media screen and (min-width: 600px) {
-        .form {
-                background-color: pink;
-        }
+html,
+body {
+        height: 100%;
 }
