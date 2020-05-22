@@ -5,10 +5,14 @@
   "author": "Kirill Morozov (moki) <morozov.kirill.moki@gmail.com>",
   "repository": "git@github.com:moki/moki.codes.git",
   "scripts": {
-    "server": "modd -f dev.conf"
+    "server": "modd -f dev.conf",
+    "build": "yarn babel dist/index.min.js --out-file build/index.min.js"
   },
   "private": true,
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@types/node": "^13.7.7",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
