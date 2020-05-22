@@ -1,0 +1,15 @@
+.content {
+        grid-column: span 4;
+}
+
+@media screen and (min-width: 600px) {
+        .content {
+                grid-column: span 8;
+        }
+}
+
+@media screen and (min-width: 840px) {
+        .content {
+                grid-column: span 12;
+        }
+}
