@@ -16,7 +16,7 @@ export type DrawerProps = JSX.IntrinsicElements & {
 export function Drawer({ open, close, routes, ...rest }: DrawerProps) {
         const scrimStyles = open
                 ? "opacity: .6;" + "z-index:25;"
-                : "opacity: 0;" + "z-index: 0;";
+                : "opacity: 0;" + "z-index: -1;";
         const drawerStyles = open
                 ? "transform: translateX(0%);z-index:25;"
                 : "transform: translateX(-100%);z-index: 25;";
