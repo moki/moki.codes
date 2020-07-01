@@ -8,6 +8,7 @@ export type TextFieldProps = JSX.IntrinsicElements & {
         updateValue?: any;
         type: "text" | "email";
         classes?: string;
+        id: string;
 };
 
 /* TODO: Merge FSM? */
@@ -32,6 +33,7 @@ export function TextField({
         updateValue,
         classes,
         type,
+        id,
         ...rest
 }: TextFieldProps) {
         const input = useRef(null);
@@ -79,8 +81,9 @@ export function TextField({
                                 onBlur={handleUnFocus}
                                 onFocus={handleFocus}
                                 onInput={handleInput}
+                                id={id}
                         />
-                        <label class={labelClasses}>
+                        <label class={labelClasses} for={id}>
                                 <div
                                         class={`elevation elevation_depth_${
                                                 state === SELECTED ? 1 : 0

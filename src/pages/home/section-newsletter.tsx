@@ -41,6 +41,7 @@ export function NewsletterForm() {
                                 onSubmit={handleSubmit}
                         >
                                 <TextField
+                                        id="name"
                                         label="name"
                                         valfn={valname}
                                         updateValue={setName}
@@ -48,6 +49,7 @@ export function NewsletterForm() {
                                         type="text"
                                 />
                                 <TextField
+                                        id="email"
                                         label="email"
                                         valfn={valemail}
                                         updateValue={setEmail}
