@@ -93,3 +93,9 @@ build/
 
 # certificates
 certificates/
+
+# gdb
+.gdb*
+
+# robots
+robots.txt
