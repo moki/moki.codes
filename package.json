@@ -6,9 +6,9 @@
   "repository": "git@github.com:moki/moki.codes.git",
   "scripts": {
     "server": "modd -f dev.conf",
-    "build:clean": "rm -rf ./dist ./build && mkdir ./dist",
-    "build:esbuild": "yarn esbuild --name=bundle --bundle --outdir=dist --jsx-factory=h --jsx-fragment=Fragment --loader:.css=text --minify --define:process.env.NODE_ENV=\"production\" ./src/index.tsx",
-    "build:babel": "yarn babel dist/index.min.js --out-file build/index.min.js",
+    "build:clean": "rm -rf ./dist ./build && mkdir -p ./dist/static",
+    "build:esbuild": "yarn esbuild --name=bundle --bundle --outdir=dist/static --jsx-factory=h --jsx-fragment=Fragment --loader:.css=text --minify --define:process.env.NODE_ENV=\"production\" ./src/index.tsx",
+    "build:babel": "yarn babel dist/static/index.min.js --out-file build/static/index.min.js",
     "build:static": "cp -r ./static ./build/ && cp src/index.html build/index.html",
     "build": "yarn && yarn build:clean && yarn build:esbuild && yarn build:babel && yarn build:static"
   },
@@ -20,6 +20,7 @@
     "@types/node": "^13.7.7",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
+    "babel-preset-minify": "^0.5.1",
     "esbuild": "^0.1.16",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
