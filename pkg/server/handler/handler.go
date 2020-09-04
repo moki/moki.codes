@@ -27,7 +27,7 @@ func ServeFile(filename string) fasthttp.RequestHandler {
 	}
 }
 
-// StaticAttr - Static handler factory attributes
+// StaticAttr - is the static handler configuration
 type StaticAttr struct {
 	StaticDir          string
 	StaticIndex        string
@@ -37,16 +37,21 @@ type StaticAttr struct {
 	NotFound           *fasthttp.RequestHandler
 }
 
+// NewStaticAttrT - creates default configuration for the static handler
+func NewStaticAttrT() *StaticAttr {
+	return &StaticAttr{
+		StaticDir:          "/static/",
+		StaticIndex:        "index.html",
+		Compression:        true,
+		CacheFor:           30 * 60 * time.Second,
+		CacheControlHeader: "no-cache",
+	}
+}
+
 // Static - static file server handler factory
 func Static(attr *StaticAttr) fasthttp.RequestHandler {
 	if attr == nil {
-		attr = &StaticAttr{
-			StaticDir:          "root",
-			StaticIndex:        "index.html",
-			CacheControlHeader: "no-cache",
-			Compression:        true,
-			CacheFor:           60 * 60 * time.Second,
-		}
+		attr = NewStaticAttrT()
 	}
 
 	fs := &fasthttp.FS{

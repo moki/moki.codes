@@ -5,22 +5,14 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/moki/moki.codes/pkg/server/infrastructure/middleware"
-	"github.com/moki/moki.codes/pkg/server/infrastructure/router"
-	"github.com/moki/moki.codes/pkg/server/infrastructure/server"
-	"github.com/moki/moki.codes/pkg/server/interfaces/handler"
+	"github.com/moki/moki.codes/cmd/server/env"
+	"github.com/moki/moki.codes/pkg/server"
+	"github.com/moki/moki.codes/pkg/server/handler"
+	"github.com/moki/moki.codes/pkg/server/middleware"
+	"github.com/moki/moki.codes/pkg/server/router"
 )
 
 const defaultPort = "80"
-
-func readenv(key, fallback string) string {
-	val := os.Getenv(key)
-	if val == "" {
-		val = fallback
-	}
-
-	return val
-}
 
 func logErr(err error) error {
 	if err != nil {
@@ -36,34 +28,24 @@ func fatalErr(err error) {
 	}
 }
 
-func main() {
-	host := os.Getenv("HOST")
-	port := func() uint16 {
-		port, err := strconv.ParseUint(
-			readenv("PORT", defaultPort), 10, 16)
-		fatalErr(logErr(err))
-
-		return uint16(port)
-	}()
-
+func initializeHandlers(router router.Router, envReader env.Reader) {
 	staticAttributes := handler.StaticAttr{}
-	staticAttributes.StaticDir = readenv("STATIC_ROOT", "build")
-	staticAttributes.StaticIndex = readenv("STATIC_ENTRY", "index.html")
+	staticAttributes.StaticDir = envReader.Read("STATIC_ROOT", "build")
+	staticAttributes.StaticIndex = envReader.Read("STATIC_ENTRY", "index.html")
 	staticAttributes.Compression = func() bool {
 		compression, err := strconv.ParseBool(
-			readenv("STATIC_COMPRESSION", "true"))
+			envReader.Read("STATIC_COMPRESSION", "true"))
 		fatalErr(logErr(err))
 
 		return compression
 	}()
-	staticAttributes.CacheControlHeader = readenv("STATIC_CACHE", "no-cache")
 
-	router, err := router.NewRouterT()
-	fatalErr(logErr(err))
+	staticCacheControlHeader := envReader.Read("STATIC_CACHE_POLICY", "no-cache")
 
+	staticHeaders := map[string]string{"Cache-Control": staticCacheControlHeader}
+
+	setCache := middleware.SetHeaders(staticHeaders)
 	allowGET := middleware.AllowMethods([]string{"GET"})
-	cacheHeaders := map[string]string{"Cache-Control": staticAttributes.CacheControlHeader}
-	setCache := middleware.SetHeaders(cacheHeaders)
 
 	staticHandler := allowGET(setCache(handler.Static(&staticAttributes)))
 	router.Handle("/static/", &staticHandler)
@@ -74,8 +56,33 @@ func main() {
 	frontendEntry := staticAttributes.StaticDir + "/" + staticAttributes.StaticIndex
 	rootHandler := allowGET(handler.ServeFile(frontendEntry))
 	router.Handle("/", &rootHandler)
+}
 
-	server, err := server.NewServerT(host, port, router)
-	fatalErr(logErr(err))
+func createServer(router router.Router, envReader env.Reader) server.Server {
+	host := os.Getenv("HOST")
+	port := func() uint16 {
+		port, err := strconv.ParseUint(
+			envReader.Read("PORT", defaultPort), 10, 16)
+		fatalErr(logErr(err))
+
+		return uint16(port)
+	}()
+
+	serverAttr := server.NewServerAttrT()
+	serverAttr.SetHost(host)
+	serverAttr.SetPort(port)
+	serverAttr.SetRouter(router)
+
+	return server.NewServerT(serverAttr)
+}
+
+func main() {
+	envReader := env.NewReaderT()
+
+	router := router.NewRouterT()
+	initializeHandlers(router, envReader)
+
+	server := createServer(router, envReader)
+
 	fatalErr(logErr(server.Listen()))
 }
