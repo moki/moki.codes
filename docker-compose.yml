@@ -1,23 +1,72 @@
 version: '3'
 
 services:
-  frontend-server:
-    image: nginx:alpine
-    expose:
-      - ${VIRTUAL_PORT}
+  server:
+    container_name: moki.codes
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    # production server is hidden behind reverse proxy
+    #expose:
+    # - ${SERVER_CONTAINER_PORT}
+    # development server is exposed raw
+    ports:
+      - ${SERVER_HOST_PORT}:${SERVER_CONTAINER_PORT}
     environment:
+      - GOLANG_ENV=${GOLANG_ENV}
+      - PERSISTENT_STORAGE_HOST=${PERSISTENT_STORAGE_HOST}
+      - PERSISTENT_STORAGE_PORT=${PERSISTENT_STORAGE_PORT}
+      - PERSISTENT_STORAGE_USER=${PERSISTENT_STORAGE_USER}
+      - PERSISTENT_STORAGE_PASSWORD=${PERSISTENT_STORAGE_PASSWORD}
+      - PERSISTENT_STORAGE_DB_NAME=${PERSISTENT_STORAGE_DB_NAME}
       - VIRTUAL_HOST=${VIRTUAL_HOST}
       - VIRTUAL_PORT=${VIRTUAL_PORT}
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
-    volumes:
-      - ./build:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     networks:
-      - proxy
+      - server
+    #  - proxy
     restart: unless-stopped
+    depends_on:
+      - persistent-storage
+  persistent-storage:
+    container_name: postgres.moki.codes
+    image: postgres:alpine
+    expose:
+      - '5432'
+    volumes:
+      - postgres.moki.codes:/var/lib/postgresql/data
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./commit-pg_hba.sh:/etc/postgresql/commit-pg_hba.sh
+    environment:
+      - POSTGRES_USER=${PERSISTENT_STORAGE_USER}
+      - POSTGRES_PASSWORD=${PERSISTENT_STORAGE_PASSWORD}
+      - POSTGRES_DB=${PERSISTENT_STORAGE_DB_NAME}
+    networks:
+      - server
+    command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
 
+    #frontend-server:
+  #  image: nginx:alpine
+  #  expose:
+  #    - ${VIRTUAL_PORT}
+  #  environment:
+  #    - VIRTUAL_HOST=${VIRTUAL_HOST}
+  #    - VIRTUAL_PORT=${VIRTUAL_PORT}
+  #    - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+  #    - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+  #  volumes:
+  #    - ./build:/usr/share/nginx/html:ro
+  #    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #  networks:
+  #    - proxy
+  #  restart: unless-stopped
+
+volumes:
+  postgres.moki.codes:
 networks:
-  proxy:
-    external:
-      name: nginx-proxy
+  server:
+#  proxy:
+#    external:
+#      name: nginx-proxy

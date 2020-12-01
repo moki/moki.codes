@@ -1,0 +1,8 @@
+from scratch
+copy bin/server .
+
+copy build/. build/
+copy .env .
+copy pkg/server/posts/interfaces/schema/postgresql.sql schema/post.sql
+
+entrypoint ["/server"]

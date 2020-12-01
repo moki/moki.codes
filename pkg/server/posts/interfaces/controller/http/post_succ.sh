@@ -1,0 +1,1 @@
+curl -H "Content-Type: application/json" -X POST -d "{\"title\":\"blog post title\",\"subtitle\":\"blog post subtitle\",\"body\":\"blog post body\",\"tags\":[\"tag one\",\"tag two\"]}" localhost:4000/api/posts

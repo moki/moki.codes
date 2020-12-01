@@ -2,6 +2,28 @@ moki.codes
 --------------------------------------------------------------------------------
 source code
 
+build
+--------------------------------------------------------------------------------
+
+backend
+--------------------------------------------------------------------------------
+
+```
+# tldr
+./hostbuild.sh && docker-compose build --parallel && docker-compose up --no-build
+
+# build binary on host
+./hostbuild.sh
+
+# build contrainers
+docker-compose build --parallel
+
+# orchestrate
+docker-compose up --no-build
+```
+
+license
+--------------------------------------------------------------------------------
 BSD 3-Clause License
 
 Copyright (c) 2020, Kirill Morozov (moki) <morozov.kirill.moki@gmail.com>

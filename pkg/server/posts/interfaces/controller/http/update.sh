@@ -1,0 +1,1 @@
+curl -H "Content-Type: application/json" -X UPDATE -d "{\"title\":\"updated blog post title\",\"subtitle\":\"updated blog post subtitle\",\"body\":\"updated blog post body\",\"tags\":[\"updated tag one\",\"updated tag two\"]}" "localhost:4000/api/posts/blog-post-title-blog-post-subtitle-3"
