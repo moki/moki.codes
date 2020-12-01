@@ -1,15 +1,12 @@
-drop table if exists post;
-drop table if exists posts;
-
 create table if not exists posts (
         id serial primary key,
-        title text,
-        subtitle text,
+        title text not null,
+        subtitle text not null,
         slug text,
-        tags text[],
-        body text,
-        created timestamptz,
-        updated timestamptz
+        tags text[] not null,
+        body text not null,
+        created timestamptz not null,
+        updated timestamptz not null
 );
 
 CREATE EXTENSION IF NOT EXISTS "unaccent";
