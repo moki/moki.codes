@@ -1,9 +1,10 @@
 # posts component
 
 endpoints:
-        * get all posts
-        * get last n posts
-        * get post with id
-        * get posts with tag
-
-curl -vX POST "localhost:4000/api"
+        * get posts
+        * get last posts, with offset
+        * get post by slug
+        * todo: get posts with tags
+        * create post
+        * update post with slug
+        * delete post with slug
