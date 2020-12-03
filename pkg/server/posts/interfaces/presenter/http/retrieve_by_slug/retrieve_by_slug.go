@@ -31,7 +31,7 @@ type httpPost struct {
 }
 
 type httpResponse struct {
-	Post *httpPost `json:"posts"`
+	Post *httpPost `json:"post"`
 }
 
 func (p *presenter) Present(response *retrieveBySlugUsecase.Response) {
