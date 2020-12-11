@@ -22,6 +22,17 @@ docker-compose build --parallel
 docker-compose up --no-build
 ```
 
+TODO:
+--------------------------------------------------------------------------------
+
+frontend:
+display articles
+
+newsletter endpoint:
+
+* POST /newsletter/subscribers { email: string, name: string }
+        * mx lookup
+
 license
 --------------------------------------------------------------------------------
 BSD 3-Clause License
