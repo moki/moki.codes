@@ -1,3 +1,5 @@
+-- drop table if exists posts;
+
 create table if not exists posts (
         id serial primary key,
         title text not null,
@@ -11,7 +13,7 @@ create table if not exists posts (
 
 CREATE EXTENSION IF NOT EXISTS "unaccent";
 
-drop function if exists slugify;
+-- drop function if exists slugify;
 
 CREATE OR REPLACE FUNCTION slugify("value" TEXT)
 RETURNS TEXT AS $$
@@ -37,7 +39,7 @@ RETURNS TEXT AS $$
   SELECT "value" FROM "trimmed";
 $$ LANGUAGE SQL STRICT IMMUTABLE;
 
-drop function if exists public.set_slug_from_name;
+-- drop function if exists public.set_slug_from_name;
 
 CREATE OR REPLACE FUNCTION public.set_slug_from_name() RETURNS trigger
     LANGUAGE plpgsql
@@ -48,7 +50,7 @@ BEGIN
 END
 $$;
 
-drop trigger if exists "trg_slug_insert_update" on "posts";
+-- drop trigger if exists "trg_slug_insert_update" on "posts";
 
 CREATE TRIGGER "trg_slug_insert_update"
 BEFORE INSERT OR UPDATE ON "posts"

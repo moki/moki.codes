@@ -1,1 +1,3 @@
-curl -H "Content-Type: application/json" -X POST -d "{\"title\":\"blog post title\",\"subtitle\":\"blog post subtitle\",\"body\":\"blog post body\",\"tags\":[\"tag one\",\"tag two\"]}" localhost:4000/api/posts
+curl -i -X POST localhost:4000/api/posts \
+	-H "Content-Type: application/json" \
+	--data-binary "@post.json"
