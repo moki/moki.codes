@@ -17,6 +17,9 @@ import (
 
 	PostsController "github.com/moki/moki.codes/pkg/server/posts/interfaces/controller/http"
 	PostsRepository "github.com/moki/moki.codes/pkg/server/posts/interfaces/repository/postgresql"
+
+	NewsletterController "github.com/moki/moki.codes/pkg/server/newsletter/interfaces/controller/http"
+	NewsletterRepository "github.com/moki/moki.codes/pkg/server/newsletter/interfaces/repository/postgresql"
 )
 
 const defaultPort = "80"
@@ -70,6 +73,18 @@ func initializeHandlers(router router.Router, envReader env.Reader, database *Da
 		allowedPostsMethods,
 	)(postsController.Handler())
 	router.Handle("/api/posts", &postsHandler)
+
+	allowedNewsletterMethods := []string{"POST"}
+	if envReader.Read("GOLANG_ENV", "production") == "development" {
+		allowedNewsletterMethods = append(
+			allowedNewsletterMethods,
+			"GET")
+	}
+
+	newsletterRepository := NewsletterRepository.New(database.Pool)
+	newsletterController := NewsletterController.New(newsletterRepository)
+	newsletterHandler := middleware.AllowMethods(allowedNewsletterMethods)(newsletterController.Handler())
+	router.Handle("/api/newsletter/subscribe", &newsletterHandler)
 }
 
 func createServer(router router.Router, envReader env.Reader) server.Server {
