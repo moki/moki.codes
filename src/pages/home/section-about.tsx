@@ -13,7 +13,7 @@ import { RouterLink, handleClick } from "src/components/router-link";
 
 const Headshot = (
         <CardMedia
-                url="static/kirill-morozov-0.jpg"
+                url="/static/kirill-morozov-0.jpg"
                 width="288px"
                 classes="section-about__media"
         />

@@ -21,7 +21,7 @@ export function Articles() {
                 `transform: translateY(${32 - animatePosY * 32}px);`;
         useEffect(() => {
                 if (animatePosY === 1) window.scrollTo(0, 0);
-        });
+        }, []);
 
         return (
                 <Main

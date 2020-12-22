@@ -37,6 +37,7 @@
 
 .card__text {
         padding-bottom: 16px;
+        height: 100%;
 }
 
 .card__header {

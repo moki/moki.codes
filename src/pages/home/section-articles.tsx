@@ -4,51 +4,7 @@ import { Section } from "src/components/section";
 import { Button } from "src/components/button";
 import { Articles } from "src/components/articles";
 import { handleClick } from "src/components/router-link";
-
-const articles: Articles = [
-        {
-                title: "hello, world!",
-                subtitle: "Ehm. I mean... Hello, blog; or what to expect",
-                tags: [
-                        "meta",
-                        "web",
-                        "os",
-                        "vm",
-                        "data science",
-                        "ai",
-                        "programming"
-                ],
-                unixtimestamp: Math.floor(Date.now() / 1000)
-        },
-        {
-                title: "hello, world!",
-                subtitle: "Ehm. I mean... Hello, blog; or what to expect",
-                tags: [
-                        "meta",
-                        "web",
-                        "os",
-                        "vm",
-                        "data science",
-                        "ai",
-                        "programming"
-                ],
-                unixtimestamp: Math.floor(Date.now() / 1000)
-        },
-        {
-                title: "hello, world!",
-                subtitle: "Ehm. I mean... Hello, blog; or what to expect",
-                tags: [
-                        "meta",
-                        "web",
-                        "os",
-                        "vm",
-                        "data science",
-                        "ai",
-                        "programming"
-                ],
-                unixtimestamp: Math.floor(Date.now() / 1000)
-        }
-];
+import { ArticlesContainer } from "src/containers/articles";
 
 const Title = <div class="section-articles__title">Articles</div>;
 const Subtitle = (
@@ -68,8 +24,11 @@ export function SectionArticles() {
                                         {Title}
                                         {Subtitle}
                                 </CardHeader>
-                                <CardBody>
-                                        <Articles articles={articles} />
+                                <CardBody classes="section-articles__body">
+                                        <ArticlesContainer
+                                                limit={1}
+                                                endpoint="/api/posts"
+                                        />
                                 </CardBody>
                                 <CardActions>
                                         <Button

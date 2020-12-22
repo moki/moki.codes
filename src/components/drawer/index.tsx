@@ -2,6 +2,8 @@ import { h, Fragment } from "preact";
 import { StateUpdater } from "preact/hooks";
 import { handleClick } from "src/components/router-link";
 
+import { useLocation } from "wouter-preact";
+
 export type Route = {
         name: string;
         url: string;
@@ -49,11 +51,13 @@ export type DrawerHeaderProps = JSX.IntrinsicElements & {
 };
 
 export function DrawerHeader({ children, close }: DrawerHeaderProps) {
+        const [location, setLocation] = useLocation();
+
         const mixin = {
                 onClick: (e: Event) => {
-                        handleClick("/")(e);
+                        setLocation("/");
                         close(false);
-                }
+                },
         };
         return (
                 <div class="drawer__header" {...mixin}>
@@ -72,7 +76,7 @@ export function DrawerNav({ routes, close }: DrawerNavProps) {
         const [home, ..._routes] = routes;
         return (
                 <ul>
-                        {_routes.map(e => (
+                        {_routes.map((e) => (
                                 <DrawerNavi close={close} {...e} />
                         ))}
                 </ul>
@@ -86,10 +90,13 @@ export type DrawerNaviProps = JSX.IntrinsicElements & {
 };
 
 export function DrawerNavi({ close, name, url }: DrawerNaviProps) {
-        function clickHandler(e: Event) {
-                handleClick(url)(e);
+        const [location, setLocation] = useLocation();
+        const clickHandler = (e: Event) => {
+                e.preventDefault();
+                setLocation(url);
                 close(false);
-        }
+        };
+
         return (
                 <li class="drawer__navi" onClick={clickHandler}>
                         {name}

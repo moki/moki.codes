@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useState, useRef } from "preact/hooks";
+import { useState, useRef, useEffect } from "preact/hooks";
 
 export type TextFieldProps = JSX.IntrinsicElements & {
         label: string;
@@ -8,6 +8,7 @@ export type TextFieldProps = JSX.IntrinsicElements & {
         updateValue?: any;
         type: "text" | "email";
         classes?: string;
+        value?: string;
         id: string;
 };
 
@@ -34,12 +35,13 @@ export function TextField({
         classes,
         type,
         id,
+        value = "",
         ...rest
 }: TextFieldProps) {
         const input = useRef(null);
 
         const [state, setState] = useState(INACTIVE);
-        const [value, setValue] = useState("");
+        const [_value, setValue] = useState(value);
         const [valid, setValid] = useState(PRESTINE);
 
         const fieldClasses =
@@ -57,10 +59,12 @@ export function TextField({
                         ((input.current as unknown) as HTMLInputElement).focus();
                 setState(SELECTED);
         }
+
         function handleUnFocus(e: Event) {
-                if (value) return;
+                if (_value) return;
                 setState(INACTIVE);
         }
+
         function handleInput(e: Event) {
                 const val = (e.target as HTMLInputElement).value;
                 setValue(val);
@@ -68,14 +72,33 @@ export function TextField({
 
                 const valid = ~~valfn(val);
                 setValid(valid);
-                updateValid && updateValid(valid === 1);
+                updateValid && updateValid(valid & 1);
         }
+
+        useEffect(() => {
+                setValue(value);
+
+                if (value === "") {
+                        const mbinput: maybe<HTMLInputElement> = input;
+                        if (mbinput.current === null) return;
+                        mbinput.current.blur();
+
+                        setValid(PRESTINE);
+                        setState(INACTIVE);
+
+                        return;
+                }
+
+                const _valid = ~~valfn(value);
+                setValid(_valid);
+                updateValid && updateValid(_valid & 1);
+        }, [value]);
 
         return (
                 <div class={fieldClasses} onClick={handleFocus} {...rest}>
                         <input
                                 ref={input}
-                                value={value}
+                                value={_value}
                                 type={type}
                                 class={inputClasses}
                                 onBlur={handleUnFocus}

@@ -16,13 +16,16 @@ function timer(duration: number, delay: number) {
                 let animFrame: number;
                 let timerStop: number;
                 let start: number;
+
                 function onFrame() {
                         setTime(Date.now() - start);
                         loop();
                 }
+
                 function loop() {
                         animFrame = requestAnimationFrame(onFrame);
                 }
+
                 function onStart() {
                         timerStop = window.setTimeout(() => {
                                 cancelAnimationFrame(animFrame);
@@ -32,6 +35,7 @@ function timer(duration: number, delay: number) {
                         start = Date.now();
                         loop();
                 }
+
                 const timerDelay = setTimeout(onStart, delay);
 
                 return () => {

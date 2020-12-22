@@ -33,7 +33,7 @@ export function About() {
                                 window.scrollTo(0, 0);
                         }
                 }
-        });
+        }, []);
 
         return (
                 <Main classes="grid container container_about" style={styles}>

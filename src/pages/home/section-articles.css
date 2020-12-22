@@ -1,6 +1,8 @@
 .section-articles .card__body {
-        padding-left: 0;
-        padding-right: 0;
+        /*
+        padding-left: 16px;
+        padding-right: 16px;
+        */
 }
 
 .section-articles__header {
@@ -14,6 +16,9 @@
         line-height: 24px;
         font-weight: 900;
         font-size: 28px;
+}
+
+.section-articles__body {
 }
 
 .section-articles__subtitle {

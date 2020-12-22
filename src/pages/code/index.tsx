@@ -21,7 +21,7 @@ export function Code() {
                 `transform: translateY(${32 - animatePosY * 32}px);`;
         useEffect(() => {
                 if (animatePosY === 1) window.scrollTo(0, 0);
-        });
+        }, []);
 
         return (
                 <Main classes="grid container container_code" style={styles}>

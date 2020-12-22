@@ -5,7 +5,7 @@ export type SectionProps = JSX.IntrinsicElements & {
         children?: JSX.Element | JSX.Element[];
 };
 
-export function Section({ classes, children, ...rest }: SectionProps) {
+export function Section({ classes, children, ...rest }: JSX.IntrinsicElements) {
         const _classes = `section${classes ? " " + classes : ""}`;
         return (
                 <div class={_classes} {...rest}>

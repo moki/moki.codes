@@ -1,5 +1,5 @@
 import { render, h, Fragment } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { useLocation } from "wouter-preact";
 
 import { insertStyles } from "lib/insertStyles";
@@ -19,6 +19,8 @@ import { Home } from "src/pages/home";
 import { Articles } from "src/pages/articles";
 import { Code } from "src/pages/code";
 import { About } from "src/pages/about";
+import { Notfound } from "src/pages/notfound";
+import { Article } from "src/pages/article";
 
 const routes = [
         { name: "home", url: "/" },
@@ -31,14 +33,19 @@ const pages: { [key: string]: () => preact.JSX.Element } = {
         home: Home,
         about: About,
         articles: Articles,
+        article: Article,
         code: Code,
-        notfound: () => <div>not found</div>
+        notfound: Notfound
 };
 
 function Router({ location }: { location: string }) {
-        const route = routes.filter(e => e.url === location);
-        if (route.length) return pages[route[0].name];
-        else return pages["notfound"];
+        const path = location.split("/");
+        let page;
+        for (let i = path.length; i--; ) if ((page = pages[path[i]])) break;
+
+        if (!page) page = location == "/" ? pages["home"] : pages["notfound"];
+
+        return page;
 }
 
 function App() {

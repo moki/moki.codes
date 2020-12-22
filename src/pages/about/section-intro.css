@@ -9,7 +9,7 @@
 
 .section-about__headshot {
         margin: 0 0 var(--vspace) var(--vspace);
-        background-image: url(static/kirill-morozov-0.jpg);
+        background-image: url(/static/kirill-morozov-0.jpg);
         min-width: 144px;
         min-height: 144px;
         border-radius: 100%;
