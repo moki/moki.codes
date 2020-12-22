@@ -1,0 +1,31 @@
+.section-article__header {
+        --color-surface: var(--color-primary);
+        --color-on-surface: var(--color-on-primary);
+}
+
+.section-article__title {
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        line-height: 24px;
+        font-weight: 900;
+        font-size: 28px;
+}
+
+.section-article__subtitle {
+        opacity: 0.9;
+        line-height: 20px;
+        font-weight: 500;
+        font-size: 20px;
+}
+
+.section-article__body {
+        padding-left: 0;
+        padding-right: 0;
+
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 300;
+}
+
+@media screen and (min-width: 600px) {
+}

@@ -1,0 +1,50 @@
+.article__header {
+        --color-surface: var(--color-primary);
+        --color-on-surface: var(--color-on-primary);
+}
+
+.article__title {
+        padding-bottom: 8px;
+
+        text-transform: uppercase;
+        line-height: 24px;
+        font-weight: 900;
+        font-size: 28px;
+}
+
+.article__subtitle {
+        opacity: 0.9;
+        line-height: 20px;
+        font-weight: 500;
+        font-size: 20px;
+}
+
+.article__tags {
+        opacity: 0.9;
+
+        padding: 0 16px;
+        margin: 0 auto;
+        max-width: 800px;
+
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: right;
+}
+
+.article__date {
+        opacity: 0.9;
+
+        padding: 0 16px;
+        margin: 0 auto;
+        max-width: 800px;
+
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+}
+
+@media screen and (min-width: 600px) {
+        .section-article__tags {
+                font-size: 20px;
+        }
+}

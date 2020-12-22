@@ -1,0 +1,45 @@
+.section-notfound__card {
+        margin: 0 auto;
+}
+
+.section-notfound__header {
+        --color-surface: var(--color-primary);
+        --color-on-surface: var(--color-on-primary);
+}
+
+.section-notfound__title {
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        line-height: 24px;
+        font-weight: 900;
+        font-size: 28px;
+}
+
+.section-notfound__subtitle {
+        opacity: 0.9;
+        line-height: 20px;
+        font-weight: 500;
+        font-size: 20px;
+}
+
+.section-notfound__body {
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: left;
+}
+
+.section-notfound__message {
+        overflow: hidden;
+}
+
+@media screen and (min-width: 600px) {
+        .section-notfound__body {
+                line-height: 32px;
+                font-size: 20px;
+        }
+
+        .section-notfound__card {
+                max-width: 544px;
+        }
+}

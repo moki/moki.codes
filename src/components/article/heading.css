@@ -1,0 +1,9 @@
+.article__heading {
+        max-width: 800px;
+        padding: 0 16px 8px 16px;
+        margin: 0 auto;
+
+        text-align: left;
+        font-size: 24px;
+        line-height: 20px;
+}

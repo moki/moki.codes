@@ -1,0 +1,22 @@
+.article__paragraph {
+        margin: 0 auto;
+        padding: 0 16px;
+
+        line-height: 24px;
+        font-weight: 400;
+        font-size: 16px;
+
+        word-break: break-word;
+        text-align: left;
+}
+
+@media screen and (min-width: 600px) {
+        .article__paragraph {
+                max-width: 800px;
+
+                text-align: justify;
+                line-height: 24px;
+                font-weight: 400;
+                font-size: 16px;
+        }
+}
