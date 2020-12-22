@@ -1,24 +1,15 @@
-import { h, Fragment } from "../../../lib/h";
+import { h } from "preact";
 
-export const Section = ({
-        vpadding,
-        children,
-        classes,
-        styles
-}: {
-        vpadding: "s" | "m" | "l";
+export type SectionProps = JSX.IntrinsicElements & {
         classes?: string;
-        styles?: string;
-        children?: any;
-}) => {
-        let sectionClasses = `section vpadding_${vpadding}`;
-        if (classes) sectionClasses = sectionClasses + " " + classes;
+        children?: JSX.Element | JSX.Element[];
+};
+
+export function Section({ classes, children, ...rest }: JSX.IntrinsicElements) {
+        const _classes = `section${classes ? " " + classes : ""}`;
         return (
-                <div
-                        class={sectionClasses}
-                        {...(styles ? { style: styles } : {})}
-                >
+                <div class={_classes} {...rest}>
                         {children}
                 </div>
         );
-};
+}

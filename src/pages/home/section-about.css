@@ -1,0 +1,52 @@
+.section-about__overline {
+        opacity: 0.9;
+        font-size: 20px;
+        line-height: 24px;
+        text-transform: uppercase;
+        font-weight: 900;
+}
+
+.section-about__title {
+        margin-left: -1px;
+        font-size: 36px;
+        line-height: 32px;
+        font-weight: 900;
+        text-transform: uppercase;
+}
+
+.section-about__body {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 300;
+}
+
+.section-about__action-contained {
+        --color-background: var(--color-primary);
+        --color-on-background: var(--color-on-primary);
+}
+
+@media screen and (max-width: 600px) {
+        .section-about__media {
+                height: 288px !important;
+        }
+}
+
+@media screen and (min-width: 600px) {
+        .section-about__body {
+                font-size: 20px;
+                line-height: 32px;
+        }
+}
+
+@media screen and (min-width: 1200px) {
+        .section-about__overline {
+                padding-bottom: 8px;
+                font-size: 32px;
+                line-height: 24px;
+        }
+
+        .section-about__title {
+                font-size: 48px;
+                line-height: 40px;
+        }
+}

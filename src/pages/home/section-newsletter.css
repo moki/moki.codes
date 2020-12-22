@@ -1,0 +1,44 @@
+.section-bmV3c2xldHRlcgo__header {
+        --color-surface: var(--color-secondary);
+        --color-on-surface: var(--color-on-secondary);
+}
+
+.section-bmV3c2xldHRlcgo__actions {
+        max-width: 800px;
+        margin: 0 auto;
+}
+
+.section-bmV3c2xldHRlcgo__action {
+        --color-on-background: var(--color-secondary-light);
+}
+
+.section-bmV3c2xldHRlcgo__title {
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        line-height: 24px;
+        font-weight: 900;
+        font-size: 28px;
+}
+
+.section-bmV3c2xldHRlcgo__subtitle {
+        opacity: 0.9;
+        line-height: 20px;
+        font-weight: 500;
+        font-size: 20px;
+}
+
+.section-bmV3c2xldHRlcgo__body {
+        max-width: 800px;
+        margin: 0 auto;
+
+        line-height: 24px;
+        font-weight: 300;
+        font-size: 16px;
+}
+
+@media screen and (min-width: 600px) {
+        .section-bmV3c2xldHRlcgo__body {
+                line-height: 32px;
+                font-size: 20px;
+        }
+}

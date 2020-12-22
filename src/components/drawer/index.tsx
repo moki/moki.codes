@@ -1,61 +1,113 @@
-import { h, Fragment } from "../../../lib/h";
-import { Map } from "../../../types/index";
-import { Route } from "../../layout";
+import { h, Fragment } from "preact";
+import { StateUpdater } from "preact/hooks";
+import { handleClick } from "src/components/router-link";
 
-const NavigationItem = ({ path, route }: { path: string; route: Route }) => {
-        const bcs = [
-                "list__item",
-                "text_line-height_m",
-                "text_size_s",
-                "text_weight_medium",
-                "text_style_small-caps",
-                "text_letter-spacing_m"
-        ];
-        const acs = ["list__item_active"];
-        const cs = (path: string, route: string) =>
-                [...bcs, ...(path === route ? acs : [])].join(" ");
-        return (
-                <a
-                        href={route.url}
-                        class={cs(path, route.url)}
-                        style="text-decoration: none;"
-                >
-                        {route.name}
-                </a>
-        );
+import { useLocation } from "wouter-preact";
+
+export type Route = {
+        name: string;
+        url: string;
 };
 
-const Navigation = ({ routes, path }: { routes: Route[]; path: string }) => {
+export type DrawerProps = JSX.IntrinsicElements & {
+        open: boolean;
+        close: StateUpdater<boolean>;
+        routes: Route[];
+};
+
+export function Drawer({ open, close, routes, ...rest }: DrawerProps) {
+        const scrimStyles = open
+                ? "opacity: .6;" + "z-index:25;"
+                : "opacity: 0;" + "z-index: -1;";
+        const drawerStyles = open
+                ? "transform: translateX(0%);z-index:25;"
+                : "transform: translateX(-100%);z-index: 25;";
+
         return (
-                <ul class="list list_size_m" id="drawer-list">
-                        {routes.map(e => (
-                                <NavigationItem route={e} path={path} />
+                <Fragment>
+                        <Scrim
+                                id="drawer-scrim"
+                                class="drawer-scrim"
+                                style={scrimStyles}
+                                onClick={() => close(false)}
+                        />
+                        <div class="drawer" {...rest} style={drawerStyles}>
+                                <div class="elevation elevation_depth_16"></div>
+                                <DrawerHeader close={close}>HOME</DrawerHeader>
+                                <div class="drawer__body">
+                                        <DrawerNav
+                                                routes={routes}
+                                                close={close}
+                                        />
+                                </div>
+                        </div>
+                </Fragment>
+        );
+}
+
+export type DrawerHeaderProps = JSX.IntrinsicElements & {
+        children: JSX.Element | JSX.Element[];
+        close: StateUpdater<boolean>;
+};
+
+export function DrawerHeader({ children, close }: DrawerHeaderProps) {
+        const [location, setLocation] = useLocation();
+
+        const mixin = {
+                onClick: (e: Event) => {
+                        setLocation("/");
+                        close(false);
+                },
+        };
+        return (
+                <div class="drawer__header" {...mixin}>
+                        <div class="elevation elevation_depth_1"></div>
+                        <div class="drawer__header-text">{children}</div>
+                </div>
+        );
+}
+
+export type DrawerNavProps = JSX.IntrinsicElements & {
+        routes: Route[];
+        close: StateUpdater<boolean>;
+};
+
+export function DrawerNav({ routes, close }: DrawerNavProps) {
+        const [home, ..._routes] = routes;
+        return (
+                <ul>
+                        {_routes.map((e) => (
+                                <DrawerNavi close={close} {...e} />
                         ))}
                 </ul>
         );
+}
+
+export type DrawerNaviProps = JSX.IntrinsicElements & {
+        close: StateUpdater<boolean>;
+        name: string;
+        url: string;
 };
 
-export const Drawer = ({ routes, path }: { routes: Route[]; path: string }) => {
+export function DrawerNavi({ close, name, url }: DrawerNaviProps) {
+        const [location, setLocation] = useLocation();
+        const clickHandler = (e: Event) => {
+                e.preventDefault();
+                setLocation(url);
+                close(false);
+        };
+
         return (
-                <Fragment>
-                        <div class="drawer-scrim" id="drawer-scrim"></div>
-                        <aside class="layout__aside-left elevation elevation_depth_0 drawer">
-                                <a
-                                        href="/"
-                                        class="drawer__header
-                                               text_line-height_m
-                                               text_size_s
-                                               text_weight_medium
-                                               text_style_small-caps
-                                               text_letter-spacing_m
-                                               text_align_center
-                                               "
-                                        style="text-decoration: none;"
-                                >
-                                        moki
-                                </a>
-                                <Navigation routes={routes} path={path} />
-                        </aside>
-                </Fragment>
+                <li class="drawer__navi" onClick={clickHandler}>
+                        {name}
+                </li>
         );
+}
+
+export type ScrimProps = JSX.IntrinsicElements & {
+        id: string;
 };
+
+export function Scrim({ id, ...rest }: ScrimProps) {
+        return <div class="scrim" id={id} {...rest}></div>;
+}

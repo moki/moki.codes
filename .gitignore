@@ -97,11 +97,11 @@ certificates/
 # gdb
 .gdb*
 
-# bin
-bin/
-
-# drafts
-drafts/
-
 # robots
 robots.txt
+
+# golang binaries
+bin/
+
+# article drafts
+drafts

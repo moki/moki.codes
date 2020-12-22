@@ -1,0 +1,10 @@
+.aside-right {
+        display: none;
+}
+
+@media screen and (min-width: 840px) {
+        .aside-right {
+                display: unset;
+                grid-column: span 4;
+        }
+}

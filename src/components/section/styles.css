@@ -1,14 +1,14 @@
-.vpadding_s {
-        padding-top: calc(var(--msp-1) / 2);
-        padding-bottom: calc(var(--msp-1) / 2);
+.section {
+        --vspace: 16px;
+        padding-top: var(--vspace);
 }
 
-.vpadding_m {
-        padding-top: var(--msp-1);
-        padding-bottom: var(--msp-1);
+.section:last-child {
+        padding-bottom: var(--vspace);
 }
 
-.vpadding_l {
-        padding-top: calc(var(--msp-1) * 2);
-        padding-bottom: calc(var(--msp-1) * 2);
+@media screen and (min-width: 720px) {
+        .section {
+                --vspace: 24px;
+        }
 }

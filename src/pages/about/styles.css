@@ -1,0 +1,20 @@
+@media screen and (min-width: 1200px) {
+        .container_about {
+                max-width: 1200px;
+        }
+}
+
+.container_about .card__text {
+        padding: 0;
+}
+
+.section-about {
+        display: flex;
+        flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+        .section-about {
+                flex-direction: row;
+        }
+}

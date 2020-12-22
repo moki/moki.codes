@@ -1,0 +1,28 @@
+from golang:alpine as builder
+
+ENV GO111MODULE=on
+
+run apk update && apk add --no-cache git
+
+workdir /moki.codes
+
+copy go.mod .
+copy go.sum .
+
+# run go get -d -v
+run go mod download
+
+copy . .
+
+run CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o bin/server cmd/server/server.go
+
+from scratch
+
+copy --from=builder /moki.codes/bin/server .
+
+copy build/. build/
+copy .env .
+copy pkg/server/posts/interfaces/schema/postgresql.sql schema/post.sql
+copy pkg/server/newsletter/interfaces/schema/postgresql.sql schema/newsletter.sql
+
+entrypoint ["/server"]

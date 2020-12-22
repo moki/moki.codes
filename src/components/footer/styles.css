@@ -1,51 +1,56 @@
 .footer {
-        padding: calc(var(--msp-1) * 1) 0;
-
-        background-color: var(--color-background);
+        position: relative;
+        padding: 72px 16px;
+        background-color: var(--color-primary-dark);
+        color: var(--color-on-primary-dark);
 }
 
-.footer__container {
-        display: flex;
-        flex-direction: column;
-}
-
-.footer__navitem,
-.footer__brand {
-        font-size: 20px;
-        line-height: 20px;
-        font-weight: 800;
+.footer > *:not(.elevation) {
+        position: relative;
 }
 
 .footer__brand {
-        opacity: 0.8 !important;
-
-        padding-bottom: calc(var(--msp-1) / 2);
-}
-
-.footer__brand:hover {
-        opacity: 0.9 !important;
+        opacity: 0.7;
+        text-transform: uppercase;
+        letter-spacing: 0.05px;
+        text-decoration: none;
+        line-height: 24px;
+        font-weight: 300;
+        font-size: 28px;
 }
 
 .footer__nav {
-        flex-basis: auto;
+        padding-top: 48px;
 }
 
-.footer__navitem {
-        margin-right: var(--gap);
+.footer__navi {
+        cursor: pointer;
+        color: var(--color-on-primary-dark);
+        text-transform: uppercase;
+        text-decoration: none;
+        line-height: 24px;
+        font-weight: 600;
+        font-size: 16px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 }
 
-@media screen and (min-width: 480px) {
-        .footer__container {
-                flex-direction: row;
-                justify-content: space-between;
-        }
-        .footer__brand {
-                padding-bottom: 0;
-        }
+.footer__navi + .footer__navi {
+        margin-left: 8px;
+}
 
-        .footer__navitem,
-        .footer__brand {
-                font-size: 24px;
-                line-height: 24px;
-        }
+.footer__copy {
+        opacity: 0.8;
+        border-top: solid var(--color-on-primary-dark) thin;
+        padding-top: 24px;
+        margin-top: 24px;
+        text-transform: uppercase;
+        line-height: 16px;
+        font-weight: 300;
+        font-size: 14px;
 }
