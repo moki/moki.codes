@@ -93,3 +93,15 @@ build/
 
 # certificates
 certificates/
+
+# gdb
+.gdb*
+
+# bin
+bin/
+
+# drafts
+drafts/
+
+# robots
+robots.txt
