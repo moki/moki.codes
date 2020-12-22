@@ -5,16 +5,17 @@ services:
     container_name: moki.codes
     build:
       context: .
-      dockerfile: Dockerfile-dev
+    # dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile-prod
     # production server is hidden behind reverse proxy
     #expose:
     # - ${SERVER_CONTAINER_PORT}
-    # development server is exposed raw
+    # development server exposed raw
     ports:
       - ${SERVER_HOST_PORT}:${SERVER_CONTAINER_PORT}
     environment:
       - GOLANG_ENV=${GOLANG_ENV}
-      - ENCRYPTION_KEY={ENCRYPTION_KEY}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
       - PERSISTENT_STORAGE_HOST=${PERSISTENT_STORAGE_HOST}
       - PERSISTENT_STORAGE_PORT=${PERSISTENT_STORAGE_PORT}
       - PERSISTENT_STORAGE_USER=${PERSISTENT_STORAGE_USER}
