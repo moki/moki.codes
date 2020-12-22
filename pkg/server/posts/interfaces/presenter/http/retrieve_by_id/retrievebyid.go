@@ -23,6 +23,7 @@ type httpPost struct {
 	ID       int32    `json:"id"`
 	Title    string   `json:"title"`
 	Subtitle string   `json:"subtitle"`
+	Image    string   `json:"image"`
 	Slug     string   `json:"slug"`
 	Tags     []string `json:"tags"`
 	Created  string   `json:"created"`
@@ -45,6 +46,7 @@ func (p *presenter) Present(response *retrieveByIDUsecase.Response) {
 	post.ID = response.Post.ID
 	post.Title = response.Post.Title
 	post.Subtitle = response.Post.Subtitle
+	post.Image = response.Post.Image
 	post.Slug = response.Post.Slug
 	post.Tags = response.Post.Tags
 	post.Created = response.Post.Created.Format(time.RFC1123Z)

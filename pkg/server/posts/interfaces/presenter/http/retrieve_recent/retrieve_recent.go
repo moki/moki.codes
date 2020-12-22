@@ -27,7 +27,6 @@ type httpPost struct {
 	Tags     []string `json:"tags"`
 	Created  string   `json:"created"`
 	Updated  string   `json:"updated"`
-	Body     string   `json:"body"`
 }
 
 type httpResponse struct {
@@ -57,7 +56,6 @@ func (p *presenter) Present(response *retrieveRecentUsecase.Response) {
 			Tags:     p.Tags,
 			Created:  p.Created.Format(time.RFC1123Z),
 			Updated:  p.Updated.Format(time.RFC1123Z),
-			Body:     p.Body,
 		}
 
 		posts = append(posts, post)

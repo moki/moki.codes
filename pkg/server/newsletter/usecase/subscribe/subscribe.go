@@ -89,18 +89,21 @@ func (c *subscriber) Subscribe(request *Request) {
 		return
 	}
 
-	email, err := encrypt([]byte(request.Email), request.EncKey)
-	if err != nil {
-		c.presenter.Present(response)
+	/*
+		email, err := encrypt([]byte(request.Email), request.EncKey)
+		if err != nil {
+			c.presenter.Present(response)
 
-		return
-	}
+			return
+		}
 
+		encodedEmail := base64.RawStdEncoding.EncodeToString(email)
+	*/
 	encodedName := base64.RawStdEncoding.EncodeToString(name)
-	encodedEmail := base64.RawStdEncoding.EncodeToString(email)
 
 	sub.Name = encodedName
-	sub.Email = encodedEmail
+	//	sub.Email = encodedEmail
+	sub.Email = request.Email
 
 	response.Success = c.repository.Subscribe(sub) == nil
 

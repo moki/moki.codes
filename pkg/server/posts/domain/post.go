@@ -18,6 +18,7 @@ type Post struct {
 	ID       int32
 	Title    string
 	Subtitle string
+	Image    string
 	Slug     string
 	Tags     []string
 	Created  time.Time

@@ -26,7 +26,8 @@ import (
 )
 
 var (
-	emailrgx = regexp2.MustCompile("^[^\\s@]+@[^|\\s@]+\\.[^\\s@]+$", 0)
+	//emailrgx = regexp2.MustCompile("^[^\\s@]+@[^|\\s@]+\\.[^\\s@]+$", 0)
+	emailrgx = regexp2.MustCompile("^[^\\s@!#$%&'*]+@[^\\s@!#$%&'*]+\\.[^\\s@!#$%&'*]+$", 0)
 	namergx  = regexp2.MustCompile("^(?!.*\\.\\.)(?!.*\\.$)[^\\W][\\w.]{0,29}$", 0)
 )
 

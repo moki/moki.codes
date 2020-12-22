@@ -14,6 +14,7 @@ import (
 type Request struct {
 	Slug     string
 	Title    string
+	Image    string
 	Subtitle string
 	Tags     []string
 	Body     string
@@ -64,6 +65,7 @@ func (u *updater) Update(request *Request) {
 	post := &post.Post{}
 	post.Updated = time.Now()
 	post.Title = request.Title
+	post.Image = request.Image
 	post.Subtitle = request.Subtitle
 	post.Tags = request.Tags
 	post.Body = request.Body

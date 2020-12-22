@@ -118,6 +118,7 @@ func (p *posts) handleGET(ctx *fasthttp.RequestCtx) {
 type postHTTPRequest struct {
 	Title    string   `json:"title"`
 	Subtitle string   `json:"subtitle"`
+	Image    string   `json:"image"`
 	Tags     []string `json:"tags"`
 	Body     string   `json:"body"`
 }
@@ -159,6 +160,7 @@ func (p *posts) handlePOST(ctx *fasthttp.RequestCtx) {
 	request := &CreateUsecase.Request{
 		Title:    parsedBody.Title,
 		Subtitle: parsedBody.Subtitle,
+		Image:    parsedBody.Image,
 		Tags:     parsedBody.Tags,
 		Body:     parsedBody.Body,
 	}
@@ -217,6 +219,7 @@ func (p *posts) handleUPDATE(ctx *fasthttp.RequestCtx) {
 		Slug:     slug,
 		Title:    parsedBody.Title,
 		Subtitle: parsedBody.Subtitle,
+		Image:    parsedBody.Image,
 		Tags:     parsedBody.Tags,
 		Body:     parsedBody.Body,
 	}

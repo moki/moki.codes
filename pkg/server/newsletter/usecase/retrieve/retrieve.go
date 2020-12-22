@@ -93,12 +93,14 @@ func (r *retriever) Retrieve(request *Request) {
 			return
 		}
 
-		decodedEmail, err := base64.RawStdEncoding.DecodeString(sub.Email)
-		if err != nil {
-			r.presenter.Present(response)
+		/*
+			decodedEmail, err := base64.RawStdEncoding.DecodeString(sub.Email)
+			if err != nil {
+				r.presenter.Present(response)
 
-			return
-		}
+				return
+			}
+		*/
 
 		decryptedName, err := decrypt(decodedName, request.EncKey)
 		if err != nil {
@@ -107,15 +109,18 @@ func (r *retriever) Retrieve(request *Request) {
 			return
 		}
 
-		decryptedEmail, err := decrypt(decodedEmail, request.EncKey)
-		if err != nil {
-			r.presenter.Present(response)
+		/*
+			decryptedEmail, err := decrypt(decodedEmail, request.EncKey)
+			if err != nil {
+				r.presenter.Present(response)
 
-			return
-		}
+				return
+			}
+
+			sub.Email = string(decryptedEmail)
+		*/
 
 		sub.Name = string(decryptedName)
-		sub.Email = string(decryptedEmail)
 	}
 
 	response.Success = true

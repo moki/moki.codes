@@ -1,6 +1,25 @@
 {
-	"title": "blog post title",
-	"subtitle": "blog post subtitle",
-	"body": "blog post body",
+	"title": "hello, world",
+	"subtitle": "what are you waiting for? hop on! it's gonna to be poggers!",
+	"body": "{
+		\"type\":\"paragraph\",
+		\"key\":\"\",
+		\"props\":{
+			\"styles\":\"color: purple; font-size: 20px\",
+			\"children\":[
+				\"hello\",
+				{
+					\"type\":\"paragraph\",
+					\"props\":{
+						\"styles\":\"color: pink; font-size: 20px\",
+						\"children\":[
+							\"byeeee\"
+						]
+					}
+				}
+			]
+		}
+	}",
+        "image": "https://public.potaufeu.asahi.com/8ade-p/picture/22121024/94e7d5c10ff8ba2975c0c71e5cb29aeb.jpg",
 	"tags": ["tag one","tag two"]
 }

@@ -7,11 +7,13 @@ import (
 // Request - InputPort parameters
 // @Title: 	posts title
 // @Subtitle: 	posts subtitle
+// @Image:	posts image
 // @Tags:     	posts tags
 // @Body     	posts body
 type Request struct {
 	Title    string
 	Subtitle string
+	Image    string
 	Tags     []string
 	Body     string
 }
@@ -61,6 +63,7 @@ func (c *creator) Create(request *Request) {
 	post := post.New()
 	post.Title = request.Title
 	post.Subtitle = request.Subtitle
+	post.Image = request.Image
 	post.Tags = request.Tags
 	post.Body = request.Body
 
