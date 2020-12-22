@@ -102,3 +102,6 @@ robots.txt
 
 # golang binaries
 bin/
+
+# article drafts
+drafts

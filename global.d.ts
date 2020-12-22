@@ -11,3 +11,11 @@ declare namespace JSX {
                 decoding?: string;
         }
 }
+
+declare type map<V> = {
+        [key: string]: V;
+} & Object;
+
+declare type maybe<T> = {
+        current: T | null;
+};
