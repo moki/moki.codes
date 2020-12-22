@@ -23,11 +23,12 @@ export function About() {
                 `transform: translateY(${32 - animatePosY * 32}px);`;
 
         useEffect(() => {
-                if (animatePosY === 1) {
+                if (animatePosY === 0) {
                         if (window.location.hash) {
                                 const hashel = document.querySelector(
                                         window.location.hash
                                 );
+
                                 if (hashel) hashel.scrollIntoView();
                         } else {
                                 window.scrollTo(0, 0);
@@ -60,6 +61,6 @@ Promise.all(
                 import("src/pages/about/styles.css"),
                 import("src/pages/about/section-intro.css"),
                 import("src/pages/about/section-info.css"),
-                import("src/pages/about/info-block.css")
+                import("src/pages/about/info-block.css"),
         ].map(resolveDefault)
 ).then(insertStyles);

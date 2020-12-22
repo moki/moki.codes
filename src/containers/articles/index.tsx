@@ -62,7 +62,7 @@ export function ArticlesContainer({
 
                         if (status === 200)
                                 setArticles((s) => ({
-                                        loading: status !== 200,
+                                        loading: false,
                                         articles: posts,
                                 }));
                 });

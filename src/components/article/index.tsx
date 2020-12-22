@@ -55,15 +55,13 @@ export function Article({
                                         {loading ? "" : subtitle}
                                 </div>
                         </CardHeader>
-                        {loading
-                                ? ""
-                                : image && (
-                                          <CardMedia
-                                                  url={image}
-                                                  width="100%;"
-                                                  styles="min-height: 300px;"
-                                          />
-                                  )}
+                        {image && (
+                                <CardMedia
+                                        url={image}
+                                        width="100%;"
+                                        styles="min-height: 300px;"
+                                />
+                        )}
                         {loading ? (
                                 ""
                         ) : (

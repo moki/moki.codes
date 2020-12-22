@@ -54,9 +54,14 @@ export function Article({
 export function Articles({ classes, articles, loading }: ArticlesProps) {
         return (
                 <ul class="articles-preview">
-                        {articles.map((article) => (
-                                <Article {...article} loading={loading} />
-                        ))}
+                        {!loading
+                                ? articles.map((article) => (
+                                          <Article
+                                                  {...article}
+                                                  loading={loading}
+                                          />
+                                  ))
+                                : ""}
                 </ul>
         );
 }
